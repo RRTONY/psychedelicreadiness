@@ -353,7 +353,9 @@ export function PsychedelicReadinessIndex() {
     <>
     <div ref={topRef} className="bg-pri-cream font-body text-pri-ink leading-[1.7] print:hidden">
       {/* ── HERO ── */}
-      <section className="relative mx-auto flex min-h-screen max-w-225 flex-col justify-center overflow-hidden px-5 pt-22 pb-16">
+      {/* Full-width background, text kept to the 900px column (owner, 2026-10-23). The site header is
+          sticky and takes its own 4rem, so the hero fills the rest of the screen. */}
+      <section className="relative flex min-h-[calc(100svh-4rem)] flex-col justify-center overflow-hidden px-5 pt-16 pb-16">
         <div className="absolute inset-0 z-0 overflow-hidden opacity-30">
           <Image
             src="https://cdn.sanity.io/images/a3q1cyqs/production/1126cd46fd317e79cb543645ef44a536ae95f417-1920x1072.webp"
@@ -366,7 +368,7 @@ export function PsychedelicReadinessIndex() {
           />
           <div className="absolute inset-0 bg-linear-to-br from-pri-cream/85 via-pri-cream/50 to-pri-cream/20" />
         </div>
-        <div className="relative z-10">
+        <div className="relative z-10 mx-auto w-full max-w-225">
           <div className="mb-4 flex items-center gap-2 text-xs font-bold tracking-[0.25em] text-pri-purple uppercase">
             <span className="block h-0.5 w-6 bg-pri-purple" />
             Psychedelic Readiness Index
