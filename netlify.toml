@@ -1,12 +1,14 @@
 [build]
   command = "pnpm install && pnpm build"
+  # Set here so the Netlify settings page can't override it: the first deploy (2026-10-23) failed
+  # because the UI had the publish folder set to the repo root, which the Next.js plugin refuses.
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "22"
   # Next's build cache (never published) can hold copies of server-only env
-  # values, which made Netlify's secret scanner fail the build on
-  # GATED_POST_PASSWORD (2026-10-07). The code and the published output are
-  # still scanned.
+  # values, which made Netlify's secret scanner fail tonygreenberg.com's build
+  # (2026-10-07). The code and the published output are still scanned.
   SECRETS_SCAN_OMIT_PATHS = ".netlify/.next/cache/**,.next/cache/**"
 
 [[plugins]]

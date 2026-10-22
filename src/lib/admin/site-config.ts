@@ -6,16 +6,12 @@ export const SITE_DOMAIN = "psychedelicreadiness.com";
 export const SITE_ORIGIN = `https://${SITE_DOMAIN}`;
 export const SERVER_NAME = "psychedelicreadiness";
 
-const DEFAULT_REPO = "RRTONY/psychedelicreadiness";
 const DEFAULT_NETLIFY_SITE = "psychedelicreadiness";
 
-// GITHUB_REPO as "owner/repo". Anything malformed falls back to the default
-// rather than guessing.
+// The one repository this server edits (github.com/RRTONY/psychedelicreadiness).
+// Fixed in code, not an env var (owner, 2026-10-23).
 export function githubRepo(): { owner: string; repo: string } {
-  const raw = (process.env.GITHUB_REPO || DEFAULT_REPO).trim();
-  const m = /^([A-Za-z0-9-]+)\/([A-Za-z0-9._-]+)$/.exec(raw);
-  const [owner, repo] = m ? [m[1], m[2]] : DEFAULT_REPO.split("/");
-  return { owner, repo };
+  return { owner: "RRTONY", repo: "psychedelicreadiness" };
 }
 
 // The Netlify project's name: deploy previews live at

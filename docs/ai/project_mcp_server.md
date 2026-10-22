@@ -17,7 +17,7 @@ same flow: rules first, one request = one change, a review card, publish only on
   record at once: GitHub refuses the second (409) and it retries up to 3 times.
   **Keep Netlify "Branch deploys" off (or main only)** so `mcp-state` is never built.
 - **Site identity in one place:** `src/lib/admin/site-config.ts` (domain, server name
-  `psychedelicreadiness`, `GITHUB_REPO`, `NETLIFY_SITE_NAME`, preview URLs, the checked origin).
+  `psychedelicreadiness`, the repo `RRTONY/psychedelicreadiness` (fixed, not an env var), `NETLIFY_SITE_NAME`, preview URLs, the checked origin).
 - **Project status file:** `get_project_rules` returns the "Current status" block of
   `PROJECT-STATUS.md` as `projectStatus` (null if the file doesn't exist), plus
   `docs/ai/TASK_GUIDE.md` and `docs/ai/PROJECT_STRUCTURE.md` when present.
@@ -94,8 +94,8 @@ chatgpt.com, chat.openai.com, localhost and `MCP_OAUTH_REDIRECT_HOSTS`. 8 failed
 
 ## Setup before first use
 
-1. Create the GitHub repo (`GITHUB_REPO`, default `RRTONY/psychedelicreadiness`) with `main`,
-   push the site, and connect it to a Netlify site named `NETLIFY_SITE_NAME`.
+1. The GitHub repo is https://github.com/RRTONY/psychedelicreadiness (created 2026-10-23, public),
+   with `main`; and connect it to a Netlify site named `NETLIFY_SITE_NAME`.
 2. Netlify: deploy previews on for pull requests, branch deploys off (see `mcp-state` above).
 3. Set the MCP env vars (`.env.local.example`) in Netlify, Production.
 4. `next.config.ts` needs `serverExternalPackages: ["eslint", "eslint-config-next"]`, or the

@@ -8,15 +8,10 @@ describe("site-config", () => {
     expect(SERVER_NAME).toBe("psychedelicreadiness");
   });
 
-  it("reads the repo from GITHUB_REPO, falling back to the default when unset or malformed", () => {
-    vi.stubEnv("GITHUB_REPO", "");
+  it("always edits RRTONY/psychedelicreadiness, whatever the environment says", () => {
     expect(githubRepo()).toEqual({ owner: "RRTONY", repo: "psychedelicreadiness" });
-    vi.stubEnv("GITHUB_REPO", " acme/pri-site ");
-    expect(githubRepo()).toEqual({ owner: "acme", repo: "pri-site" });
-    for (const bad of ["acme", "acme/pri/extra", "../x/y", "https://github.com/a/b"]) {
-      vi.stubEnv("GITHUB_REPO", bad);
-      expect(githubRepo(), bad).toEqual({ owner: "RRTONY", repo: "psychedelicreadiness" });
-    }
+    vi.stubEnv("GITHUB_REPO", "acme/pri-site");
+    expect(githubRepo()).toEqual({ owner: "RRTONY", repo: "psychedelicreadiness" });
   });
 
   it("builds preview links from NETLIFY_SITE_NAME, ignoring anything that isn't a site name", () => {

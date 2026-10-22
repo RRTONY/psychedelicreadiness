@@ -74,8 +74,8 @@ const MCP_APP_MIME_TYPE = "text/html;profile=mcp-app";
 
 // Ported from tonygreenberg.com's MCP server (itself from ramprate-ui):
 // change sets, review card, status and checks, confirm step, file uploads.
-// This server only ever edits psychedelicreadiness.com (the repo in
-// GITHUB_REPO, see site-config.ts). The site has no CMS, so every change is
+// This server only ever edits psychedelicreadiness.com (RRTONY/psychedelicreadiness,
+// see site-config.ts). The site has no CMS, so every change is
 // a code change on its own branch and pull request. check_deploy (Netlify
 // API, read-only) is included. Left out on purpose (owner, 2026-10-23),
 // portable from tonygreenberg.com later: the Google tools, send_email,

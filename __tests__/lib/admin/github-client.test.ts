@@ -143,12 +143,6 @@ describe("branches and PRs", () => {
     expect(body(2)).toEqual({ ref: "refs/heads/mcp-state", sha: "commit1" });
   });
 
-  it("uses the repo from GITHUB_REPO when set", async () => {
-    vi.stubEnv("GITHUB_REPO", "acme/pri-site");
-    const gh = await load();
-    expect(gh.GITHUB_REPO).toEqual({ owner: "acme", repo: "pri-site" });
-  });
-
   it("falls back to main when GitHub gives no default branch", async () => {
     routes[`GET ${API}`] = () => json({});
     const gh = await load();

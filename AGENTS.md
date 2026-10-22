@@ -65,8 +65,7 @@ Tony. Status lives in [`PROJECT-STATUS.md`](PROJECT-STATUS.md).
 
 - Call `get_project_rules` first. Every write tool needs its `rulesVersion` as `rules_version`; it
   changes whenever this file or `CONTRIBUTING.md` changes, so re-read when told the rules changed.
-- This server only ever edits **psychedelicreadiness.com** (`GITHUB_REPO`, default
-  `RRTONY/psychedelicreadiness`; previews on `deploy-preview-N--psychedelicreadiness.netlify.app`).
+- This server only ever edits **psychedelicreadiness.com** (`RRTONY/psychedelicreadiness`; previews on `deploy-preview-N--psychedelicreadiness.netlify.app`).
 - **One request = one change.** `start_change` first (with `understood_as`: what you will change,
   in plain words; `needs_confirmation: true` whenever the request could mean more than one thing),
   pass its `change_id` on every edit, then `submit_for_review` with a plain summary and
