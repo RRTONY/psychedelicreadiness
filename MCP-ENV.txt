@@ -1,23 +1,7 @@
-# Copy to .env.local and fill in real values. Never commit .env.local.
-# The site itself runs with none of these set; each section says what stops working without it.
-# Anything set here must also be set in Netlify's dashboard (Site configuration > Environment
-# variables, Production), or the live site won't see it.
-
-# --- Site ---
-# Public address, used for the canonical URLs, sitemap, robots.txt and share image.
-NEXT_PUBLIC_SITE_URL=https://psychedelicreadiness.com
-
-# --- Email (the site's forms: PRI correction suggestions, Facilitator Index submissions) ---
-# Resend API key. Without it the forms say they couldn't send and offer Tony's email address.
-RESEND_API_KEY=
-# Optional sender. Default "Only Time Buys Trust <trust@tonygreenberg.com>" (the domain verified in
-# Resend). Set it once psychedelicreadiness.com is verified, e.g.
-# "Psychedelic Readiness Index <hello@psychedelicreadiness.com>".
-EMAIL_FROM=
-
 # --- MCP server (/api/mcp): lets Claude Code / Claude Desktop / Claude.ai / ChatGPT edit this
 # site's code as a pull request on an admin/mcp-* branch. See docs/ai/project_mcp_server.md.
-# Fine-grained GitHub token scoped to this repo only: Contents + Pull requests = Read and write,
+# Set these in Netlify's dashboard too (Production), not just locally.
+# Fine-grained PAT scoped to this repo only: Contents + Pull requests = Read and write,
 # Actions + Commit statuses = Read.
 GITHUB_TOKEN=
 # The repo as owner/repo. Defaults to RRTONY/psychedelicreadiness.
@@ -39,10 +23,15 @@ MCP_OAUTH_REDIRECT_HOSTS=
 # Netlify site URL. Falls back to NEXT_PUBLIC_SITE_URL.
 MCP_SITE_ORIGIN=
 
-# --- Netlify (MCP check_deploy, read-only; preview links) ---
+# --- Netlify (check_deploy, read-only; preview links) ---
 # Netlify project name: previews are deploy-preview-N--<name>.netlify.app. Default psychedelicreadiness.
 NETLIFY_SITE_NAME=
-# Netlify site ID (Netlify sets SITE_ID itself on the deployed site, so this is mainly for local).
+# Netlify site ID (Netlify also sets SITE_ID itself on the deployed site, so this is mainly for local).
 NETLIFY_SITE_ID=
-# Personal access token; check_deploy only ever reads this site's deploys.
+# Personal access token; check_deploy only ever GETs this site's deploys.
 NETLIFY_AUTH_TOKEN=
+
+# Left out on purpose (owner, 2026-10-23), so no env vars for them here: the Google tools
+# (Analytics, Search Console, Lighthouse), send_email / create_report, and ClickUp. They can be
+# ported from tonygreenberg.com's MCP server later. (RESEND_API_KEY / EMAIL_FROM are still used by
+# the site's own forms through src/lib/email.ts, just not by the MCP server.)

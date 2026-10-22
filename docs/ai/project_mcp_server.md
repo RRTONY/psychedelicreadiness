@@ -21,10 +21,13 @@ same flow: rules first, one request = one change, a review card, publish only on
 - **Project status file:** `get_project_rules` returns the "Current status" block of
   `PROJECT-STATUS.md` as `projectStatus` (null if the file doesn't exist), plus
   `docs/ai/TASK_GUIDE.md` and `docs/ai/PROJECT_STRUCTURE.md` when present.
-- **ClickUp** has no built-in list: `CLICKUP_LIST_ID` or a `listId` per call.
-- **Email** (`send_email`, `create_report`) only sends from the domain in `EMAIL_FROM`
-  (default tonygreenberg.com, already verified in Resend). To send as psychedelicreadiness.com,
-  verify that domain in Resend first, then set `EMAIL_FROM`.
+- **Left out on purpose (owner, 2026-10-23):** the Google tools (`check_analytics`,
+  `search_console_*`, `lighthouse_check_page`), `send_email` / `create_report`, and the ClickUp
+  tools, with their files (`google-auth.ts`, `ga4-client.ts`, `gsc-client.ts`,
+  `lighthouse-check.ts`, `report-pdf.tsx`, `clickup-client.ts`) and env vars. They can be ported
+  from tonygreenberg.com's server later (add each tool to `tools.ts`, classify it in
+  `mcp-auth.ts`, gate it in `project-rules.ts`, bring its test). `src/lib/email.ts` stays for the
+  site's own forms; the MCP server doesn't use it.
 - `check_code_quality` flags a `"use client"` file importing `@/lib/email` or `@/lib/admin/*`
   (both hold API keys) instead of tonygreenberg.com's Sanity write-client check.
 
@@ -55,16 +58,13 @@ listed (marked Published / Discarded), and leftover `admin/mcp-*` branches are d
 
 Read (every role): `get_project_rules`, `list_pending_changes`, `list_change_history`,
 `check_deploy`, `github_list_dir`, `github_read_file`, `github_search_code`, `seo_check_page`,
-`check_code_quality`, `check_pr_status`, `get_check_log_excerpt`, `lighthouse_check_page`,
-`check_analytics`, `search_console_sites`, `search_console_performance`,
-`search_console_inspect_url`, `search_console_sitemaps`.
+`check_code_quality`, `check_pr_status`, `get_check_log_excerpt`.
 
 Edit role adds: `start_change`, `confirm_change`, `request_upload_link`, `submit_for_review`,
 `discard_change`, `undo_change`, `github_edit_file`, `github_write_file`,
-`github_write_binary_file`, `github_delete_file`, `create_clickup_task`,
-`update_clickup_task`.
+`github_write_binary_file`, `github_delete_file`.
 
-Write role adds: `publish_changes`, `send_email`, `create_report`, `delete_clickup_task`.
+Write role adds: `publish_changes`.
 
 ## Can't be done through MCP (guardrails denylist)
 
@@ -97,7 +97,7 @@ chatgpt.com, chat.openai.com, localhost and `MCP_OAUTH_REDIRECT_HOSTS`. 8 failed
 1. Create the GitHub repo (`GITHUB_REPO`, default `RRTONY/psychedelicreadiness`) with `main`,
    push the site, and connect it to a Netlify site named `NETLIFY_SITE_NAME`.
 2. Netlify: deploy previews on for pull requests, branch deploys off (see `mcp-state` above).
-3. Set the env vars (see `.env.local.example`) in Netlify, Production.
+3. Set the MCP env vars (`.env.local.example`) in Netlify, Production.
 4. `next.config.ts` needs `serverExternalPackages: ["eslint", "eslint-config-next"]`, or the
    server's lint (`code-check.ts`, which imports `eslint.config.mjs`) fails on Netlify with
    "Cannot find module" (seen on ramprate-ui).
@@ -110,13 +110,14 @@ chatgpt.com, chat.openai.com, localhost and `MCP_OAUTH_REDIRECT_HOSTS`. 8 failed
   (`ext-apps@1.7.5?deps=@modelcontextprotocol/sdk@1.30.0,zod@3.25.76`); unpinned, it crashed in
   ChatGPT. The card URI is versioned (`-v1`) because ChatGPT caches it; bump it when the HTML
   changes.
-- Netlify's synchronous function limit (~10 s free, 26 s Pro): `lighthouse_check_page` likely
-  times out there; `check_pr_status` keeps its wait under ~20 s. The deploy-preview check shows
+- Netlify's synchronous function limit (~10 s free, 26 s Pro): `check_pr_status` keeps its wait
+  under ~20 s. The deploy-preview check shows
   "pending" for about 90 s after a push.
 - One `MCP_ADMIN_USERS` entry per person; never share a token.
 
 ## Not yet verified
 
 Nothing here has run against a real GitHub repo or Netlify site yet (neither exists). Type check
-and lint pass. First real test: start a change, edit a file, submit, review, discard; then the
+and lint pass, and so do the tests (`pnpm exec vitest run __tests__/lib/admin __tests__/app/api
+__tests__/app/oauth`: 25 files, 409 tests, with GitHub and Netlify faked). First real test: start a change, edit a file, submit, review, discard; then the
 same with publish on a harmless edit, and an undo.
