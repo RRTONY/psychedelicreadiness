@@ -1,0 +1,469 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-display);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-gold-light: var(--brand-gold-light);
+  --color-essay-ink: var(--essay-ink);
+  --color-essay-brown: var(--essay-brown);
+  --color-essay-sepia: var(--essay-sepia);
+  --color-essay-parchment: var(--essay-parchment);
+  --color-essay-red: var(--essay-red);
+  --font-essay: var(--font-libre-baskerville), Georgia, serif;
+  --font-essay-heading: var(--font-cormorant-face), var(--font-display), Georgia, serif;
+  --font-fell: var(--font-im-fell), Georgia, serif;
+  --font-fraunces: var(--font-fraunces-face), var(--font-display), serif;
+  --font-grotesk: var(--font-space-grotesk), var(--font-body), sans-serif;
+  --font-cormorant: var(--font-cormorant-face), var(--font-display), Georgia, serif;
+  --color-crusade-red: var(--crusade-red);
+  --color-crusade-crimson: var(--crusade-crimson);
+  --color-crusade-ink: var(--crusade-ink);
+  --color-crusade-brown: var(--crusade-brown);
+  --color-crusade-muted: var(--crusade-muted);
+  --color-crusade-teal: var(--crusade-teal);
+  --color-crusade-ember: var(--crusade-ember);
+  --color-crusade-sand: var(--crusade-sand);
+  --color-crusade-warm-white: var(--crusade-warm-white);
+  --color-kava-sand: var(--kava-sand);
+  --color-kava-ink: var(--kava-ink);
+  --color-kava-saffron: var(--kava-saffron);
+  --color-kava-cobalt: var(--kava-cobalt);
+  --color-kava-terracotta: var(--kava-terracotta);
+  --color-kava-sand-muted: var(--kava-sand-muted);
+  --color-kava-saffron-light: var(--kava-saffron-light);
+  --color-kava-cobalt-light: var(--kava-cobalt-light);
+  --color-pri-cream: var(--pri-cream);
+  --color-pri-parchment: var(--pri-parchment);
+  --color-pri-ink: var(--pri-ink);
+  --color-pri-purple: var(--pri-purple);
+  --color-pri-purple-mid: var(--pri-purple-mid);
+  --color-pri-purple-light: var(--pri-purple-light);
+  --color-pri-brown: var(--pri-brown);
+  --color-pri-tan: var(--pri-tan);
+  --color-pri-border: var(--pri-border);
+  --color-facilitator-ink: var(--facilitator-ink);
+  --color-facilitator-amber: var(--facilitator-amber);
+  --color-facilitator-amber-deep: var(--facilitator-amber-deep);
+  --color-facilitator-amber-light: var(--facilitator-amber-light);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Ported from legacy client/src/index.css / Blog.tsx's inline hero
+     <style> tag — pure CSS keyframe effects (no framer-motion, no canvas),
+     so they carry over directly rather than being dropped. Used by
+     home-hero.tsx. */
+  --animate-bowl-pulse: bowl-pulse 4s ease-in-out infinite;
+  --animate-bowl-pulse-inner: bowl-pulse-inner 3s ease-in-out infinite;
+  --animate-rays-spin: rays-spin 30s linear infinite;
+  --animate-gold-shimmer: gold-shimmer 6s linear infinite;
+  --animate-cta-glow: cta-glow 3s ease-in-out infinite;
+  --animate-jewel-prismatic-shift: jewel-prismatic-shift 8s linear infinite;
+  --animate-jewel-glyph-pulse: jewel-glyph-pulse 3s ease-in-out infinite;
+  --animate-jewel-text-prismatic: jewel-text-prismatic 6s ease infinite;
+  --animate-jewel-content-fade: jewel-content-fade 0.8s ease-out;
+  --animate-jewel-cta-pulse: jewel-cta-pulse 4s ease-in-out infinite;
+  --animate-jewel-aurora-rotate: jewel-aurora-rotate 20s linear infinite;
+  --animate-jewel-geo-rotate: jewel-geo-rotate 40s linear infinite;
+}
+
+@keyframes bowl-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes bowl-pulse-inner {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes rays-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes cta-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 105, 20, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba(212, 185, 106, 0.15);
+  }
+}
+
+/* Ported from legacy client/src/pages/ThesisThreads.tsx's floating-particle
+   background, used by thesis-threads-explorer.tsx. Pure CSS @keyframes (no
+   canvas, no requestAnimationFrame loop) — cheap enough to keep, unlike the
+   canvas particle fields dropped elsewhere in this migration. */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Ported from legacy client/src/components/JewelPopup.tsx's inline <style>
+   tag, used by newsletter-popup.tsx. Only the canvas-based dust-mote
+   `ParticleField` (a 60-particle requestAnimationFrame loop) is dropped —
+   same "not worth the runtime cost" reasoning as the homepage hero's
+   particle canvas. The rotating aurora-nebula backdrop and sacred-geometry
+   SVG are pure CSS/SVG with no JS loop — a real, visible part of this
+   popup's identity (confirmed against a screenshot of the live popup) that
+   an earlier pass wrongly bundled in with the canvas drop — restored here. */
+@keyframes jewel-prismatic-shift {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes jewel-glyph-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes jewel-text-prismatic {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 300% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+@keyframes jewel-content-fade {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jewel-cta-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 5px 25px rgba(196, 132, 29, 0.2),
+      0 2px 10px rgba(184, 90, 90, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 5px 30px rgba(196, 132, 29, 0.3),
+      0 2px 15px rgba(184, 90, 90, 0.15),
+      0 0 40px rgba(196, 132, 29, 0.08);
+  }
+}
+
+@keyframes jewel-aurora-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes jewel-geo-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+:root {
+  /* Brand constants — same value in both themes (legacy Layout.tsx used
+     these as theme-independent hover/active colors, not derived tokens).
+     Gold is #836311, a hair darker than legacy's #8b6914: legacy's value was
+     4.3–4.4:1 on the cream backgrounds, just under WCAG AA's 4.5:1 for the
+     small mono labels it's used for everywhere (2026-09-29 axe audit). On
+     the near-black sections use brand-gold-light instead. */
+  --brand-gold: #836311;
+  --brand-gold-light: #d4b96a;
+
+  /* Blog essay palette, from live/legacy BlogPost.tsx: ink body text, the
+     brown of the contents sidebar and drop cap, sepia secondary text, the
+     parchment sidebar card and the red of in-text links and format badges.
+     Fonts for these pages are loaded only on /blog/[slug]
+     (src/lib/fonts/essay-fonts.ts). */
+  --essay-ink: #2c1810;
+  --essay-brown: #8b5a2b;
+  --essay-sepia: #7a5c3a;
+  --essay-parchment: #f2e8d5;
+  --essay-red: #8e1e25;
+
+  /* /attention-theft's own "crusade" accent palette — a deliberate one-off
+     sub-brand identity (same reasoning as BrewSoul's coffee-brown/gold
+     palette), theme-independent since that page doesn't toggle dark mode. */
+  --crusade-red: #c8161a;
+  --crusade-crimson: #a01015;
+  --crusade-ink: #1a1a1a;
+  --crusade-brown: #2c2418;
+  --crusade-muted: #6b6358;
+  --crusade-teal: #0d7373; /* legacy #0e7c7c was 4.3:1 on its own tinted badges (2026-09-30) */
+  --crusade-ember: #d4850a;
+  --crusade-sand: #ede9e0;
+  --crusade-warm-white: #f5f3ee;
+
+  /* /kava's own "Moroccan Riad 12" accent palette — a deliberate
+     one-off sub-brand identity for the whole Kava encyclopedia
+     subsystem (10 pages), same reasoning as --crusade-*.
+     Saffron is #8e521f, darker than legacy's #b86a28: legacy's value was
+     3.5:1 on sand and 4.1:1 under white button text, both under WCAG AA's
+     4.5:1 (2026-09-30 axe audit). */
+  --kava-sand: #f5edd8;
+  --kava-ink: #1a1008;
+  --kava-saffron: #8e521f;
+  --kava-cobalt: #2a5aa0;
+  --kava-terracotta: #a83d20; /* was #c84b2a: 3.5:1 on the sand tints, AA needs 4.5 (2026-10-02) */
+  --kava-sand-muted: #e8dcc4;
+  --kava-saffron-light: #d4923e;
+  --kava-cobalt-light: #4a7ac0;
+
+  /* PRI (Psychedelic Readiness Index) sub-brand palette — this subsystem's
+     own theme-independent identity, same pattern as --crusade-* and
+     --kava-*. Ported from legacy's inline `#6B21A8`/`#F4F0E8`/etc. */
+  --pri-cream: #f4f0e8;
+  --pri-parchment: #faf7f2;
+  --pri-ink: #1c1410;
+  --pri-purple: #6b21a8;
+  --pri-purple-mid: #9333ea;
+  --pri-purple-light: #b87bf9; /* legacy #a855f7 was 3.1-4.2:1 on the brown PRI panels (2026-09-30); this is the on-dark purple, use pri-purple on cream */
+  --pri-brown: #4a3f35;
+  --pri-tan: #7a6a5a;
+  --pri-border: #e0d8cc;
+
+  /* Facilitator Index sub-brand palette — warm cream/amber/rose identity,
+     distinct from the rest of PRI's purple palette (this one page always
+     used its own warm gradient, not pri-purple). Ported from legacy's
+     inline `#1A1208`/`#B45309`/etc. */
+  --facilitator-ink: #1a1208;
+  --facilitator-amber: #92400e;
+  --facilitator-amber-deep: #b45309;
+  --facilitator-amber-light: #f59e0b;
+
+  --background: #fafaf7;
+  --foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --primary: #836311;
+  --primary-foreground: #fafaf7;
+  --secondary: #f0ece0;
+  --secondary-foreground: #111111;
+  --muted: #f0ece0;
+  --muted-foreground: #555555;
+  --accent: #d4b96a;
+  --accent-foreground: #111111;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(74, 29, 107, 0.15);
+  --input: rgba(74, 29, 107, 0.15);
+  --ring: #836311;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --essay-ink: #f5f0e0;
+  --essay-brown: #d4b96a;
+  --essay-sepia: #c9b48a;
+  --essay-parchment: #1a1712;
+  --essay-red: #e0848a;
+  --background: #0a0a10;
+  --foreground: #f5f0e0;
+  --card: #14141c;
+  --card-foreground: #f5f0e0;
+  --popover: #14141c;
+  --popover-foreground: #f5f0e0;
+  --primary: #d4b96a;
+  --primary-foreground: #0a0a10;
+  --secondary: #111118;
+  --secondary-foreground: #f5f0e0;
+  --muted: #111118;
+  --muted-foreground: #bbbbbb;
+  --accent: #836311;
+  --accent-foreground: #f5f0e0;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: rgba(74, 29, 107, 0.15);
+  --input: rgba(74, 29, 107, 0.2);
+  --ring: #d4b96a;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+/* Drop cap on the first real paragraph of an article body — applied by
+   position, not per-post data, so it works for every post automatically:
+   the first <p> without data-no-drop-cap (bylines, "← Back" links and other
+   short or symbol-led lines, flagged in portable-text.tsx). Scoped to
+   .article-body so it never leaks elsewhere. */
+.article-body > p:not([data-no-drop-cap]):not(p:not([data-no-drop-cap]) ~ p)::first-letter {
+  /* Live's essay drop cap (legacy BlogPost.tsx): IM Fell English, brown. */
+  font-family: var(--font-im-fell), var(--font-display), Georgia, serif;
+  font-size: 4em;
+  font-weight: 400;
+  float: left;
+  line-height: 0.78;
+  padding-right: 0.08em;
+  margin-top: 0.06em;
+  color: var(--essay-brown);
+}
+/* The drop-cap paragraph opens flush, without the essay's first-line indent. */
+.article-body > p:not([data-no-drop-cap]):not(p:not([data-no-drop-cap]) ~ p) {
+  text-indent: 0;
+}
+/* iPhone Safari zooms the whole page when a form field under 16px is tapped
+   (2026-09-30 WebKit/iPhone pass found 8 pages). On phone widths, lift the
+   fields that carry a small text utility to 16px; tablet and up keep their
+   designed size. Inside @layer utilities (see docs/ai/feedback_css_layer_bug.md);
+   the :is(input:not(...)) argument gives it more specificity than a single
+   .text-sm, so it wins within the layer. Fields sized 16px+ never match. */
+@layer utilities {
+  @media (max-width: 767.98px) {
+    :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, textarea):is(
+        .text-xs,
+        .text-sm,
+        [class*="text-[0."],
+        [class*="text-[11px]"],
+        [class*="text-[12px]"],
+        [class*="text-[13px]"],
+        [class*="text-[14px]"],
+        [class*="text-[15px]"]
+      ) {
+      font-size: 16px;
+    }
+  }
+}

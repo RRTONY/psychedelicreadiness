@@ -1,0 +1,66 @@
+{
+  "simulation": {
+    "n_respondents": 10000,
+    "n_retest": 2000,
+    "n_faking": 2000,
+    "seed": 42,
+    "roles": [
+      "Medical",
+      "Pharmacological",
+      "Psychological",
+      "Intention",
+      "Setting",
+      "Integration"
+    ]
+  },
+  "classification_accuracy": {
+    "likert": 31.7,
+    "forced_rank": 58.6,
+    "improvement": 26.9
+  },
+  "differentiation": {
+    "likert_avg_spread": 38.5,
+    "forced_rank_avg_spread": 21.0
+  },
+  "entropy": {
+    "likert": 2.424,
+    "forced_rank": 2.585,
+    "max_possible": 2.585,
+    "likert_normalized": 0.938,
+    "forced_rank_normalized": 1.0
+  },
+  "test_retest_reliability": {
+    "likert": 0.147,
+    "forced_rank": 0.609
+  },
+  "faking_resistance": {
+    "likert_avg_shift": 26.9,
+    "forced_rank_avg_shift": 16.7,
+    "likert_misclassification_rate": 75.8,
+    "forced_rank_misclassification_rate": 76.1
+  },
+  "role_distribution": {
+    "likert": {
+      "Medical": 3630,
+      "Pharmacological": 1222,
+      "Psychological": 1283,
+      "Intention": 1277,
+      "Setting": 1291,
+      "Integration": 1297
+    },
+    "forced_rank": {
+      "Medical": 1720,
+      "Pharmacological": 1618,
+      "Psychological": 1686,
+      "Intention": 1614,
+      "Setting": 1706,
+      "Integration": 1656
+    }
+  },
+  "first_role_inflation": {
+    "role": "Medical",
+    "likert_pct": 36.3,
+    "forced_rank_pct": 17.2,
+    "inflation_pct": 19.6
+  }
+}

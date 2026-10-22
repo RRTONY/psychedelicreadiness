@@ -1,0 +1,57 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [main]
+
+# A new push to the same PR cancels the older run still going, so a stale
+# run never keeps a PR waiting (2026-10-17).
+concurrency:
+  group: pr-checks-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-changed-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22 # pnpm 11 needs Node 22.13+ (same major as netlify.toml)
+
+      - uses: pnpm/action-setup@v4
+
+      - run: pnpm install --frozen-lockfile
+
+      # Only check files this PR actually touches — a repo-wide gate would
+      # fail on any pre-existing lint debt regardless of what the PR itself
+      # changed, which isn't this check's job to fix.
+      - name: Lint changed files
+        run: |
+          git fetch origin "${{ github.base_ref }}"
+          # --diff-filter=d excludes files this PR deleted — otherwise a PR
+          # that removes a .ts/.tsx file passes a now-nonexistent path to
+          # eslint, which hard-errors ("No files matching the pattern").
+          CHANGED=$(git diff --name-only --diff-filter=d "origin/${{ github.base_ref }}...HEAD" -- '*.ts' '*.tsx' | tr '\n' ' ')
+          if [ -z "$CHANGED" ]; then
+            echo "No .ts/.tsx files changed in this PR."
+            exit 0
+          fi
+          echo "Linting: $CHANGED"
+          pnpm exec eslint --no-error-on-unmatched-pattern $CHANGED
+
+      # Full-repo, not changed-files-only: a type error anywhere can be
+      # caused by a change in a file the PR didn't touch directly (a shared
+      # type, a renamed export), and tsc has no reliable "just these files"
+      # mode that respects the whole project's type graph.
+      # Next.js 16 creates the global route types (PageProps, LayoutProps,
+      # RouteContext) only during dev/build/typegen. A fresh CI checkout has
+      # none, so tsc fails on every page without this step.
+      - name: Generate route types
+        run: pnpm exec next typegen
+
+      - name: Typecheck
+        run: pnpm typecheck
