@@ -3,7 +3,30 @@
 > The main project file. Read the "Current status" block at the start of every session and update
 > it (plus the items you finished) at the end.
 
-## Current status — 2026-10-23
+## Current status — 2026-11-11
+
+**Done this session (2026-11-11):** PRI scoring safety fixes from the 7 Nov 2026 scoring review
+(PRI-Scoring-Review.pdf; the "patch" it mentions was never received, so this was built here):
+- Every readiness question needs an explicit answer: sliders start unanswered and Next stays
+  disabled until moved, clicked or set with the arrow keys (tabbing onto it doesn't count).
+- Accepting the disclaimer to browse a medicine now opens that medicine only; it used to show a
+  personal result built from untouched sliders.
+- Any of the 14 `hard_stop` statements answered below "Often true" (`HARD_STOP_CLEAR_MIN` = 7 in
+  `src/lib/content/pri-shared.ts`) pauses the overall score, dimensions, matches, sequence, Save
+  My Results and the referral form. The visitor sees the existing "Any Red"/"Multiple Red"
+  guidance and the statements to bring to a clinician. The audit profile (cardiac answer 1,
+  everything else 10) used to get 99/100 overall and 87/100 ibogaine.
+- Verified: typecheck, lint, `test:changed` (79 passed, 98% statements), `pnpm build`, and the real
+  page on `pnpm start` at 375 / 820 / 1280px.
+
+**Waiting on a decision (scoring review):**
+- [ ] Tony to confirm the hard-stop threshold (7, "Often true") and the new wording "Your score is
+  paused", "Bring these answers to a licensed clinician:", "Move the slider to answer".
+- [ ] Not built (needs Tony's yes on new copy): the "Talk to your psychedelic council" reminder on
+  every screen/card/report, the rewritten disclaimer bullet, and the full-disclaimer page the
+  review's QR code points to.
+
+## Status — 2026-10-23
 
 **Overall:** built from tonygreenberg.com's PRI pages. Code is on GitHub
 (https://github.com/RRTONY/psychedelicreadiness, public). Netlify site: `jolly-salamander-f658bb`

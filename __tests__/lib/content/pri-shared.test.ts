@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { computeScores, getMedicineWithSafety, READINESS_LEVELS, TAG_CLASS, DEFAULT_TAG_CLASS } from "@/lib/content/pri-shared";
+import { computeScores, getHardStops, isComplete, HARD_STOP_CLEAR_MIN, getMedicineWithSafety, READINESS_LEVELS, TAG_CLASS, DEFAULT_TAG_CLASS } from "@/lib/content/pri-shared";
 import { MEDICINES, QUESTIONS, DIMS } from "@/lib/content/pri-data";
 import { SAFETY_DATA } from "@/lib/content/pri-safety-data";
 
@@ -94,5 +94,51 @@ describe("TAG_CLASS", () => {
   it("has full literal classes, with a default for other tags", () => {
     for (const cls of Object.values(TAG_CLASS)) expect(cls).toMatch(/^border-\S+ text-\S+$/);
     expect(DEFAULT_TAG_CLASS).toBe("border-pri-border text-pri-tan");
+  });
+});
+
+// 2026-11-11 audit: a profile with one negative cardiac answer and every other answer at 10 got
+// 99/100 overall and an 87/100 ibogaine match. Hard-stop answers now pause the scores.
+describe("hard stops and complete answers", () => {
+  const hardStopIdx = QUESTIONS.flatMap((q, i) => (q.severity === "hard_stop" ? [i] : []));
+  const cardiac = QUESTIONS.findIndex((q) => q.text.startsWith("I have no history of heart attack"));
+
+  it("has the 14 hard-stop statements the review describes", () => {
+    expect(hardStopIdx).toHaveLength(14);
+    expect(QUESTIONS[cardiac].severity).toBe("hard_stop");
+  });
+
+  it("flags the audit profile's negative cardiac answer", () => {
+    const answers = QUESTIONS.map((_, i) => (i === cardiac ? 1 : 10));
+    const r = computeScores(answers);
+    expect(r.hardStops.map((q) => q.text)).toEqual([QUESTIONS[cardiac].text]);
+  });
+
+  it("clears a hard stop only at the threshold or above", () => {
+    expect(HARD_STOP_CLEAR_MIN).toBe(7);
+    const at = (v: number) => getHardStops(QUESTIONS.map((_, i) => (i === cardiac ? v : 10)));
+    expect(at(HARD_STOP_CLEAR_MIN)).toEqual([]);
+    expect(at(HARD_STOP_CLEAR_MIN - 1)).toHaveLength(1);
+    expect(computeScores(all(10)).hardStops).toEqual([]);
+    expect(computeScores(all(5)).hardStops).toHaveLength(14);
+  });
+
+  it("treats a missing or non-numeric hard-stop answer as not cleared", () => {
+    const answers: (number | null)[] = all(10);
+    answers[cardiac] = null;
+    expect(getHardStops(answers)).toHaveLength(1);
+    expect(getHardStops([])).toHaveLength(14);
+    const nan = all(10);
+    nan[cardiac] = Number.NaN;
+    expect(getHardStops(nan)).toHaveLength(1);
+  });
+
+  it("isComplete needs an explicit number for every question", () => {
+    expect(isComplete(all(5))).toBe(true);
+    expect(isComplete(new Array(QUESTIONS.length).fill(null))).toBe(false);
+    const one: (number | null)[] = all(5);
+    one[QUESTIONS.length - 1] = null;
+    expect(isComplete(one)).toBe(false);
+    expect(isComplete(all(5).slice(1))).toBe(false);
   });
 });

@@ -17,12 +17,13 @@ import {
   MEDICATION_INTERACTIONS,
   CRISIS_RESOURCES,
   PATHWAY_QUESTIONS,
+  SCORE_PROFILES,
   type Medicine,
   type MedicineWithSafety,
   type DimKey,
 } from "@/lib/content/pri-data";
 import { MEDICINE_IMAGES } from "@/lib/content/pri-medicine-images";
-import { getMedicineWithSafety, computeScores, TAG_CLASS, DEFAULT_TAG_CLASS } from "@/lib/content/pri-shared";
+import { getMedicineWithSafety, computeScores, isComplete, TAG_CLASS, DEFAULT_TAG_CLASS } from "@/lib/content/pri-shared";
 import { DisclaimerGate } from "@/components/pri/disclaimer-gate";
 // Opens only when a medicine is tapped; loading it then keeps it (and its correction form) out of
 // the page's first load (Lighthouse, 2026-10-08).
@@ -32,6 +33,11 @@ import { CinematicBand } from "@/components/pri/cinematic-band";
 import { PriReport } from "@/components/pri/pri-report";
 
 const CONTACT_EMAIL = "tony@tonygreenberg.com";
+
+// Keys that operate a range input. Tab (focus moving onto the slider) is not an answer.
+const SLIDER_KEYS = new Set(["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End", "PageUp", "PageDown"]);
+const ANY_RED = SCORE_PROFILES.find((p) => p.label === "Any Red")!;
+const MULTIPLE_RED = SCORE_PROFILES.find((p) => p.label === "Multiple Red")!;
 
 function DimIcon({ dim, className }: { dim: DimKey; className: string }) {
   const Icon = DIM_ICONS[dim];
@@ -166,7 +172,12 @@ const PHILOSOPHY_PARAGRAPHS = [
 export function PsychedelicReadinessIndex() {
   const [state, setState] = useState<AppState>("philosophy");
   const [currentQ, setCurrentQ] = useState(0);
-  const [answers, setAnswers] = useState<number[]>(() => new Array(QUESTIONS.length).fill(5));
+  // null = not answered yet. Every question needs an explicit answer before a personal score
+  // (2026-11-11 audit: untouched sliders used to count as a 5).
+  const [answers, setAnswers] = useState<(number | null)[]>(() => new Array(QUESTIONS.length).fill(null));
+  // Set when the last pathway question sends a not-yet-consented visitor to the disclaimer, so
+  // consenting there (and only there) opens the results. Consenting to browse a medicine doesn't.
+  const [resultsAfterConsent, setResultsAfterConsent] = useState(false);
   const [pathwayAnswers, setPathwayAnswers] = useState<Record<string, number>>(() => Object.fromEntries(PATHWAY_QUESTIONS.map((q) => [q.id, 5])));
   const [currentPathwayQ, setCurrentPathwayQ] = useState(0);
   const [selectedMedicine, setSelectedMedicine] = useState<MedicineWithSafety | null>(null);
@@ -192,7 +203,7 @@ export function PsychedelicReadinessIndex() {
   const topRef = useRef<HTMLDivElement>(null);
 
   const results = useMemo(() => {
-    if (state !== "results") return null;
+    if (state !== "results" || !isComplete(answers)) return null;
     return computeScores(answers);
   }, [state, answers]);
 
@@ -220,7 +231,10 @@ export function PsychedelicReadinessIndex() {
     [currentQ]
   );
 
+  const currentAnswered = answers[currentQ] !== null;
+
   const nextQuestion = useCallback(() => {
+    if (answers[currentQ] === null) return;
     if (currentQ < QUESTIONS.length - 1) {
       setCurrentQ((q) => q + 1);
     } else {
@@ -228,18 +242,23 @@ export function PsychedelicReadinessIndex() {
       setCurrentPathwayQ(0);
       setTimeout(() => assessmentRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
     }
-  }, [currentQ]);
+  }, [currentQ, answers]);
 
   const nextPathwayQuestion = useCallback(() => {
     if (currentPathwayQ < PATHWAY_QUESTIONS.length - 1) {
       setCurrentPathwayQ((q) => q + 1);
+    } else if (!isComplete(answers)) {
+      // Can't normally happen (Next needs an answer), but never score a partial set.
+      setState("quiz");
+      setCurrentQ(Math.max(0, answers.indexOf(null)));
     } else if (!hasConsent) {
+      setResultsAfterConsent(true);
       setShowDisclaimer(true);
     } else {
       setState("results");
       setTimeout(() => assessmentRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
     }
-  }, [currentPathwayQ, hasConsent]);
+  }, [currentPathwayQ, hasConsent, answers]);
 
   const prevPathwayQuestion = useCallback(() => {
     if (currentPathwayQ > 0) {
@@ -253,9 +272,13 @@ export function PsychedelicReadinessIndex() {
   const handleConsentComplete = useCallback(() => {
     writeConsent();
     setShowDisclaimer(false);
+    // Consent given to browse a medicine opens that medicine (see the hasConsent check below),
+    // never a personal result built from unanswered questions.
+    if (!resultsAfterConsent || !isComplete(answers)) return;
+    setResultsAfterConsent(false);
     setState("results");
     setTimeout(() => assessmentRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
-  }, []);
+  }, [resultsAfterConsent, answers]);
 
   const prevQuestion = useCallback(() => {
     if (currentQ > 0) setCurrentQ((q) => q - 1);
@@ -268,7 +291,7 @@ export function PsychedelicReadinessIndex() {
 
   const resetQuiz = useCallback(() => {
     setCurrentQ(0);
-    setAnswers(new Array(QUESTIONS.length).fill(5));
+    setAnswers(new Array(QUESTIONS.length).fill(null));
     setCurrentPathwayQ(0);
     setPathwayAnswers(Object.fromEntries(PATHWAY_QUESTIONS.map((q) => [q.id, 5])));
     setState("intro");
@@ -277,6 +300,7 @@ export function PsychedelicReadinessIndex() {
 
   const sliderLabel = useMemo(() => {
     const v = answers[currentQ];
+    if (v === null) return null;
     const idx = Math.round(((v - 1) / 9) * 4);
     return SLIDER_LABELS[idx];
   }, [answers, currentQ]);
@@ -990,12 +1014,24 @@ export function PsychedelicReadinessIndex() {
                   type="range"
                   min={1}
                   max={10}
-                  value={answers[currentQ]}
+                  aria-label={domain.text}
+                  value={answers[currentQ] ?? 5}
                   onChange={(e) => handleSliderChange(parseInt(e.target.value))}
-                  className="h-7 w-full accent-pri-purple"
+                  // A click or key press that leaves the thumb where it is still counts as an answer.
+                  onPointerUp={(e) => handleSliderChange(parseInt(e.currentTarget.value))}
+                  onKeyUp={(e) => {
+                    if (SLIDER_KEYS.has(e.key)) handleSliderChange(parseInt(e.currentTarget.value));
+                  }}
+                  className={`h-7 w-full accent-pri-purple ${currentAnswered ? "" : "opacity-50"}`}
                 />
-                <div className="mt-3 text-center text-[clamp(.82rem,2.5vw,.9rem)] font-semibold text-pri-cream/50">
-                  <span className="text-pri-purple-light">{answers[currentQ]}/10</span> ... {sliderLabel}
+                <div className="mt-3 text-center text-[clamp(.82rem,2.5vw,.9rem)] font-semibold text-pri-cream/50" aria-live="polite">
+                  {currentAnswered ? (
+                    <>
+                      <span className="text-pri-purple-light">{answers[currentQ]}/10</span> ... {sliderLabel}
+                    </>
+                  ) : (
+                    "Move the slider to answer"
+                  )}
                 </div>
               </div>
 
@@ -1010,7 +1046,11 @@ export function PsychedelicReadinessIndex() {
                     Back
                   </span>
                 </button>
-                <button onClick={nextQuestion} className="max-w-60 flex-1 justify-center bg-pri-purple px-6 py-3 text-sm font-bold text-pri-cream">
+                <button
+                  onClick={nextQuestion}
+                  disabled={!currentAnswered}
+                  className={`max-w-60 flex-1 justify-center bg-pri-purple px-6 py-3 text-sm font-bold text-pri-cream ${currentAnswered ? "" : "cursor-not-allowed opacity-50"}`}
+                >
                   <span className="inline-flex items-center gap-1.5">
                     {currentQ === QUESTIONS.length - 1 ? "A Few More Questions" : "Next"}
                     <ArrowRight aria-hidden="true" className="size-[1em] shrink-0" />
@@ -1077,7 +1117,35 @@ export function PsychedelicReadinessIndex() {
           )}
 
           {/* RESULTS */}
-          {state === "results" && results && (
+          {state === "results" && results && results.hardStops.length > 0 && (
+            <div className="px-5">
+              {/* Paused: a hard-stop answer means no overall score, no matches and no sequence. */}
+              <div className="mt-8 mb-8 border border-[#E07A80]/40 bg-[#E07A80]/10 p-[clamp(1.25rem,3vw,1.75rem)]">
+                <div className="mb-2 flex items-center gap-1.5 text-xs font-extrabold tracking-[0.14em] text-[#E07A80] uppercase">
+                  <Ban aria-hidden="true" className="size-4 shrink-0" />
+                  {results.hardStops.length > 1 ? MULTIPLE_RED.label : ANY_RED.label}
+                </div>
+                <h3 className="mb-3 font-heading text-[clamp(1.2rem,3vw,1.6rem)] leading-[1.3] text-pri-cream">Your score is paused</h3>
+                <p className="mb-2 text-[clamp(.85rem,2.5vw,.95rem)] leading-[1.6] text-pri-cream/80">{ANY_RED.meaning}</p>
+                {results.hardStops.length > 1 && <p className="mb-2 text-[clamp(.85rem,2.5vw,.95rem)] leading-[1.6] text-pri-cream/80">{MULTIPLE_RED.meaning}</p>}
+                <p className="mt-4 mb-2 text-[.82rem] font-bold text-pri-cream">Bring these answers to a licensed clinician:</p>
+                <ul className="list-disc space-y-1.5 pl-5 text-[.85rem] leading-[1.5] text-pri-cream/75">
+                  {results.hardStops.map((q) => (
+                    <li key={q.text}>
+                      <span className="text-pri-cream/60">{q.category}:</span> {q.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex flex-wrap justify-center gap-3 pb-8">
+                <button onClick={resetQuiz} className="border-[1.5px] border-pri-cream/20 px-6 py-3 text-sm font-bold text-pri-cream uppercase">
+                  Retake Assessment
+                </button>
+              </div>
+            </div>
+          )}
+
+          {state === "results" && results && results.hardStops.length === 0 && (
             <div className="px-5">
               <div className="mb-8 border-b border-pri-cream/8 pt-8 pb-10 text-center">
                 <div className="text-xs font-extrabold tracking-[0.14em] text-pri-purple-light uppercase">Where You Stand</div>
@@ -1316,7 +1384,7 @@ export function PsychedelicReadinessIndex() {
 
       {selectedMedicine && <MedicineModal medicine={selectedMedicine} onClose={() => setSelectedMedicine(null)} isSaved={savedMeds.includes(selectedMedicine.id)} onToggleSaved={toggleSaved} />}
     </div>
-    {results && reportDate && (
+    {results && results.hardStops.length === 0 && reportDate && (
       <PriReport results={results} date={reportDate} savedMeds={MEDICINES.filter((m) => savedMeds.includes(m.id))} />
     )}
     </>

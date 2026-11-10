@@ -1,4 +1,4 @@
-import { MEDICINES, QUESTIONS, type DimKey, type Medicine, type MedicineWithSafety } from "./pri-data";
+import { MEDICINES, QUESTIONS, type DimKey, type Medicine, type MedicineWithSafety, type Question } from "./pri-data";
 import { SAFETY_DATA } from "./pri-safety-data";
 import { Bean, HeartHandshake, Leaf, Microscope, Pill, Sparkles, Wind, type LucideIcon } from "lucide-react";
 
@@ -43,12 +43,36 @@ export const READINESS_LEVELS: ReadinessLevel[] = [
   { threshold: 0, label: "Start Here", description: "This is where it begins. And beginning here is the right call. Cacao ceremony, breathwork, meditation, intentional cannabis. Build from the ground up. The deeper work will wait for you. It always does." },
 ];
 
-export function computeScores(answers: number[]): {
+/**
+ * A hard-stop statement ("I have no history of heart attack...") counts as cleared only at
+ * "Often true" or higher (7+ on the 1-10 slider, see SLIDER_LABELS). Anything lower, or no
+ * answer at all, pauses the personal scores. Added 2026-11-11 after an audit profile with a
+ * negative cardiac answer still got 99/100 overall and an 87/100 ibogaine match.
+ */
+export const HARD_STOP_CLEAR_MIN = 7;
+
+/** The hard-stop statements this answer set does not clearly clear, in question order. */
+export function getHardStops(answers: readonly (number | null | undefined)[]): Question[] {
+  return QUESTIONS.filter((q, i) => {
+    if (q.severity !== "hard_stop") return false;
+    const a = answers[i];
+    return typeof a !== "number" || !Number.isFinite(a) || a < HARD_STOP_CLEAR_MIN;
+  });
+}
+
+/** True only when every readiness question has an explicit answer. */
+export function isComplete(answers: readonly (number | null | undefined)[]): answers is number[] {
+  return QUESTIONS.every((_, i) => typeof answers[i] === "number" && Number.isFinite(answers[i]));
+}
+
+export function computeScores(answers: readonly (number | null | undefined)[]): {
   dimScores: DimScores;
   overall: number;
   level: ReadinessLevel;
   topMatches: ScoredMedicine[];
   sequence: { icon: LucideIcon; name: string; time: string; why: string; cost: string }[];
+  /** Hard-stop statements not cleared. When non-empty the UI must not show the scores. */
+  hardStops: Question[];
 } {
   const dims: Record<DimKey, number[]> = { medical: [], pharmacological: [], psychological: [], intention: [], setting: [], integration: [] };
   // Skip missing answers (a short array) so they can't turn a dimension into NaN;
@@ -109,7 +133,7 @@ export function computeScores(answers: number[]): {
             { icon: Pill, name: "Ketamine-Assisted Therapy", time: "If acute need — any time", why: "The only currently legal psychedelic-adjacent therapy in the US. Rapid relief with professional oversight. If there is an acute need, this is where to start.", cost: "$400–$800/session" },
           ];
 
-  return { dimScores, overall, level, topMatches: scored.slice(0, 6), sequence };
+  return { dimScores, overall, level, topMatches: scored.slice(0, 6), sequence, hardStops: getHardStops(answers) };
 }
 
 // Precomposed literal classes for the 5 known tags — small enumerable set,
