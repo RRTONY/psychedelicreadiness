@@ -15,6 +15,8 @@ describe("MedicineModal", () => {
     render(<MedicineModal medicine={m} onClose={vi.fn()} />);
     expect(screen.getByText(m.name)).toBeInTheDocument();
     expect(screen.getByText(`${Math.round(m.intensity * 100)}%`)).toBeInTheDocument();
+    expect(screen.getByText("Talk to your psychedelic council.")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Read the full disclaimer" })).toHaveAttribute("href", "/disclaimer");
     expect(screen.getByText(m.overview)).toBeInTheDocument();
     for (const p of m.pricing) expect(screen.getAllByText(p.amount).length).toBeGreaterThan(0);
     expect(

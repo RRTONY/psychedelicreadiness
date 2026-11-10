@@ -75,6 +75,14 @@ describe("DisclaimerGate", () => {
     await waitFor(() => expect(onConsent).toHaveBeenCalled());
   });
 
+  it("shows what the score can tell you and the rewritten evidence bullet", () => {
+    render(<DisclaimerGate onConsent={vi.fn()} />);
+    expect(screen.getByText("What the score can tell you")).toBeInTheDocument();
+    expect(screen.getByText(/^The database brings together clinical literature/)).toBeInTheDocument();
+    expect(screen.queryByText(/cross-referenced against clinical trials/)).not.toBeInTheDocument();
+    expect(screen.getByText("not medical advice", { selector: "strong" })).toBeInTheDocument();
+  });
+
   it("the initials field has a label linked to it", () => {
     render(<DisclaimerGate onConsent={vi.fn()} />);
     expect(screen.getByLabelText(/type your initials/i)).toBeInTheDocument();

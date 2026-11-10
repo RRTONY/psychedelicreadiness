@@ -30,6 +30,8 @@ const nextConfig: NextConfig = {
       // The Index is this site's homepage; its tonygreenberg.com address still works here.
       { source: "/psychedelic-readiness-index", destination: "/", permanent: true },
       { source: "/pri", destination: "/", permanent: true },
+      // The 7 Nov 2026 scoring review's QR code uses tonygreenberg.com's path for the disclaimer.
+      { source: "/psychedelic-readiness-index/disclaimer", destination: "/disclaimer", permanent: true },
     ];
   },
   images: {

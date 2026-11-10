@@ -28,6 +28,8 @@ describe("share image", () => {
     expect(container).toHaveTextContent("PSYCHEDELICREADINESS.COM");
     expect(container).toHaveTextContent("Psychedelic Readiness Index");
     expect(container).toHaveTextContent("Know where you stand before you go in.");
+    expect(container).toHaveTextContent("Talk to your psychedelic council.");
+    expect(container).toHaveTextContent("No medical clearance.");
     expect(container.querySelector("svg")).not.toBeNull();
   });
 });

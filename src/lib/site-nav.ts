@@ -16,6 +16,7 @@ export const FOOTER_NAV: { title: string; links: NavLink[] }[] = [
       { href: "/", label: "Psychedelic Readiness Index" },
       { href: "/pri-calibration", label: "Deep Calibration" },
       { href: "/pri-efficacy", label: "Efficacy Report" },
+      { href: "/disclaimer", label: "Full Disclaimer" },
     ],
   },
   {

@@ -19,12 +19,24 @@
 - Verified: typecheck, lint, `test:changed` (79 passed, 98% statements), `pnpm build`, and the real
   page on `pnpm start` at 375 / 820 / 1280px.
 
+- Later the same day, the rest of the review (owner: Tony approved all of it, 2026-11-11):
+  - "Talk to your psychedelic council" reminder (`src/components/pri/council-reminder.tsx`) on
+    every assessment screen, the medicine profile, the printed report (address written out) and
+    the share image.
+  - New page `/disclaimer` (full disclaimer, in the footer and sitemap); the review's QR path
+    `/psychedelic-readiness-index/disclaimer` 308-redirects to it.
+  - Disclaimer text moved to `src/lib/content/pri-disclaimer.ts` (pop-up and page share it). Added
+    "What the score can tell you"; the second "What This Is" bullet is the rewritten evidence line.
+  - Verified: typecheck, lint, tests, `pnpm build` (`/disclaimer` static), the real page at
+    375 / 820 / 1280px, the redirect and the share image.
+  - Hard-stop threshold (7) and the paused-score wording: approved by Tony (owner, 2026-11-11).
+
 **Waiting on a decision (scoring review):**
-- [ ] Tony to confirm the hard-stop threshold (7, "Often true") and the new wording "Your score is
-  paused", "Bring these answers to a licensed clinician:", "Move the slider to answer".
-- [ ] Not built (needs Tony's yes on new copy): the "Talk to your psychedelic council" reminder on
-  every screen/card/report, the rewritten disclaimer bullet, and the full-disclaimer page the
-  review's QR code points to.
+- [ ] The review's links and QR point to **tonygreenberg.com**/psychedelic-readiness-index, where
+  the same PRI pages still run. Those pages probably have the same scoring gaps: fix them in
+  `RRTONY/tonygreenberg-website` too?
+- [ ] The printed report writes out the disclaimer address instead of a QR code (a QR needs a new
+  npm package).
 
 ## Status — 2026-10-23
 

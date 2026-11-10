@@ -9,6 +9,7 @@ import { MEDICINE_IMAGES } from "@/lib/content/pri-medicine-images";
 import { TAG_CLASS, DEFAULT_TAG_CLASS } from "@/lib/content/pri-shared";
 import { SafetySection } from "@/components/pri/safety-section";
 import { CorrectionForm } from "@/components/pri/correction-form";
+import { CouncilReminder } from "@/components/pri/council-reminder";
 
 const TABS = [
   { key: "info" as const, label: "Overview" },
@@ -88,6 +89,10 @@ export function MedicineModal({
               </span>
             ))}
           </div>
+        </div>
+
+        <div className="px-8 pb-4">
+          <CouncilReminder tone="light" />
         </div>
 
         <div className="flex border-b-2 border-pri-border px-8">

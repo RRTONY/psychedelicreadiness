@@ -31,6 +31,7 @@ const MedicineModal = dynamic(() => import("@/components/pri/medicine-modal").th
 import { PriShareBar } from "@/components/pri/share-bar";
 import { CinematicBand } from "@/components/pri/cinematic-band";
 import { PriReport } from "@/components/pri/pri-report";
+import { CouncilReminder } from "@/components/pri/council-reminder";
 
 const CONTACT_EMAIL = "tony@tonygreenberg.com";
 
@@ -976,6 +977,12 @@ export function PsychedelicReadinessIndex() {
                   <ArrowRight aria-hidden="true" className="size-[1em] shrink-0" />
                 </span>
               </button>
+            </div>
+          )}
+
+          {state !== "philosophy" && (
+            <div className="mb-8 px-5">
+              <CouncilReminder />
             </div>
           )}
 

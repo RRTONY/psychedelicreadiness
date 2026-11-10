@@ -13,6 +13,8 @@ describe("PriReport", () => {
     expect(container.firstElementChild).toHaveClass("hidden", "print:block");
     expect(screen.queryByRole("heading", { level: 1 })).not.toBeInTheDocument();
     expect(screen.getByText("Personal Report · May 1, 2026")).toBeInTheDocument();
+    expect(screen.getByText("Talk to your psychedelic council.")).toBeInTheDocument();
+    expect(screen.getByText("Read the full disclaimer: psychedelicreadiness.com/disclaimer")).toBeInTheDocument();
   });
 
   it("shows the overall score and level", () => {

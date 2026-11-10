@@ -461,6 +461,7 @@ describe("PsychedelicReadinessIndex", { timeout: 120000 }, () => {
       render(<PsychedelicReadinessIndex />);
       await startQuiz(user);
       expect(screen.getByText("Move the slider to answer")).toBeInTheDocument();
+    expect(screen.getByText("Talk to your psychedelic council.")).toBeInTheDocument();
       expect(button(/^next$/i)).toBeDisabled();
       fireEvent.click(button(/^next$/i));
       expect(screen.getByText(`1 / ${QUESTIONS.length}`)).toBeInTheDocument();
@@ -487,6 +488,7 @@ describe("PsychedelicReadinessIndex", { timeout: 120000 }, () => {
       await finishQuiz((i) => (i === cardiac ? 1 : 10));
 
       expect(screen.getByRole("heading", { name: /your score is paused/i })).toBeInTheDocument();
+      expect(screen.getByText("Talk to your psychedelic council.")).toBeInTheDocument();
       expect(screen.getByText("Any Red")).toBeInTheDocument();
       expect(screen.getByText(QUESTIONS[cardiac].text)).toBeInTheDocument();
       expect(screen.queryByText("Where You Stand")).not.toBeInTheDocument();

@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { AlertTriangle, Loader2 } from "lucide-react";
 import { submitPriConsent } from "@/app/forms/actions";
+import { ACKNOWLEDGE, CLOSING, NOT_A_DOCTOR, SCORE_CAN_TELL, TONY_NOTE, WHAT_THIS_IS } from "@/lib/content/pri-disclaimer";
 
+// The disclaimer text lives in `src/lib/content/pri-disclaimer.ts` (shared with `/disclaimer`).
 // Ported from legacy client/src/pages/pri/PsychedelicReadinessIndex.tsx's
 // `DisclaimerGate` — the real full legal/harm-reduction disclaimer text and
 // Tony's real personal note, unchanged and verbatim. Since 2026-10-10 the
@@ -42,54 +44,48 @@ export function DisclaimerGate({ onConsent }: { onConsent: () => void }) {
 
         <div className="text-[.88rem] leading-[1.8] text-pri-brown">
           <div className="mb-6 rounded-sm border border-brand-gold/20 border-l-4 border-l-brand-gold bg-brand-gold/6 px-5 py-4">
-            <div className="mb-2 font-mono text-[.65rem] tracking-[0.15em] text-brand-gold uppercase">A Note from Tony Greenberg</div>
-            <p className="m-0 font-serif text-[.95rem] leading-[1.8] text-[#3D2E1E] italic">
-              &ldquo;Here is what I want you to know before you go one click further. Most of these medicines I have never touched. Some of them I probably
-              never will. What I have done is spent the better part of three decades watching this field from the inside... the researchers, the healers,
-              the disasters, the quiet miracles that never made the news. This index is a synthesis of all of that. It exists because I have seen what
-              happens when someone walks into a ceremony with no map and no container and no one who actually knows what they are doing. This is the map.
-              Where you go from here is completely and entirely up to you.&rdquo;
-            </p>
-            <p className="mt-3 mb-0 font-mono text-[.7rem] tracking-[0.08em] text-brand-gold">— Tony Greenberg, Impact Futurist &amp; Investor in Consciousness Medicine</p>
+            <div className="mb-2 font-mono text-[.65rem] tracking-[0.15em] text-brand-gold uppercase">{TONY_NOTE.title}</div>
+            <p className="m-0 font-serif text-[.95rem] leading-[1.8] text-[#3D2E1E] italic">&ldquo;{TONY_NOTE.quote}&rdquo;</p>
+            <p className="mt-3 mb-0 font-mono text-[.7rem] tracking-[0.08em] text-brand-gold">— {TONY_NOTE.byline}</p>
           </div>
 
           <div className="mb-5 border-l-4 border-pri-purple bg-pri-purple/8 p-5">
-            <div className="mb-2 text-[.82rem] font-extrabold tracking-[0.08em] text-pri-purple uppercase">Not a Doctor. Not a Dealer. Not Reddit.</div>
+            <div className="mb-2 text-[.82rem] font-extrabold tracking-[0.08em] text-pri-purple uppercase">{NOT_A_DOCTOR.title}</div>
             <p className="m-0 leading-[1.7] text-pri-brown">
-              The Psychedelic Readiness Index is built from decades of research, clinical literature, harm reduction work, and conversations with people
-              who have actually been in the room. It is <strong>not medical advice</strong>, not a prescription, and not a substitute for a real
-              conversation with a real healthcare professional who knows your history.
+              {NOT_A_DOCTOR.before}
+              <strong>{NOT_A_DOCTOR.strong}</strong>
+              {NOT_A_DOCTOR.after}
             </p>
           </div>
 
+          <div className="mb-5 border-l-4 border-pri-purple-light bg-pri-purple/5 p-5">
+            <div className="mb-2 text-[.82rem] font-extrabold tracking-[0.08em] text-pri-purple uppercase">{SCORE_CAN_TELL.title}</div>
+            {SCORE_CAN_TELL.paragraphs.map((p) => (
+              <p key={p} className="mb-2 leading-[1.7] text-pri-brown last:mb-0">
+                {p}
+              </p>
+            ))}
+          </div>
+
           <div className="mb-5 border-l-4 border-[#E65100] bg-[#FFF3E0] p-5">
-            <div className="mb-2 text-[.82rem] font-extrabold tracking-[0.06em] text-[#E65100] uppercase">What This Is ... And What It Is Not</div>
+            <div className="mb-2 text-[.82rem] font-extrabold tracking-[0.06em] text-[#E65100] uppercase">{WHAT_THIS_IS.title}</div>
             <ul className="my-2 list-disc space-y-1 pl-5 leading-[2]">
-              <li>Not a doctor. Not a therapist. Not a shaman. We are none of those things and we are not pretending to be.</li>
-              <li>Not anonymous internet advice. Every data point in here has been cross-referenced against clinical trials, harm reduction databases, and people who have actually sat with these medicines professionally.</li>
-              <li>Not a recommendation. Nothing in here says you should do anything. It says here is what is known, here is what the research shows, here is what experienced practitioners report.</li>
-              <li>A synthesis. Built from clinical literature, DanceSafe, Zendo Project, MAPS, ethnobotanical research, and the kind of conversations that happen when people stop performing and start being honest.</li>
-              <li>A starting point. Not a finish line. Use this to have better conversations with qualified professionals, not to skip them.</li>
+              {WHAT_THIS_IS.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
 
           <div className="mb-5 bg-pri-cream p-5">
-            <div className="mb-2 text-[.82rem] font-extrabold tracking-[0.06em] text-pri-ink uppercase">You Acknowledge &amp; Accept</div>
+            <div className="mb-2 text-[.82rem] font-extrabold tracking-[0.06em] text-pri-ink uppercase">{ACKNOWLEDGE.title}</div>
             <ol className="my-2 list-decimal space-y-1 pl-5 leading-[2]">
-              <li>This is for education and harm reduction only. Full stop.</li>
-              <li>Nothing listed here is an endorsement. Not a medicine, not a provider, not a protocol. We are not sending you anywhere.</li>
-              <li>You will talk to a real healthcare professional before you do anything. That is not optional.</li>
-              <li>You own your decisions. Every single one of them. We do not.</li>
-              <li>The people who built this tool assume zero liability for what you do with it. Zero.</li>
-              <li>Safety data evolves. What is true today may be updated tomorrow. Always verify with current clinical sources.</li>
-              <li>A lot of what is covered here is illegal in a lot of places. You are responsible for knowing your laws. We are not your lawyer.</li>
+              {ACKNOWLEDGE.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ol>
           </div>
 
-          <p className="mb-6 text-pri-tan italic">
-            This tool exists because the alternative is people going in blind. And that is worse. But information without responsibility is just noise. You
-            have to show up for your own safety.
-          </p>
+          <p className="mb-6 text-pri-tan italic">{CLOSING}</p>
         </div>
 
         <div className="border-t-2 border-pri-border pt-6">

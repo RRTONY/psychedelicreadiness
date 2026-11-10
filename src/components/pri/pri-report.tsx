@@ -1,6 +1,7 @@
 import type { Medicine } from "@/lib/content/pri-data";
 import { DIM_LABELS, type DimKey } from "@/lib/content/pri-data";
 import type { computeScores } from "@/lib/content/pri-shared";
+import { CouncilReminder } from "@/components/pri/council-reminder";
 
 type Results = ReturnType<typeof computeScores>;
 
@@ -48,6 +49,8 @@ export function PriReport({ results, savedMeds, date }: { results: Results; save
         <p className="text-[1.8rem] font-black tracking-[-0.02em]">Psychedelic Readiness Index</p>
         <div className="mt-1.5 text-[.8rem] text-pri-tan">Personal Report &middot; {date}</div>
       </header>
+
+      <CouncilReminder tone="print" className="mb-8" />
 
       <section className="my-8 break-inside-avoid border border-[#E8E0D6] bg-pri-parchment p-8 text-center">
         <div className="text-[4.5rem] leading-none font-black text-pri-purple">{results.overall}</div>

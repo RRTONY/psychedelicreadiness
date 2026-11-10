@@ -10,6 +10,7 @@ request: [`TASK_GUIDE.md`](TASK_GUIDE.md).
 | `/` | `page.tsx` → `components/pri/psychedelic-readiness-index.tsx` | The Psychedelic Readiness Index: consent gate, 50+ questions, results, 39-medicine encyclopedia, printable report (`pri-report.tsx`) |
 | `/pri-calibration` | `pri-calibration/page.tsx` → `components/pri/calibration-assessment.tsx` | Forced-rank Deep Calibration (pairwise + ranking). Not saved anywhere |
 | `/pri-efficacy` | `pri-efficacy/page.tsx` | Monte Carlo validation report (`lib/content/pri-efficacy-data.json`) |
+| `/disclaimer` | `disclaimer/page.tsx` | Full PRI disclaimer (`lib/content/pri-disclaimer.ts`); `/psychedelic-readiness-index/disclaimer` redirects here |
 | `/medicine-sequencing` | `medicine-sequencing/page.tsx` → `components/pri/medicine-sequencing-ladder.tsx` | The Medicine Sequencing Ladder |
 | `/iboga-ibogaine` | `iboga-ibogaine/page.tsx` | Iboga vs ibogaine deep dive (+ Compass section) |
 | `/iboga-compass` | `iboga-compass/page.tsx` → `components/pri/iboga-compass-assessment.tsx` | Facility-matching assessment |
@@ -39,6 +40,7 @@ request: [`TASK_GUIDE.md`](TASK_GUIDE.md).
 | `pri-iboga-module.ts`, `pri-mescaline-module.ts` | Deep-dive page data |
 | `pri-iboga-compass-data.ts`, `pri-iboga-compass-engine.ts`, `pri-iboga-facility-data.ts` | Iboga Compass questions, matching engine, facility directory |
 | `pri-efficacy-data.json` | Simulation results |
+| `pri-disclaimer.ts` | The PRI disclaimer and the "Talk to your psychedelic council" reminder, shared by the consent pop-up, `/disclaimer`, `council-reminder.tsx` and the share image |
 | `facilitator-index-data.ts` | Facilitator Index bands and items |
 
 ## Server code
