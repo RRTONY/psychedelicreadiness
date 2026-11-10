@@ -2,9 +2,15 @@ import { describe, expect, it } from "vitest";
 import nextConfig from "../next.config";
 
 describe("next.config headers", () => {
-  it("keeps every page out of search results while the site is on hold (Sam, 2026-11-11)", async () => {
+  it("lets search engines index psychedelicreadiness.com (hold lifted with Sam's approval)", async () => {
     const rules = await nextConfig.headers!();
-    const hold = rules.find((r) => r.source === "/:path*" && !r.has && r.headers.some((h) => h.key === "X-Robots-Tag"));
-    expect(hold?.headers).toContainEqual({ key: "X-Robots-Tag", value: "noindex, nofollow" });
+    const domainWide = rules.filter((r) => !r.has && r.headers.some((h) => h.key === "X-Robots-Tag"));
+    expect(domainWide).toHaveLength(0);
+  });
+
+  it("still keeps the Netlify copies out of search results", async () => {
+    const rules = await nextConfig.headers!();
+    const netlify = rules.find((r) => r.has?.some((h) => h.type === "host"));
+    expect(netlify?.headers).toContainEqual({ key: "X-Robots-Tag", value: "noindex, nofollow" });
   });
 });

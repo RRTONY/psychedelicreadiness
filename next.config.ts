@@ -17,12 +17,6 @@ const nextConfig: NextConfig = {
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
         ],
       },
-      // Temporary hold (2026-11-11, Sam): keep psychedelicreadiness.com itself out of search results
-      // until Sam approves the site. Remove this rule to let search engines index the live domain.
-      {
-        source: "/:path*",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
-      },
       // Keep the Netlify copies (main *.netlify.app URL and deploy previews) out of search results.
       {
         source: "/:path*",
