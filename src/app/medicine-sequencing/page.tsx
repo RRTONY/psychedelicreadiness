@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import Link from "next/link";
 import { MEDICINES } from "@/lib/content/pri-data";
 import { MedicineSequencingLadder } from "@/components/pri/medicine-sequencing-ladder";
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
   description:
     "Every plant medicine and psychedelic on one ladder, from gentlest to most profound — six rungs, one principle: don't skip the ladder. A sequencing compass, not a recommendation engine.",
   alternates: { canonical: "/medicine-sequencing" },
+  openGraph: { ...SITE_OPEN_GRAPH, url: "/medicine-sequencing" },
 };
 
 const SEQUENCING_PHILOSOPHY = [

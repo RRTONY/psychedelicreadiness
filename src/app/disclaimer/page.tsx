@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import {
@@ -19,8 +20,9 @@ import {
 export const metadata: Metadata = {
   title: "Full Disclaimer — Psychedelic Readiness Index",
   description:
-    "What the Psychedelic Readiness Index can and cannot tell you, a note from Tony Greenberg, and the full legal disclaimer. No medical clearance: review personal risks with a licensed clinician.",
+    "What the Psychedelic Readiness Index can and cannot tell you, Tony's note and the full legal disclaimer. Review personal risks with a licensed clinician.",
   alternates: { canonical: DISCLAIMER_PATH },
+  openGraph: { ...SITE_OPEN_GRAPH, url: DISCLAIMER_PATH },
 };
 
 function SectionTitle({ children }: { children: React.ReactNode }) {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import simData from "@/lib/content/pri-efficacy-data.json";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
   title: "PRI Efficacy — Research and Evidence",
   description: "The Monte Carlo simulation research and psychometric evidence base behind the Psychedelic Readiness Index.",
   alternates: { canonical: "/pri-efficacy" },
+  openGraph: { ...SITE_OPEN_GRAPH, url: "/pri-efficacy" },
 };
 
 const DIM_LABELS: Record<string, string> = {

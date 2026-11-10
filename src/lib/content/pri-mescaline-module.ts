@@ -1,6 +1,6 @@
 /**
  * MESCALINE / PEYOTE — PRI DEEP-DIVE MODULE
- * Comprehensive pharmacology, outcomes, pharma alternatives, supplement stacks,
+ * Comprehensive pharmacology, outcomes, supplement stacks,
  * dimension scores, medicine selector, and sources.
  *
  * Source: Agin-Liebes et al. (2021) ACS Pharmacology, n=452 naturalistic users
@@ -61,35 +61,6 @@ export const MESCALINE_OUTCOMES: OutcomeRow[] = [
 export const OUTCOMES_SOURCE = "Agin-Liebes et al., ACS Pharmacology 2021 (n=452 naturalistic users)";
 export const OUTCOMES_SPIRITUAL = "35\u201350% rated it single most spiritually significant experience of their life";
 export const OUTCOMES_INTENT = "Only 2\u20135% took it intending to treat a condition";
-
-/* ── Pharma \u2192 Plant Alternatives ── */
-
-export interface PharmaAltRow {
-  drug: string;
-  category: string;
-  plantAlt: string;
-  supplementAlt: string;
-  evidence: string;
-}
-
-export const PHARMA_ALTERNATIVES: PharmaAltRow[] = [
-  { drug: "Sertraline (Zoloft)", category: "SSRI", plantAlt: "Psilocybin; Mescaline", supplementAlt: "St. John\u2019s Wort; Saffron; Omega-3 EPA", evidence: "Strong (Psilo)" },
-  { drug: "Escitalopram (Lexapro)", category: "SSRI", plantAlt: "Psilocybin (head-to-head trial)", supplementAlt: "Rhodiola; Ashwagandha KSM-66; SAMe", evidence: "Strong" },
-  { drug: "Venlafaxine (Effexor)", category: "SNRI", plantAlt: "MDMA therapy; Ketamine", supplementAlt: "5-HTP; Mag Threonate; NAC", evidence: "Moderate" },
-  { drug: "Bupropion (Wellbutrin)", category: "NDRI", plantAlt: "Ibogaine; Psilocybin (smoking)", supplementAlt: "Tyrosine; Mucuna pruriens", evidence: "Strong (Psilo+smoking)" },
-  { drug: "Lurasidone (Latuda)", category: "Antipsychotic", plantAlt: "Mescaline/Peyote; Psilocybin", supplementAlt: "Lion\u2019s Mane; Omega-3; Glycine 8g", evidence: "Emerging (Mesc)" },
-  { drug: "Quetiapine (Seroquel)", category: "Antipsychotic", plantAlt: "Holotropic Breathwork; Microdose", supplementAlt: "Magnesium Glycinate; L-Theanine", evidence: "Emerging" },
-  { drug: "Aripiprazole (Abilify)", category: "Antipsychotic", plantAlt: "Microdose Psilocybin; CBD", supplementAlt: "Bacopa; NAC; Sarcosine", evidence: "Emerging" },
-  { drug: "Alprazolam (Xanax)", category: "Benzo", plantAlt: "Rap\u00e9h; Breathwork; Cacao", supplementAlt: "Kava (200\u2013300mg); GABA+L-Theanine", evidence: "Moderate (Kava)" },
-  { drug: "Buspirone (Buspar)", category: "5-HT1A", plantAlt: "Mescaline; Psilocybin", supplementAlt: "Ashwagandha; CBD; Rhodiola", evidence: "Moderate" },
-  { drug: "Lithium (Lithobid)", category: "Mood stabilizer", plantAlt: "\u26A0\uFE0F Contraindicated with most psychedelics", supplementAlt: "Lithium Orotate 5\u201320mg; Omega-3; Inositol", evidence: "Moderate" },
-  { drug: "Valproate (Depakote)", category: "Mood stabilizer", plantAlt: "Psilocybin (cluster HA); LSD micro", supplementAlt: "Magnesium; Riboflavin 400mg", evidence: "Emerging" },
-  { drug: "Prazosin (PTSD)", category: "Alpha blocker", plantAlt: "MDMA therapy; Mescaline", supplementAlt: "Phosphatidylserine; Lion\u2019s Mane; CBD", evidence: "Strong (MDMA)" },
-  { drug: "Methylphenidate (Ritalin)", category: "Stimulant/ADHD", plantAlt: "Microdosing; Lion\u2019s Mane Stack", supplementAlt: "Bacopa; Omega-3; Zinc; PS", evidence: "Emerging" },
-  { drug: "Naltrexone (Vivitrol)", category: "Opioid antagonist", plantAlt: "Ibogaine; Peyote (alcohol); Psilocybin", supplementAlt: "NAC; Kudzu; Milk Thistle", evidence: "Strong (Ibogaine+Peyote)" },
-  { drug: "Varenicline (Chantix)", category: "Smoking cessation", plantAlt: "Psilocybin (80% quit, Hopkins)", supplementAlt: "Lobeline; Cytisine; NAC", evidence: "Strong" },
-  { drug: "Zolpidem (Ambien)", category: "Sleep", plantAlt: "CBD; Breathwork", supplementAlt: "Mag Glycinate; Glycine 3g; L-Theanine", evidence: "Moderate" },
-];
 
 /* ── Supplement Stack ── */
 

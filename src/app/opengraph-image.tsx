@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { COUNCIL_REMINDER } from "@/lib/content/pri-disclaimer";
+import { DISCLAIMER_QR_PATH, DISCLAIMER_QR_URL, DISCLAIMER_QR_VIEW_BOX } from "@/components/pri/disclaimer-qr";
 
 // The share image every page uses (no page sets its own).
 export const alt = "Psychedelic Readiness Index: an honest map of where you stand";
@@ -20,12 +21,20 @@ export default function OpengraphImage() {
           <div tw="ml-6 text-3xl tracking-widest text-[#d4b96a]">PSYCHEDELICREADINESS.COM</div>
         </div>
         <div tw="flex flex-col">
-          <div tw="text-7xl font-bold">Psychedelic Readiness Index</div>
-          <div tw="mt-4 text-3xl text-[#f4f0e8]/70">39 medicines. 6 domains. Know where you stand before you go in.</div>
+          <div tw="text-6xl font-bold">Psychedelic Readiness Index</div>
+          <div tw="mt-4 text-3xl text-[#f4f0e8]/70">39 substances. 6 domains. Know where you stand before you go in.</div>
         </div>
-        <div tw="flex flex-col border-t border-[#b87bf9]/40 pt-6">
-          <div tw="text-3xl font-bold text-[#b87bf9]">{COUNCIL_REMINDER.title}</div>
-          <div tw="mt-2 text-2xl text-[#f4f0e8]/70">{COUNCIL_REMINDER.body}</div>
+        <div tw="flex items-center border-t border-[#b87bf9]/40 pt-6">
+          <div tw="flex flex-1 flex-col pr-8">
+            <div tw="text-3xl font-bold text-[#b87bf9]">{COUNCIL_REMINDER.title}</div>
+            <div tw="mt-2 text-2xl text-[#f4f0e8]/70">{COUNCIL_REMINDER.body}</div>
+            <div tw="mt-2 text-xl text-[#d4b96a]">{`${COUNCIL_REMINDER.link}: ${DISCLAIMER_QR_URL.replace("https://", "")}`}</div>
+          </div>
+          <div tw="flex bg-white">
+            <svg width="150" height="150" viewBox={DISCLAIMER_QR_VIEW_BOX}>
+              <path fill="#000" d={DISCLAIMER_QR_PATH} />
+            </svg>
+          </div>
         </div>
       </div>
     ),

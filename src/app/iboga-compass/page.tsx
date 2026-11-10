@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import { IbogaCompassAssessment } from "@/components/pri/iboga-compass-assessment";
 
 // Ported from legacy client/src/pages/pri/IbogaCompassAssessment.tsx — see
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   title: "Iboga Compass Assessment — PRI",
   description: "A personalized assessment to determine your readiness and fit for iboga or ibogaine therapy, matched against a real facility directory.",
   alternates: { canonical: "/iboga-compass" },
+  openGraph: { ...SITE_OPEN_GRAPH, url: "/iboga-compass" },
 };
 
 export default function IbogaCompassPage() {

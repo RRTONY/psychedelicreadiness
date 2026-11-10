@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import { CalibrationAssessment } from "@/components/pri/calibration-assessment";
 
 // Ported from legacy client/src/pages/pri/PriCalibration.tsx — see that
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   title: "PRI Calibration — Psychedelic Readiness Index",
   description: "How the Psychedelic Readiness Index is calibrated and validated, with a real forced-rank psychometric self-assessment.",
   alternates: { canonical: "/pri-calibration" },
+  openGraph: { ...SITE_OPEN_GRAPH, url: "/pri-calibration" },
 };
 
 export default function PriCalibrationPage() {

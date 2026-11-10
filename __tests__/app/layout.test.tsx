@@ -20,7 +20,7 @@ function renderLayout(children: ReactNode) {
 describe("root layout", () => {
   it("sets the site's title, description, address and share defaults", () => {
     expect(metadata.title).toEqual({ default: "Psychedelic Readiness Index", template: "%s" });
-    expect(metadata.description).toMatch(/^39 plant medicines\./);
+    expect(metadata.description).toMatch(/^39 substances\./);
     expect(metadata.metadataBase?.toString()).toBe("https://psychedelicreadiness.com/");
     expect(metadata.openGraph).toMatchObject({ siteName: "Psychedelic Readiness Index", type: "website" });
     expect(metadata.twitter).toMatchObject({ card: "summary_large_image" });

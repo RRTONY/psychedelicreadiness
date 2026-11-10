@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import Image from "next/image";
 import Link from "next/link";
 import { FACILITATOR_HERO_IMAGE } from "@/lib/content/facilitator-index-data";
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
   description:
     "An anonymous, philosophy-first instrument for practitioners who hold non-ordinary states. 108 items across twelve bands. Companion to the Psychedelic Readiness Index.",
   alternates: { canonical: "/facilitator-index" },
+  openGraph: { ...SITE_OPEN_GRAPH, url: "/facilitator-index" },
 };
 
 export default function FacilitatorIndexPage() {

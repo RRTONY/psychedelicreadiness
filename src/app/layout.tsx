@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import { Playfair_Display, DM_Mono, Source_Sans_3 } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -23,7 +24,7 @@ const sourceSans3 = Source_Sans_3({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://psychedelicreadiness.com";
 const description =
-  "39 plant medicines. 50+ readiness questions. 6 domains. An honest map of where you stand before you walk into territory that rewards preparation.";
+  "39 substances. 50+ readiness questions. 6 domains. An honest map of where you stand before you walk into territory that rewards preparation.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
   description,
   applicationName: "Psychedelic Readiness Index",
   authors: [{ name: "Tony Greenberg", url: "https://tonygreenberg.com" }],
-  openGraph: { type: "website", siteName: "Psychedelic Readiness Index", locale: "en_US" },
+  openGraph: SITE_OPEN_GRAPH,
   twitter: { card: "summary_large_image" },
 };
 

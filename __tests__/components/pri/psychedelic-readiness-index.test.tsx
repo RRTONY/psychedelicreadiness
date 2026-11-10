@@ -6,6 +6,7 @@ import { PsychedelicReadinessIndex } from "@/components/pri/psychedelic-readines
 import { submitPriConsent } from "@/app/forms/actions";
 import { DIM_LABELS, MEDICINES, PATHWAY_QUESTIONS, QUESTIONS, SLIDER_LABELS, type DimKey } from "@/lib/content/pri-data";
 import { computeScores } from "@/lib/content/pri-shared";
+import { MEDICINE_IMAGES } from "@/lib/content/pri-medicine-images";
 
 vi.mock("@/app/forms/actions", () => ({ submitPriConsent: vi.fn(), submitPriCorrection: vi.fn() }));
 
@@ -64,7 +65,7 @@ describe("PsychedelicReadinessIndex", { timeout: 120000 }, () => {
     const user = userEvent.setup();
     render(<PsychedelicReadinessIndex />);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/Find My\s*Medicine/);
-    expect(screen.getByRole("heading", { name: `${MEDICINES.length} Sacred Medicines` })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: `${MEDICINES.length} Substances` })).toBeInTheDocument();
     await startQuiz(user);
     expect(screen.getByText(QUESTIONS[0].text)).toBeInTheDocument();
     expect(screen.getByRole("slider")).toHaveValue("5");
@@ -280,7 +281,7 @@ describe("PsychedelicReadinessIndex", { timeout: 120000 }, () => {
     localStorage.setItem("pri-saved-medicines", JSON.stringify([MEDICINES[0].id]));
     sessionStorage.setItem("pri-consent", "true");
     const html = renderToString(<PsychedelicReadinessIndex />);
-    expect(html.replace(/<!-- -->/g, "")).toContain(`${MEDICINES.length} Sacred Medicines`);
+    expect(html.replace(/<!-- -->/g, "")).toContain(`${MEDICINES.length} Substances`);
     // The server snapshot is empty, so no shortlist is rendered even though the browser has one.
     expect(html).not.toContain("My Saved Medicines");
   });
@@ -515,6 +516,10 @@ describe("PsychedelicReadinessIndex", { timeout: 120000 }, () => {
 
   it("every medicine card is a real button keyboard users can reach", () => {
     render(<PsychedelicReadinessIndex />);
+    // Each save (heart) button has its own label, and each medicine photo is described.
+    expect(screen.getAllByRole("button", { name: /^Save / })).toHaveLength(MEDICINES.length);
+    expect(screen.getByRole("button", { name: `Save ${MEDICINES[0].name}` })).toHaveAttribute("aria-pressed", "false");
+    for (const m of MEDICINES.filter((x) => MEDICINE_IMAGES[x.id])) expect(screen.getAllByRole("img", { name: m.name }).length).toBeGreaterThan(0);
     expect(screen.getByRole("button", { name: `Open ${MEDICINES[0].name}` })).toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: /^Open / })).toHaveLength(MEDICINES.length);
   });

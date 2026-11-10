@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import Image from "next/image";
 import Link from "next/link";
 import { AlertTriangle, ArrowLeft, ArrowRight, Check, TreeDeciduous, Pill, Star } from "lucide-react";
@@ -42,6 +43,7 @@ export const metadata: Metadata = {
   description:
     "The Plant vs The Isolate. Full alkaloid profiles, receptor pharmacology, Bwiti tradition vs clinical protocol, outcomes data, and supplement stacks.",
   alternates: { canonical: "/iboga-ibogaine" },
+  openGraph: { ...SITE_OPEN_GRAPH, url: "/iboga-ibogaine" },
 };
 
 const thClass = "border-b-2 border-[#D4CFC5] bg-[#E8E2D8] px-3 py-2.5 text-left text-xs font-extrabold tracking-[0.08em] whitespace-nowrap text-pri-ink uppercase";
