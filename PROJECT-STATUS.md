@@ -5,6 +5,10 @@
 
 ## Current status — 2026-11-11
 
+**Live 2026-11-11:** noindex on the live domain (00:55 IST); review fixes, PR #1 (merged 01:07 IST).
+**Follow-up (branch `fix/deep-link-hydration`):** `?m=` medicine links no longer fail hydration
+(React #418 on every `?m=` visit).
+
 **Review from Sam / Darryl (2026-11-11, night): site B on hold, everything below is on branches, not live.**
 - The site is public (my pushes to main on 2026-11-11 at 00:10, 00:21, 00:24 IST went live, at the
   user's request). Branch `hold/site-b-noindex` adds noindex to every page of the live domain

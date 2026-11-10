@@ -70,6 +70,18 @@ function subscribeConsent(listener: () => void) {
   consentListeners.add(listener);
   return () => consentListeners.delete(listener);
 }
+// The `?m=<medicine id>` deep link. The URL doesn't change while the page is open, so there is
+// nothing to subscribe to; the server has no URL, so its snapshot is "no link".
+function subscribeNothing() {
+  return () => {};
+}
+function readDeepLinkId(): string | null {
+  return new URLSearchParams(window.location.search).get("m");
+}
+function getDeepLinkServerSnapshot(): string | null {
+  return null;
+}
+
 function getConsentServerSnapshot() {
   return false;
 }
@@ -339,19 +351,20 @@ export function PsychedelicReadinessIndex() {
     }
   }
 
+  // The `?m=` link is read through useSyncExternalStore, so the hydration render sees no link
+  // (matching the server HTML) and the next render opens it. Reading `window.location` during the
+  // first render made every `?m=` visit fail hydration (React error #418, 2026-11-11).
+  const deepLinkId = useSyncExternalStore(subscribeNothing, readDeepLinkId, getDeepLinkServerSnapshot);
   const [consumedDeepLink, setConsumedDeepLink] = useState(false);
-  if (!consumedDeepLink && typeof window !== "undefined") {
+  if (deepLinkId && !consumedDeepLink) {
     setConsumedDeepLink(true);
-    const mId = new URLSearchParams(window.location.search).get("m");
-    if (mId) {
-      const m = MEDICINES.find((med) => med.id === mId);
-      if (m) {
-        if (hasConsent) {
-          setSelectedMedicine(getMedicineWithSafety(m));
-        } else {
-          sessionStorage.setItem("pri-pending-medicine", m.id);
-          setShowDisclaimer(true);
-        }
+    const m = MEDICINES.find((med) => med.id === deepLinkId);
+    if (m) {
+      if (hasConsent) {
+        setSelectedMedicine(getMedicineWithSafety(m));
+      } else {
+        sessionStorage.setItem("pri-pending-medicine", m.id);
+        setShowDisclaimer(true);
       }
     }
   }
