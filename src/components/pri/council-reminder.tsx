@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { COUNCIL_REMINDER, DISCLAIMER_PATH } from "@/lib/content/pri-disclaimer";
+import { DisclaimerQr } from "@/components/pri/disclaimer-qr";
 
 // The "Talk to your psychedelic council" reminder (owner-approved 2026-11-11). Shown on every
 // assessment screen, the medicine profile and the printed report. `tone` matches the section
 // it sits in: "dark" on the ink assessment band, "light" on parchment (the profile), "print"
-// in the report, where a link can't be clicked so the full address is written out.
+// in the report, where a link can't be clicked: the address is written out next to a QR code.
 const TONE = {
   dark: {
     box: "border-pri-purple-light/30 bg-pri-purple/12",
@@ -30,7 +31,8 @@ const TONE = {
 export function CouncilReminder({ tone = "dark", className = "" }: { tone?: keyof typeof TONE; className?: string }) {
   const t = TONE[tone];
   return (
-    <aside aria-label="Reminder" className={`break-inside-avoid border px-5 py-4 ${t.box} ${className}`}>
+    <aside aria-label="Reminder" className={`break-inside-avoid border px-5 py-4 ${t.box} ${tone === "print" ? "flex items-center gap-5" : ""} ${className}`}>
+      <div className="flex-1">
       <p className={`mb-1 text-[.95rem] font-bold ${t.title}`}>{COUNCIL_REMINDER.title}</p>
       <p className={`mb-2 text-[.82rem] leading-[1.55] ${t.body}`}>{COUNCIL_REMINDER.body}</p>
       {tone === "print" ? (
@@ -43,6 +45,8 @@ export function CouncilReminder({ tone = "dark", className = "" }: { tone?: keyo
           <ArrowRight aria-hidden="true" className="size-3.5" />
         </Link>
       )}
+      </div>
+      {tone === "print" && <DisclaimerQr className="size-24 shrink-0" />}
     </aside>
   );
 }

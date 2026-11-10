@@ -13,8 +13,9 @@ describe("CouncilReminder", () => {
     expect(screen.getByRole("link", { name: COUNCIL_REMINDER.link })).toHaveAttribute("href", "/disclaimer");
   });
 
-  it("defaults to the dark tone", () => {
+  it("defaults to the dark tone, with no QR code on screen", () => {
     render(<CouncilReminder />);
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
     expect(screen.getByRole("complementary")).toHaveClass("bg-pri-purple/12");
   });
 
@@ -22,5 +23,6 @@ describe("CouncilReminder", () => {
     render(<CouncilReminder tone="print" />);
     expect(screen.queryByRole("link")).not.toBeInTheDocument();
     expect(screen.getByText(`${COUNCIL_REMINDER.link}: psychedelicreadiness.com/disclaimer`)).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "QR code: https://psychedelicreadiness.com/disclaimer" })).toBeInTheDocument();
   });
 });

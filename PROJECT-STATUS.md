@@ -35,8 +35,9 @@
 - [ ] The review's links and QR point to **tonygreenberg.com**/psychedelic-readiness-index, where
   the same PRI pages still run. Those pages probably have the same scoring gaps: fix them in
   `RRTONY/tonygreenberg-website` too?
-- [ ] The printed report writes out the disclaimer address instead of a QR code (a QR needs a new
-  npm package).
+- [x] Printed report QR code to `/disclaimer` (2026-11-11): a fixed SVG in
+  `src/components/pri/disclaimer-qr.tsx`, generated once and decoded back from a real print
+  screenshot, so no new npm package.
 
 ## Status — 2026-10-23
 
