@@ -838,7 +838,7 @@ export function PsychedelicReadinessIndex() {
 
           <div className="grid gap-px border border-pri-border bg-pri-border">
             {MEDICATION_INTERACTIONS.map((med) => {
-              const isHardStop = med.risk.includes("LIFE-THREATENING") || med.risk.includes("ABSOLUTE") || med.risk.includes("Seizure");
+              const isHardStop = med.label === "hard_stop";
               return (
                 <div key={med.category} className="bg-pri-parchment px-6 py-5">
                   <div className="mb-2 flex flex-wrap items-start justify-between gap-2">

@@ -153,6 +153,13 @@ export const MAOB_WASHOUT = {
 
 /** Medication interaction categories */
 export interface MedInteraction {
+  /**
+   * The badge shown on the Medication Interaction Guide. It used to be guessed from words in
+   * `risk` ("LIFE-THREATENING", "ABSOLUTE", "Seizure"), which contradicted the text on three rows
+   * (SSRIs / SNRIs, MAOIs, MAO-B Inhibitors; review of 2026-11-11). It is set per row now, still
+   * matching what the site showed. Changing a value is a clinical decision for the reviewer.
+   */
+  label: "hard_stop" | "caution";
   category: string;
   medications: string;
   risk: string;
@@ -160,14 +167,14 @@ export interface MedInteraction {
 }
 
 export const MEDICATION_INTERACTIONS: MedInteraction[] = [
-  { category: "SSRIs / SNRIs", medications: "Fluoxetine, sertraline, paroxetine, citalopram, venlafaxine, duloxetine", risk: "Attenuates psilocybin/LSD effects. LIFE-THREATENING serotonin syndrome with ayahuasca.", guidance: "Taper under MD supervision 2–6 weeks before. Ayahuasca: absolute contraindication without full washout." },
-  { category: "MAOIs (non-selective)", medications: "Phenelzine (Nardil), tranylcypromine (Parnate), isocarboxazid (Marplan)", risk: "Dangerous potentiation of all serotonergic psychedelics. Hypertensive crisis.", guidance: "Hard stop for all psychedelics. 2–3 week washout minimum under psychiatrist supervision." },
-  { category: "MAO-B Inhibitors", medications: "Selegiline (Eldepryl/Zelapar), rasagiline (Azilect), safinamide (Xadago)", risk: "High potentiation of DMT/5-MeO-DMT/MDMA. Unpredictable with psilocybin/LSD.", guidance: "See MAO-B Interaction Matrix. Neurologist must supervise any changes." },
-  { category: "Lithium", medications: "Lithium carbonate, lithium citrate", risk: "Seizure risk — ABSOLUTE contraindication with all classic psychedelics.", guidance: "Hard stop. No exceptions. Do not combine under any circumstances." },
-  { category: "Stimulants", medications: "Amphetamine (Adderall), methylphenidate (Ritalin), lisdexamfetamine (Vyvanse)", risk: "Increased heart rate and blood pressure. Autonomic instability.", guidance: "Discontinue day of experience minimum. Discuss with prescriber." },
-  { category: "Antipsychotics", medications: "Quetiapine, olanzapine, risperidone, aripiprazole, haloperidol", risk: "Block psychedelic effects via 5-HT2A antagonism. May indicate contraindicated conditions.", guidance: "Renders experience therapeutically ineffective. Underlying diagnosis may be absolute contraindication." },
-  { category: "Tramadol", medications: "Tramadol, tapentadol", risk: "Seizure risk + serotonin syndrome risk with all psychedelics.", guidance: "Hard stop. Do not combine." },
-  { category: "Supplements to Flag", medications: "St. John's Wort, 5-HTP, Syrian rue (Peganum harmala), high-dose tryptophan", risk: "Serotonergic load increases serotonin syndrome risk.", guidance: "Discontinue 2 weeks before. Syrian rue contains natural MAO-A inhibitors (harmine, harmaline)." },
+  { label: "hard_stop", category: "SSRIs / SNRIs", medications: "Fluoxetine, sertraline, paroxetine, citalopram, venlafaxine, duloxetine", risk: "Attenuates psilocybin/LSD effects. LIFE-THREATENING serotonin syndrome with ayahuasca.", guidance: "Taper under MD supervision 2–6 weeks before. Ayahuasca: absolute contraindication without full washout." },
+  { label: "caution", category: "MAOIs (non-selective)", medications: "Phenelzine (Nardil), tranylcypromine (Parnate), isocarboxazid (Marplan)", risk: "Dangerous potentiation of all serotonergic psychedelics. Hypertensive crisis.", guidance: "Hard stop for all psychedelics. 2–3 week washout minimum under psychiatrist supervision." },
+  { label: "caution", category: "MAO-B Inhibitors", medications: "Selegiline (Eldepryl/Zelapar), rasagiline (Azilect), safinamide (Xadago)", risk: "High potentiation of DMT/5-MeO-DMT/MDMA. Unpredictable with psilocybin/LSD.", guidance: "See MAO-B Interaction Matrix. Neurologist must supervise any changes." },
+  { label: "hard_stop", category: "Lithium", medications: "Lithium carbonate, lithium citrate", risk: "Seizure risk — ABSOLUTE contraindication with all classic psychedelics.", guidance: "Hard stop. No exceptions. Do not combine under any circumstances." },
+  { label: "caution", category: "Stimulants", medications: "Amphetamine (Adderall), methylphenidate (Ritalin), lisdexamfetamine (Vyvanse)", risk: "Increased heart rate and blood pressure. Autonomic instability.", guidance: "Discontinue day of experience minimum. Discuss with prescriber." },
+  { label: "caution", category: "Antipsychotics", medications: "Quetiapine, olanzapine, risperidone, aripiprazole, haloperidol", risk: "Block psychedelic effects via 5-HT2A antagonism. May indicate contraindicated conditions.", guidance: "Renders experience therapeutically ineffective. Underlying diagnosis may be absolute contraindication." },
+  { label: "hard_stop", category: "Tramadol", medications: "Tramadol, tapentadol", risk: "Seizure risk + serotonin syndrome risk with all psychedelics.", guidance: "Hard stop. Do not combine." },
+  { label: "caution", category: "Supplements to Flag", medications: "St. John's Wort, 5-HTP, Syrian rue (Peganum harmala), high-dose tryptophan", risk: "Serotonergic load increases serotonin syndrome risk.", guidance: "Discontinue 2 weeks before. Syrian rue contains natural MAO-A inhibitors (harmine, harmaline)." },
 ];
 
 /** Score interpretation matrix */
