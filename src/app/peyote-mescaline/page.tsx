@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import Image from "next/image";
 import Link from "next/link";
 import { AlertTriangle, ArrowDown, ArrowLeft, ArrowRight, Check } from "lucide-react";
@@ -19,23 +20,23 @@ import {
 } from "@/lib/content/pri-mescaline-module";
 import { TAG_CLASS, DEFAULT_TAG_CLASS } from "@/lib/content/pri-shared";
 import { PriSection, PriEyebrow } from "@/components/pri/pri-section";
-import { PharmaTable } from "@/components/pri/pharma-table";
 
 // Ported from legacy client/src/pages/pri/MescalineDeepDive.tsx — the real
 // receptor pharmacology table, the real "Latuda Mirror" comparison, real
-// clinical outcomes data (Agin-Liebes et al. 2021, n=452), the real 16-row
-// pharma-to-plant alternatives table, real supplement protocol, real
+// clinical outcomes data (Agin-Liebes et al. 2021, n=452), the real
+// supplement protocol, real
 // mescaline-specific PRI dimension scores, the real medicine-selector
 // comparison table, and real sources, all ported unchanged and verbatim.
-// Fully static except the pharma-table expand toggle (`pharma-table.tsx`),
+// Fully static (the pharma-to-plant table was removed, Sam, 2026-11-11),
 // so this stays a plain Server Component. Legacy's purely decorative
 // glitch-scanline overlay divs are dropped (real photography kept),
 // same call made throughout this migration.
 export const metadata: Metadata = {
   title: "Mescaline / Peyote Deep Dive — Psychedelic Readiness Index",
   description:
-    "Comprehensive pharmacology, outcomes data, pharma-to-plant alternatives, supplement stacks, and readiness dimensions for mescaline and peyote.",
+    "Comprehensive pharmacology, outcomes data, supplement stacks, and readiness dimensions for mescaline and peyote.",
   alternates: { canonical: "/peyote-mescaline" },
+  openGraph: { ...SITE_OPEN_GRAPH, url: "/peyote-mescaline" },
 };
 
 const thClass = "border-b-2 border-[#D4CFC5] bg-[#E8E2D8] px-3 py-2.5 text-left text-xs font-extrabold tracking-[0.08em] whitespace-nowrap text-pri-ink uppercase";
@@ -227,34 +228,6 @@ export default function PeyoteMescalinePage() {
         </div>
       </PriSection>
 
-      {/* ── PHARMA → PLANT ALTERNATIVES ── */}
-      <PriSection id="pharma-alternatives" dark>
-        <div className="relative mb-8 h-[clamp(180px,25vw,280px)] w-full overflow-hidden rounded-md">
-          <Image
-            src="https://cdn.sanity.io/images/a3q1cyqs/production/037cce693c9a348f8c11a9faa3137c4a2656f2f0-1200x670.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover brightness-70 contrast-120"
-          />
-          <div className="absolute inset-0 bg-linear-to-b from-transparent from-40% to-pri-ink" />
-        </div>
-        <PriEyebrow>Pharma → Plant Alternatives</PriEyebrow>
-        <h2 className="mb-4 font-heading text-[clamp(1.5rem,4vw,2.5rem)] text-pri-cream">16 Medications &amp; Their Alternatives</h2>
-        <div className="mb-8 border-l-4 border-[#581C87] bg-[#581C87]/15 p-5">
-          <div className="mb-1 flex items-center gap-1.5 text-[.72rem] font-extrabold tracking-[0.06em] text-[#EF5350] uppercase">
-            <AlertTriangle className="size-3.5" />
-            Educational Only. Not Medical Advice. Not a Substitution Guide.
-          </div>
-          <p className="m-0 text-[.82rem] leading-[1.6] text-pri-cream/55">
-            Do not stop or modify any prescribed medication based on this content. Dangerous interactions exist between plant medicines and psychiatric
-            drugs. Always consult qualified healthcare professionals.
-          </p>
-        </div>
-        <div className="bg-pri-parchment">
-          <PharmaTable />
-        </div>
-      </PriSection>
 
       {/* ── SUPPLEMENT STACKS ── */}
       <PriSection id="supplements">

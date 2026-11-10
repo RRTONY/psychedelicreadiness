@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import { PsychedelicReadinessIndex } from "@/components/pri/psychedelic-readiness-index";
 
 // Ported from legacy client/src/pages/pri/PsychedelicReadinessIndex.tsx —
@@ -8,8 +9,9 @@ import { PsychedelicReadinessIndex } from "@/components/pri/psychedelic-readines
 export const metadata: Metadata = {
   title: "Psychedelic Readiness Index — Find Your Medicine",
   description:
-    "39 plant medicines. 50+ readiness questions. 6 domains. MAO-B interaction matrix. An honest map of where you stand before you walk into territory that rewards preparation.",
+    "39 substances. 50+ readiness questions. 6 domains. MAO-B interaction matrix. An honest map of where you stand before you walk into territory that rewards preparation.",
   alternates: { canonical: "/" },
+  openGraph: { ...SITE_OPEN_GRAPH, url: "/" },
 };
 
 export default function HomePage() {

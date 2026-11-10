@@ -58,3 +58,20 @@ describe("pri-data", () => {
     for (const p of SCORE_PROFILES) expect(p.color).toMatch(/^#[0-9a-f]{6}$/i);
   });
 });
+
+// 2026-11-11: the guide's badge is an explicit field per row (it was guessed from the risk text).
+// These are the labels the site already showed; a change needs the clinical reviewer.
+describe("MEDICATION_INTERACTIONS labels", () => {
+  it("keeps the labels the guide already showed", () => {
+    expect(Object.fromEntries(MEDICATION_INTERACTIONS.map((m) => [m.category, m.label]))).toEqual({
+      "SSRIs / SNRIs": "hard_stop",
+      "MAOIs (non-selective)": "caution",
+      "MAO-B Inhibitors": "caution",
+      Lithium: "hard_stop",
+      Stimulants: "caution",
+      Antipsychotics: "caution",
+      Tramadol: "hard_stop",
+      "Supplements to Flag": "caution",
+    });
+  });
+});

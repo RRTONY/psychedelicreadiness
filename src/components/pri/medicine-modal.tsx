@@ -49,6 +49,8 @@ export function MedicineModal({
             <button
               onClick={() => onToggleSaved(medicine.id)}
               title={isSaved ? "Remove from saved" : "Save medicine"}
+              aria-label={isSaved ? `Remove ${medicine.name} from saved` : `Save ${medicine.name}`}
+              aria-pressed={!!isSaved}
               className={`flex size-8 items-center justify-center rounded-full text-base text-pri-cream ${isSaved ? "bg-pri-purple" : "bg-pri-ink/60"}`}
             >
               <Heart className="size-4" fill={isSaved ? "currentColor" : "none"} />
@@ -61,7 +63,7 @@ export function MedicineModal({
 
         {heroImage && (
           <div className="relative h-50 w-full overflow-hidden">
-            <Image src={heroImage} alt="" fill sizes="(max-width: 640px) 100vw, 600px" className="object-cover object-[center_30%]" />
+            <Image src={heroImage} alt={medicine.name} fill sizes="(max-width: 640px) 100vw, 600px" className="object-cover object-[center_30%]" />
             <div className="absolute inset-0 bg-linear-to-b from-transparent from-40% to-pri-parchment" />
           </div>
         )}

@@ -68,6 +68,8 @@ describe("MedicineModal", () => {
     expect(onClose).toHaveBeenCalledTimes(1);
     await user.click(screen.getByTitle("Save medicine"));
     expect(onToggleSaved).toHaveBeenCalledWith("psilocybin");
+    expect(screen.getByRole("button", { name: `Save ${med("psilocybin").name}` })).toHaveAttribute("aria-pressed", "false");
+    expect(screen.getByRole("img", { name: med("psilocybin").name })).toBeInTheDocument();
   });
 
   it("the close (X) button has an accessible name", () => {

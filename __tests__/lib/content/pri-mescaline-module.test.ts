@@ -3,7 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import * as mod from "@/lib/content/pri-mescaline-module";
 import {
-  MESCALINE_PHARMACOLOGY, LATUDA_MIRROR, LATUDA_MIRROR_ONELINER, MESCALINE_OUTCOMES, OUTCOMES_SOURCE, PHARMA_ALTERNATIVES,
+  MESCALINE_PHARMACOLOGY, LATUDA_MIRROR, LATUDA_MIRROR_ONELINER, MESCALINE_OUTCOMES, OUTCOMES_SOURCE,
   SUPPLEMENT_STACKS, MESCALINE_DIM_SCORES, MEDICINE_SELECTOR, MESCALINE_SOURCES, MESCALINE_META, MESCALINE_DISCLAIMER,
 } from "@/lib/content/pri-mescaline-module";
 
@@ -18,7 +18,7 @@ describe("pri-mescaline-module", () => {
   });
 
   it("has filled pharmacology, Latuda mirror, outcomes and alternatives", () => {
-    for (const table of [MESCALINE_PHARMACOLOGY, LATUDA_MIRROR, MESCALINE_OUTCOMES, PHARMA_ALTERNATIVES]) {
+    for (const table of [MESCALINE_PHARMACOLOGY, LATUDA_MIRROR, MESCALINE_OUTCOMES]) {
       expect(table.length).toBeGreaterThan(0);
       for (const row of table) for (const v of Object.values(row)) if (typeof v === "string") expect(v.trim()).not.toBe("");
     }

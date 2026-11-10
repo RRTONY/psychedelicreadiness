@@ -5,7 +5,8 @@ import PeyoteMescalinePage, { metadata } from "@/app/peyote-mescaline/page";
 describe("/peyote-mescaline", () => {
   it("has its own title, description and canonical", () => {
     expect(metadata.title).toBe("Mescaline / Peyote Deep Dive — Psychedelic Readiness Index");
-    expect(metadata.description).toMatch(/pharma-to-plant alternatives, supplement stacks/);
+    expect(metadata.description).toMatch(/outcomes data, supplement stacks/);
+    expect(metadata.description).not.toMatch(/pharma-to-plant/);
     expect(metadata.alternates?.canonical).toBe("/peyote-mescaline");
   });
 
@@ -14,6 +15,13 @@ describe("/peyote-mescaline", () => {
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Mescaline /Peyote");
     expect(screen.getAllByText(/NOT MEDICAL ADVICE\. For educational purposes only\./).length).toBeGreaterThan(0);
+  });
+
+  it("has no pharma-to-plant alternatives table (removed, Sam, 2026-11-11)", () => {
+    const { container } = render(<PeyoteMescalinePage />);
+    expect(screen.queryByText(/Plant Alternatives/)).not.toBeInTheDocument();
+    expect(screen.queryByText("16 Medications & Their Alternatives")).not.toBeInTheDocument();
+    expect(container.querySelector("#pharma-alternatives")).toBeNull();
   });
 
   it("shows the pharmacology and the Latuda comparison", () => {
