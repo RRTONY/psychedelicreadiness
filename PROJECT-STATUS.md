@@ -5,6 +5,30 @@
 
 ## Current status — 2026-11-11
 
+**Review from Sam / Darryl (2026-11-11, night): site B on hold, everything below is on branches, not live.**
+- The site is public (my pushes to main on 2026-11-11 at 00:10, 00:21, 00:24 IST went live, at the
+  user's request). Branch `hold/site-b-noindex` adds noindex to every page of the live domain
+  (the Netlify URL already had it). Pushing it to main was blocked here: needs a person to merge.
+- Branch `preview/site-b-review` (preview only): Peyote "Pharma to Plant" table removed (component
+  and data deleted), "39 substances" everywhere, og:url on every page, alt text on the hero and
+  medicine photos, labels + aria-pressed on the 39 save buttons, QR on the share card, explicit
+  Hard Stop / Caution field on the interaction guide (values unchanged). 789 tests pass.
+- Checked end to end at 390px: 50 questions, consent, results, a match, Compare Medicines.
+- Visitor data: answers stay in the browser tab; consent and saved medicines in session/local
+  storage; initials are checked, not saved or sent; the correction form emails Tony; the
+  introduction request opens the visitor's own email app. `/api/` and `/oauth/` are the admin
+  editing server, not visitor data.
+
+**Waiting on a decision (review):**
+- [ ] Clinical reviewer (Darryl): the correct label for SSRIs / SNRIs, non-selective MAOIs and
+  MAO-B inhibitors (`label` in `MEDICATION_INTERACTIONS`), and warnings for Datura, Brugmansia,
+  Sassafras/MDA and Nitrous Oxide (their safety warning is still "Safety data is being compiled").
+- [ ] Iboga page has a similar 8-row pharma-alternatives table: remove too?
+- [ ] 301 from tonygreenberg.com's PRI pages: not added. It conflicts with Sam's plan to patch
+  the tool on tonygreenberg.com, and site B is on hold.
+- [ ] Waiting for text: Privacy, Terms, Contact, About (Josh); held: Evidence page, Buy buttons,
+  investment disclosure, Facilitator Index, Iboga Compass intro.
+
 **Done this session (2026-11-11):** PRI scoring safety fixes from the 7 Nov 2026 scoring review
 (PRI-Scoring-Review.pdf; the "patch" it mentions was never received, so this was built here):
 - Every readiness question needs an explicit answer: sliders start unanswered and Next stays
