@@ -78,8 +78,8 @@ describe("MEDICATION_INTERACTIONS labels", () => {
 });
 
 describe("medicine-level safety warnings", () => {
-  it("the four cards that had no warning now show the danger text from their own card", () => {
-    for (const id of ["datura", "brugmansia", "sassafras", "nitrous"]) {
+  it("every card without a safety record shows the warning text from its own card", () => {
+    for (const id of ["datura", "brugmansia", "sassafras", "nitrous", "kanna", "blue_lotus", "kava_ceremonial", "2cb", "psilocin", "bpl003", "vls01", "mm120", "emp01", "mambe"]) {
       const m = MEDICINES.find((x) => x.id === id)!;
       const w = getMedicineWithSafety(m).safetyWarning;
       expect(w).not.toMatch(/being compiled/);

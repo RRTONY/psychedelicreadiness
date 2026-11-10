@@ -14,13 +14,15 @@ describe("getMedicineWithSafety", () => {
   });
 
   it("gives a medicine without safety data empty lists, a clear not-reviewed warning and safetyReviewed=false", () => {
-    const m = getMedicineWithSafety(med("kanna"));
+    const m = getMedicineWithSafety({ ...med("kanna"), safetyWarning: undefined });
     expect(m.safetyReviewed).toBe(false);
     expect(m.contraindications).toEqual([]);
     expect(m.sideEffects).toEqual([]);
     expect(m.drugInteractions).toEqual([]);
     expect(m.safetyWarning).toBe(UNREVIEWED_SAFETY_WARNING);
     expect(getMedicineWithSafety(med("psilocybin")).safetyReviewed).toBe(true);
+    // Kanna's own card text is its warning while the lists stay unreviewed.
+    expect(getMedicineWithSafety(med("kanna")).safetyWarning).toBe(med("kanna").safetyWarning);
   });
 });
 
