@@ -699,9 +699,15 @@ export function PsychedelicReadinessIndex() {
                     <div className="mt-4 border-t border-pri-cream/8 pt-3">
                       <div className="mb-1 text-[.75rem] font-bold tracking-[0.06em] text-pri-cream/60 uppercase">Safety</div>
                       <div className="text-[.75rem] leading-[1.5] text-pri-cream/60">
-                        {ms.contraindications.length} contraindications
-                        <br />
-                        {ms.drugInteractions.length} drug interactions
+                        {ms.safetyReviewed ? (
+                          <>
+                            {ms.contraindications.length} contraindications
+                            <br />
+                            {ms.drugInteractions.length} drug interactions
+                          </>
+                        ) : (
+                          "Not reviewed yet"
+                        )}
                       </div>
                     </div>
 

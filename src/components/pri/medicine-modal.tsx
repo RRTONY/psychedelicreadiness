@@ -174,7 +174,9 @@ export function MedicineModal({
                   Review Safety Data Before Proceeding
                 </div>
                 <p className="m-0 text-[.82rem] text-pri-brown">
-                  This medicine has {medicine.contraindications.length} contraindications and {medicine.drugInteractions.length} known drug interactions.{" "}
+                  {medicine.safetyReviewed
+                    ? `This medicine has ${medicine.contraindications.length} contraindications and ${medicine.drugInteractions.length} known drug interactions.`
+                    : "Safety data for this medicine has not been reviewed yet."}{" "}
                   <button onClick={() => setTab("safety")} className="inline-flex items-center gap-1 p-0 font-bold text-pri-purple underline">
                     View Safety &amp; Risks tab
                     <ArrowRight aria-hidden="true" className="size-3.5" />

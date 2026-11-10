@@ -1,4 +1,16 @@
+import { Info } from "lucide-react";
 import type { MedicineWithSafety } from "@/lib/content/pri-data";
+import { UNREVIEWED_SAFETY_LIST } from "@/lib/content/pri-shared";
+
+// A list with no reviewed entries says so plainly (never placeholder rows or "...").
+function NotReviewed() {
+  return (
+    <p className="m-0 inline-flex items-start gap-1.5 text-[.85rem] leading-[1.7] text-pri-brown italic">
+      <Info aria-hidden="true" className="mt-1 size-3.5 shrink-0 text-pri-purple" />
+      {UNREVIEWED_SAFETY_LIST}
+    </p>
+  );
+}
 
 // Ported from legacy's `SafetySection` — the real safety-warning,
 // contraindications, drug-interactions, side-effects, and legal-status
@@ -11,34 +23,46 @@ export function SafetySection({ medicine }: { medicine: MedicineWithSafety }) {
         <div className="text-[.88rem] leading-[1.7] text-pri-brown">{medicine.safetyWarning}</div>
       </div>
 
-      <div className="mt-5 mb-1 text-[.7rem] font-extrabold tracking-[0.12em] text-pri-purple uppercase">Contraindications ... Do Not Use If</div>
-      <ul className="m-0 list-disc space-y-1 pl-5">
-        {medicine.contraindications.map((c) => (
-          <li key={c} className="text-[.88rem] leading-[1.8] text-pri-brown">
-            {c}
-          </li>
-        ))}
-      </ul>
-
-      <div className="mt-5 mb-1 text-[.7rem] font-extrabold tracking-[0.12em] text-[#E65100] uppercase">Drug Interactions</div>
-      <div className="border-l-4 border-[#E65100] bg-[#FFF3E0] p-4">
-        <ul className="m-0 list-disc space-y-1 pl-4">
-          {medicine.drugInteractions.map((d) => (
-            <li key={d} className="text-[.85rem] leading-[1.8] text-pri-brown">
-              {d}
+      <div className="mt-5 mb-1 text-[.7rem] font-extrabold tracking-[0.12em] text-pri-purple uppercase">Contraindications: Do Not Use If</div>
+      {medicine.contraindications.length === 0 ? (
+        <NotReviewed />
+      ) : (
+        <ul className="m-0 list-disc space-y-1 pl-5">
+          {medicine.contraindications.map((c) => (
+            <li key={c} className="text-[.88rem] leading-[1.8] text-pri-brown">
+              {c}
             </li>
           ))}
         </ul>
+      )}
+
+      <div className="mt-5 mb-1 text-[.7rem] font-extrabold tracking-[0.12em] text-[#E65100] uppercase">Drug Interactions</div>
+      <div className="border-l-4 border-[#E65100] bg-[#FFF3E0] p-4">
+        {medicine.drugInteractions.length === 0 ? (
+          <NotReviewed />
+        ) : (
+          <ul className="m-0 list-disc space-y-1 pl-4">
+            {medicine.drugInteractions.map((d) => (
+              <li key={d} className="text-[.85rem] leading-[1.8] text-pri-brown">
+                {d}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       <div className="mt-5 mb-1 text-[.7rem] font-extrabold tracking-[0.12em] text-pri-purple uppercase">Known Side Effects</div>
-      <ul className="m-0 list-disc space-y-1 pl-5">
-        {medicine.sideEffects.map((s) => (
-          <li key={s} className="text-[.85rem] leading-[1.8] text-pri-brown">
-            {s}
-          </li>
-        ))}
-      </ul>
+      {medicine.sideEffects.length === 0 ? (
+        <NotReviewed />
+      ) : (
+        <ul className="m-0 list-disc space-y-1 pl-5">
+          {medicine.sideEffects.map((s) => (
+            <li key={s} className="text-[.85rem] leading-[1.8] text-pri-brown">
+              {s}
+            </li>
+          ))}
+        </ul>
+      )}
 
       <div className="mt-5 mb-1 text-[.7rem] font-extrabold tracking-[0.12em] text-pri-purple uppercase">Legal Status</div>
       <div className="bg-pri-cream p-4 text-[.88rem] leading-[1.7] text-pri-brown">{medicine.legalStatus}</div>

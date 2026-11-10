@@ -12,15 +12,24 @@ import { Bean, HeartHandshake, Leaf, Microscope, Pill, Sparkles, Wind, type Luci
 // calls with a backend this migration never built) is dropped entirely
 // along with those calls — see the correction/referral forms, which use a
 // `mailto:` fallback instead and need no session id.
+// Shown for a medicine with no reviewed safety record (and no warning of its own). Not a loading
+// state: nothing more is coming until the data is reviewed, so no spinner and no "pending".
+export const UNREVIEWED_SAFETY_WARNING =
+  "Safety data for this substance has not been reviewed yet. Always consult a qualified healthcare professional.";
+export const UNREVIEWED_SAFETY_LIST = "Not reviewed yet. Ask a licensed clinician before anything else.";
+
 export function getMedicineWithSafety(m: Medicine): MedicineWithSafety {
-  const safety = SAFETY_DATA[m.id] || {
-    contraindications: ["Data pending ... consult a healthcare professional"],
-    sideEffects: ["Data pending"],
-    drugInteractions: ["Data pending"],
-    safetyWarning: m.safetyWarning || "Safety data is being compiled. Always consult a qualified healthcare professional.",
+  const reviewed = SAFETY_DATA[m.id];
+  if (reviewed) return { ...m, ...reviewed, safetyReviewed: true };
+  return {
+    ...m,
+    contraindications: [],
+    sideEffects: [],
+    drugInteractions: [],
+    safetyWarning: m.safetyWarning || UNREVIEWED_SAFETY_WARNING,
     legalStatus: "Varies by jurisdiction. Research local laws.",
+    safetyReviewed: false,
   };
-  return { ...m, ...safety };
 }
 
 type DimScores = Record<DimKey, number>;

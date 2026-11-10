@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { computeScores, getHardStops, isComplete, HARD_STOP_CLEAR_MIN, getMedicineWithSafety, READINESS_LEVELS, TAG_CLASS, DEFAULT_TAG_CLASS } from "@/lib/content/pri-shared";
+import { UNREVIEWED_SAFETY_WARNING, computeScores, getHardStops, isComplete, HARD_STOP_CLEAR_MIN, getMedicineWithSafety, READINESS_LEVELS, TAG_CLASS, DEFAULT_TAG_CLASS } from "@/lib/content/pri-shared";
 import { MEDICINES, QUESTIONS, DIMS } from "@/lib/content/pri-data";
 import { SAFETY_DATA } from "@/lib/content/pri-safety-data";
 
@@ -13,10 +13,14 @@ describe("getMedicineWithSafety", () => {
     expect(m.contraindications).toEqual(SAFETY_DATA.psilocybin.contraindications);
   });
 
-  it("uses a 'data pending' placeholder for a medicine without safety data", () => {
+  it("gives a medicine without safety data empty lists, a clear not-reviewed warning and safetyReviewed=false", () => {
     const m = getMedicineWithSafety(med("kanna"));
-    expect(m.sideEffects).toEqual(["Data pending"]);
-    expect(m.safetyWarning).toMatch(/consult a qualified healthcare professional/);
+    expect(m.safetyReviewed).toBe(false);
+    expect(m.contraindications).toEqual([]);
+    expect(m.sideEffects).toEqual([]);
+    expect(m.drugInteractions).toEqual([]);
+    expect(m.safetyWarning).toBe(UNREVIEWED_SAFETY_WARNING);
+    expect(getMedicineWithSafety(med("psilocybin")).safetyReviewed).toBe(true);
   });
 });
 

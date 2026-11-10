@@ -77,7 +77,7 @@ export interface Medicine {
   complexityJustification?: string;
   /**
    * The warning box text when `SAFETY_DATA` has no entry for this medicine (otherwise it says
-   * "Safety data is being compiled"). Added 2026-11-11 for Datura, Brugmansia, Sassafras/MDA and
+   * "Safety data for this substance has not been reviewed yet"). Added 2026-11-11 for Datura, Brugmansia, Sassafras/MDA and
    * Nitrous Oxide, re-using only sentences already on each card; pending clinical review.
    */
   safetyWarning?: string;
@@ -85,8 +85,12 @@ export interface Medicine {
 
 import type { MedicineSafety } from './pri-safety-data';
 
-/** Medicine with safety data merged in at runtime */
-export type MedicineWithSafety = Medicine & MedicineSafety;
+/**
+ * Medicine with safety data merged in at runtime. `safetyReviewed` is false when the medicine
+ * has no `SAFETY_DATA` entry: its lists are then empty (never placeholder rows that would be
+ * counted as real contraindications) and the profile says the data isn't reviewed yet.
+ */
+export type MedicineWithSafety = Medicine & MedicineSafety & { safetyReviewed: boolean };
 
 export interface Question {
   dim: DimKey;
