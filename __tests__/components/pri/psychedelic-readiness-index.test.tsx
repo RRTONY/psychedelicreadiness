@@ -1,6 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { renderToString } from "react-dom/server";
+import { hydrateRoot } from "react-dom/client";
+import { act } from "react";
 import userEvent from "@testing-library/user-event";
 import { PsychedelicReadinessIndex } from "@/components/pri/psychedelic-readiness-index";
 import { submitPriConsent } from "@/app/forms/actions";
@@ -254,6 +256,26 @@ describe("PsychedelicReadinessIndex", { timeout: 120000 }, () => {
       await consent(user);
       expect(await screen.findByText(m.latin, {}, { timeout: 15000 })).toBeInTheDocument();
       expect(sessionStorage.getItem("pri-pending-medicine")).toBeNull();
+    });
+
+    // 2026-11-11: reading the link during the first render made every ?m= visit fail hydration
+    // (React #418). The server HTML has no gate; hydrating matches it, then the gate opens.
+    it("hydrates the server HTML without a mismatch, then asks for consent", async () => {
+      const html = renderToString(<PsychedelicReadinessIndex />);
+      expect(html).not.toContain("Before You Go In");
+      const container = document.createElement("div");
+      container.innerHTML = html;
+      document.body.appendChild(container);
+      const onRecoverableError = vi.fn();
+      let root: ReturnType<typeof hydrateRoot> | undefined;
+      await act(async () => {
+        root = hydrateRoot(container, <PsychedelicReadinessIndex />, { onRecoverableError });
+      });
+      expect(onRecoverableError).not.toHaveBeenCalled();
+      expect(await screen.findByRole("heading", { name: "Before You Go In" })).toBeInTheDocument();
+      expect(sessionStorage.getItem("pri-pending-medicine")).toBe("sananga");
+      act(() => root?.unmount());
+      container.remove();
     });
 
     it("ignores an unknown medicine id", () => {
