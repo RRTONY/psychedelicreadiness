@@ -103,25 +103,6 @@ export const IBOGAINE_OUTCOMES: OutcomeRow[] = [
   { condition: "Traumatic brain injury (TBI)", improved: "Significant improvement", source: "MAPS-sponsored case studies; Stanford 2024 trial" },
 ];
 
-/* ── Pharma Alternatives (Ibogaine-specific) ── */
-export interface PharmaAltRow {
-  drug: string;
-  category: string;
-  ibogaAlt: string;
-  supplementAlt: string;
-  evidence: string;
-}
-export const IBOGA_PHARMA_ALTERNATIVES: PharmaAltRow[] = [
-  { drug: "Methadone", category: "Opioid agonist (MAT)", ibogaAlt: "Ibogaine flood dose (single session)", supplementAlt: "NAC; Mag Glycinate; DLPA", evidence: "Strong (Mash, Noller)" },
-  { drug: "Buprenorphine (Suboxone)", category: "Partial opioid agonist", ibogaAlt: "Ibogaine (requires taper first)", supplementAlt: "Black Seed Oil; Ashwagandha; GABA", evidence: "Strong" },
-  { drug: "Naltrexone (Vivitrol)", category: "Opioid antagonist", ibogaAlt: "Ibogaine + noribogaine sustained effect", supplementAlt: "Kudzu; NAC; Milk Thistle", evidence: "Strong" },
-  { drug: "Disulfiram (Antabuse)", category: "Alcohol deterrent", ibogaAlt: "Ibogaine (alcohol); Iboga ceremony", supplementAlt: "Kudzu; NAC; Dihydromyricetin (DHM)", evidence: "Moderate" },
-  { drug: "Acamprosate (Campral)", category: "NMDA modulator (alcohol)", ibogaAlt: "Ibogaine (NMDA antagonist mechanism)", supplementAlt: "Taurine; Mag Threonate; L-Glutamine", evidence: "Moderate" },
-  { drug: "Varenicline (Chantix)", category: "Smoking cessation", ibogaAlt: "Ibogaine (nicotinic antagonist)", supplementAlt: "Lobeline; Cytisine; NAC", evidence: "Emerging" },
-  { drug: "Sertraline (Zoloft)", category: "SSRI (depression)", ibogaAlt: "Ibogaine (SERT inhibitor + neuroplasticity)", supplementAlt: "St. John's Wort; Saffron; Omega-3", evidence: "Moderate" },
-  { drug: "Prazosin (PTSD nightmares)", category: "Alpha blocker", ibogaAlt: "Ibogaine (PTSD); Iboga ceremony", supplementAlt: "Phosphatidylserine; CBD; Lion's Mane", evidence: "Emerging" },
-];
-
 /* ── Supplement Stacks ── */
 export interface SupplementItem {
   name: string;

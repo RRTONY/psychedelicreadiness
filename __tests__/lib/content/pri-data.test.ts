@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { getMedicineWithSafety } from "@/lib/content/pri-shared";
 import {
   DIMS, DIM_LABELS, DIM_ICONS, SLIDER_LABELS, MAOB_INTERACTIONS, MAOB_WASHOUT, MEDICATION_INTERACTIONS, SCORE_PROFILES,
   CRISIS_RESOURCES, INTEGRATION_RESOURCES, MEDICINES, QUESTIONS, PATHWAY_QUESTIONS,
@@ -60,18 +61,30 @@ describe("pri-data", () => {
 });
 
 // 2026-11-11: the guide's badge is an explicit field per row (it was guessed from the risk text).
-// These are the labels the site already showed; a change needs the clinical reviewer.
+// MAOIs and MAO-B moved to hard_stop to match their own text (pending clinical review).
 describe("MEDICATION_INTERACTIONS labels", () => {
-  it("keeps the labels the guide already showed", () => {
+  it("gives each row the label its own text calls for", () => {
     expect(Object.fromEntries(MEDICATION_INTERACTIONS.map((m) => [m.category, m.label]))).toEqual({
       "SSRIs / SNRIs": "hard_stop",
-      "MAOIs (non-selective)": "caution",
-      "MAO-B Inhibitors": "caution",
+      "MAOIs (non-selective)": "hard_stop",
+      "MAO-B Inhibitors": "hard_stop",
       Lithium: "hard_stop",
       Stimulants: "caution",
       Antipsychotics: "caution",
       Tramadol: "hard_stop",
       "Supplements to Flag": "caution",
     });
+  });
+});
+
+describe("medicine-level safety warnings", () => {
+  it("the four cards that had no warning now show the danger text from their own card", () => {
+    for (const id of ["datura", "brugmansia", "sassafras", "nitrous"]) {
+      const m = MEDICINES.find((x) => x.id === id)!;
+      const w = getMedicineWithSafety(m).safetyWarning;
+      expect(w).not.toMatch(/being compiled/);
+      expect(w).toBe(m.safetyWarning);
+    }
+    expect(getMedicineWithSafety(MEDICINES.find((x) => x.id === "datura")!).safetyWarning).toMatch(/^ABSOLUTE CONTRAINDICATION/);
   });
 });

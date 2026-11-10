@@ -13,6 +13,7 @@ import {
   TONY_NOTE,
   WHAT_THIS_IS,
 } from "@/lib/content/pri-disclaimer";
+import { LAST_REVIEWED } from "@/lib/content/site-pages";
 
 // The full PRI disclaimer (owner-approved 2026-11-11, PRI scoring review of 7 Nov 2026). The
 // council reminder on the assessment, medicine profiles and printed report links here. Same text
@@ -34,7 +35,8 @@ export default function DisclaimerPage() {
     <div className="min-h-screen bg-pri-parchment text-pri-ink">
       <div className="mx-auto max-w-180 px-4 pt-10 pb-16 sm:px-8 sm:pt-16">
         <p className="mb-3 text-xs font-bold tracking-[0.14em] text-pri-purple uppercase">Psychedelic Readiness Index</p>
-        <h1 className="mb-6 font-heading text-4xl leading-tight font-bold sm:text-5xl">Full Disclaimer</h1>
+        <h1 className="mb-3 font-heading text-4xl leading-tight font-bold sm:text-5xl">Full Disclaimer</h1>
+        <p className="mb-8 text-[.85rem] text-pri-tan">Last reviewed {LAST_REVIEWED}</p>
 
         <div className="mb-10 border-l-4 border-pri-purple bg-pri-purple/8 px-5 py-4">
           <p className="mb-1 text-lg font-bold text-pri-purple">{COUNCIL_REMINDER.title}</p>

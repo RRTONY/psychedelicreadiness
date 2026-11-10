@@ -5,6 +5,17 @@
 
 ## Current status — 2026-11-11
 
+**Done 2026-11-11 (user: "don't wait for anyone"), on `feat/review-completion`:**
+- New pages /about, /contact, /privacy, /terms (footer "About" group, sitemap), each with a "last
+  reviewed" date (also on /disclaimer). Privacy describes how the site works, checked against the
+  code; Terms and About re-use Tony's approved disclaimer text. **Josh should still review them.**
+- Interaction guide: MAOIs and MAO-B inhibitors now Hard Stop, matching their own text (the cautious
+  direction). Datura, Brugmansia, Sassafras/MDA and Nitrous Oxide show a warning built only from
+  sentences already on their cards. **Darryl should still confirm both.**
+- Iboga page: the 8-row pharma-alternatives table removed (component and data deleted), like Peyote.
+- Not done on purpose: lifting noindex (Sam's approval), tonygreenberg.com → here redirects (would
+  move visitors off the fixed tool onto a site on hold), Sam's held items.
+
 **Live 2026-11-11:** noindex on the live domain (00:55 IST); review fixes, PR #1 (merged 01:07 IST).
 **Follow-up (branch `fix/deep-link-hydration`):** `?m=` medicine links no longer fail hydration
 (React #418 on every `?m=` visit).

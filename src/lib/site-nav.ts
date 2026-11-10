@@ -32,6 +32,15 @@ export const FOOTER_NAV: { title: string; links: NavLink[] }[] = [
     title: "Facilitators",
     links: [{ href: "/facilitator-index", label: "The Facilitator Index" }],
   },
+  {
+    title: "About",
+    links: [
+      { href: "/about", label: "About the Index" },
+      { href: "/contact", label: "Contact" },
+      { href: "/privacy", label: "Privacy" },
+      { href: "/terms", label: "Terms of Use" },
+    ],
+  },
 ];
 
 export const ALL_PAGES: string[] = [...new Set(FOOTER_NAV.flatMap((g) => g.links.map((l) => l.href)))];

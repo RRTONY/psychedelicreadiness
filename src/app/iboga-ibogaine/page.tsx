@@ -14,10 +14,8 @@ import {
   IBOGA_MEDICINE_SELECTOR,
   IBOGA_SOURCES,
   IBOGA_DISCLAIMER,
-  IBOGA_PHARMA_ALTERNATIVES,
 } from "@/lib/content/pri-iboga-module";
 import { PriSection, PriEyebrow } from "@/components/pri/pri-section";
-import { IbogaPharmaTable } from "@/components/pri/iboga-pharma-table";
 import { IbogaCompassSection } from "@/components/pri/iboga-compass-section";
 
 // Ported from legacy client/src/pages/pri/IbogaDeepDive.tsx — "The Plant vs
@@ -25,16 +23,16 @@ import { IbogaCompassSection } from "@/components/pri/iboga-compass-section";
 // pharmacology, real head-to-head iboga-vs-ibogaine table, real clinical
 // outcomes (Mash/Noller/Schenberg/Brown & Alper/Cherian/Williams,
 // including the 2024 Stanford Nature Medicine SOF-veteran data and the
-// 2026 19,071-patient safety analysis), real pharma-to-plant alternatives,
-// real supplement protocol, real dimension thresholds, real medicine
+// 2026 19,071-patient safety analysis), real supplement protocol (the
+// pharma-to-plant table was removed 2026-11-11, same as Peyote), real dimension thresholds, real medicine
 // selector, Tony's real first-hand account of sitting ibogaine at The
 // Mission Within, real hard-stop contraindications, a real 9-facility
 // directory (with the 2 facilities legacy explicitly removed and why),
 // real Nagoya Protocol / extractive-capitalism argument, real 2026 US
 // legal-status rundown, the embedded Iboga Compass v2 documentation
 // section, and real sources — all ported unchanged and verbatim. Fully
-// static except the pharma-table expand toggle and the compass section's
-// question-group toggles (both extracted into client islands), so this
+// static except the compass section's question-group toggles (a client
+// island), so this
 // stays a plain Server Component. Legacy's purely decorative CSS
 // glow/shimmer `<style>` block is dropped, same call made throughout this
 // migration.
@@ -421,17 +419,6 @@ export default function IbogaIbogainePage() {
         </div>
       </PriSection>
 
-      {/* ── PHARMA ALTERNATIVES ── */}
-      <PriSection id="pharma-alternatives">
-        <PriEyebrow>Pharma → Plant Alternatives</PriEyebrow>
-        <h2 className="mb-4 font-heading font-extrabold text-[clamp(1.6rem,4vw,2.5rem)] text-pri-ink">What Iboga Replaces</h2>
-        <p className="mb-6 max-w-200 text-[1.05rem] leading-[1.75] text-pri-brown">
-          Ibogaine&apos;s multi-receptor profile means it mechanistically overlaps with several pharmaceutical categories — opioid agonists, antagonists,
-          NMDA modulators, SSRIs, and smoking cessation agents. A single ibogaine session can address what would otherwise require 3–5 separate
-          prescriptions with their respective side-effect profiles.
-        </p>
-        <IbogaPharmaTable rows={IBOGA_PHARMA_ALTERNATIVES} />
-      </PriSection>
 
       {/* ── SUPPLEMENT STACKS ── */}
       <PriSection id="supplements" dark>

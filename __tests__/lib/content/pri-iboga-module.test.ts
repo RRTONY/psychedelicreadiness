@@ -3,7 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import * as mod from "@/lib/content/pri-iboga-module";
 import {
-  IBOGA_IMAGES, IBOGAINE_PHARMACOLOGY, ALKALOID_COMPARISON, HEAD_TO_HEAD, IBOGAINE_OUTCOMES, IBOGA_PHARMA_ALTERNATIVES,
+  IBOGA_IMAGES, IBOGAINE_PHARMACOLOGY, ALKALOID_COMPARISON, HEAD_TO_HEAD, IBOGAINE_OUTCOMES,
   IBOGA_SUPPLEMENT_STACKS, IBOGA_DIM_SCORES, IBOGA_MEDICINE_SELECTOR, IBOGA_SOURCES, IBOGA_META, IBOGA_DISCLAIMER,
 } from "@/lib/content/pri-iboga-module";
 
@@ -19,7 +19,7 @@ describe("pri-iboga-module", () => {
   });
 
   it("has filled pharmacology, alkaloid, comparison, outcome and alternative tables", () => {
-    for (const table of [IBOGAINE_PHARMACOLOGY, ALKALOID_COMPARISON, HEAD_TO_HEAD, IBOGAINE_OUTCOMES, IBOGA_PHARMA_ALTERNATIVES]) {
+    for (const table of [IBOGAINE_PHARMACOLOGY, ALKALOID_COMPARISON, HEAD_TO_HEAD, IBOGAINE_OUTCOMES]) {
       expect(table.length).toBeGreaterThan(0);
       for (const row of table) for (const v of Object.values(row)) if (typeof v === "string") expect(v.trim()).not.toBe("");
     }

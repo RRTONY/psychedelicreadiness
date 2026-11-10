@@ -1,7 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { IBOGA_PHARMA_ALTERNATIVES } from "@/lib/content/pri-iboga-module";
 import IbogaIbogainePage, { metadata } from "@/app/iboga-ibogaine/page";
 
 // A big page: give each render room on a busy machine.
@@ -39,21 +37,10 @@ describe("/iboga-ibogaine", () => {
     for (const a of container.querySelectorAll('a[target="_blank"]')) expect(a.getAttribute("rel")).toContain("noopener");
   });
 
-  it("shows the first rows of the pharma table and the rest on 'Show all'", async () => {
-    const user = userEvent.setup();
+  it("has no pharma-to-plant alternatives table (removed 2026-11-11, same as Peyote)", () => {
     const { container } = render(<IbogaIbogainePage />);
-    const last = IBOGA_PHARMA_ALTERNATIVES[IBOGA_PHARMA_ALTERNATIVES.length - 1].drug;
-    expect(container).toHaveTextContent(IBOGA_PHARMA_ALTERNATIVES[0].drug);
-    await user.click(screen.getByRole("button", { name: `Show all ${IBOGA_PHARMA_ALTERNATIVES.length}` }));
-    expect(container).toHaveTextContent(last);
-    expect(screen.getByRole("button", { name: "Show fewer" })).toBeInTheDocument();
-  });
-
-  // Rows 6 and up are rendered hidden, so they still reach the server HTML.
-  it("every pharma-table row is in the server HTML, not only after 'Show all' (src/components/pri/iboga-pharma-table.tsx:16)", () => {
-    const { container } = render(<IbogaIbogainePage />);
-    const rows = container.querySelectorAll("tbody tr");
-    const pharmaRows = [...rows].filter((tr) => IBOGA_PHARMA_ALTERNATIVES.some((r) => tr.textContent?.startsWith(r.drug)));
-    expect(pharmaRows).toHaveLength(IBOGA_PHARMA_ALTERNATIVES.length);
+    expect(container.querySelector("#pharma-alternatives")).toBeNull();
+    expect(screen.queryByText("What Iboga Replaces")).not.toBeInTheDocument();
+    expect(screen.queryByText(/Plant Alternatives/)).not.toBeInTheDocument();
   });
 });

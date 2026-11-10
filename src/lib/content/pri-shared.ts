@@ -17,7 +17,7 @@ export function getMedicineWithSafety(m: Medicine): MedicineWithSafety {
     contraindications: ["Data pending ... consult a healthcare professional"],
     sideEffects: ["Data pending"],
     drugInteractions: ["Data pending"],
-    safetyWarning: "Safety data is being compiled. Always consult a qualified healthcare professional.",
+    safetyWarning: m.safetyWarning || "Safety data is being compiled. Always consult a qualified healthcare professional.",
     legalStatus: "Varies by jurisdiction. Research local laws.",
   };
   return { ...m, ...safety };
