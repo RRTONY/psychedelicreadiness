@@ -4,7 +4,7 @@ import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 import * as cs from "@/lib/admin/change-sets";
 import { runAdminTool } from "@/lib/admin/tools";
 import { getProjectRules } from "@/lib/admin/project-rules";
-import { createAdminMcpServer } from "@/lib/admin/mcp-server";
+import { ADMIN_SERVER_INSTRUCTIONS, createAdminMcpServer } from "@/lib/admin/mcp-server";
 import { PENDING_CHANGES_UI_URI } from "@/lib/admin/mcp-ui-widgets";
 import { READ_ONLY_TOOLS, type McpUser } from "@/lib/admin/mcp-auth";
 import { after } from "next/server";
@@ -566,5 +566,16 @@ describe("tools left out on purpose (2026-10-23)", () => {
     for (const t of ["send_email", "create_report", "create_clickup_task", "update_clickup_task", "delete_clickup_task", "check_analytics", "lighthouse_check_page", "search_console_sites", "search_console_performance", "search_console_inspect_url", "search_console_sitemaps", "sanity_query", "sanity_patch_document"]) {
       expect(names, t).not.toContain(t);
     }
+  });
+});
+
+// 2026-11-11: connected AIs are told where the disclaimer, Privacy and FAQ text live, and that the
+// scoring safety rules (hard-stop pause, every answer required) must never be weakened.
+describe("server instructions", () => {
+  it("point to the shared disclaimer, Privacy and FAQ text and the scoring safety rules", () => {
+    for (const s of ["src/lib/content/pri-disclaimer.ts", "src/lib/content/site-pages.ts", "src/lib/content/faq.ts", "HARD_STOP_CLEAR_MIN", "Never weaken either"]) {
+      expect(ADMIN_SERVER_INSTRUCTIONS).toContain(s);
+    }
+    expect(ADMIN_SERVER_INSTRUCTIONS).toMatch(/Privacy page must stay true to the code/);
   });
 });

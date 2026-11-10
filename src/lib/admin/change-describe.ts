@@ -31,8 +31,16 @@ export interface AffectedArea {
 const SHARED_COMPONENTS: Record<string, string> = {
   "src/components/site-header.tsx": "Site header (every page)",
   "src/components/site-footer.tsx": "Site footer (every page)",
-  "src/components/site-nav-data.ts": "Site menu and footer links (every page)",
-  "src/components/site-chrome.tsx": "Header and footer frame (every page)",
+  "src/components/site-mobile-menu.tsx": "Phone menu (every page)",
+  "src/lib/site-nav.ts": "Site menu and footer links (every page)",
+  "src/lib/site-open-graph.ts": "Share-card settings (every page)",
+  "src/app/opengraph-image.tsx": "Share image (every page)",
+  "src/components/site-page.tsx": "Frame of the About, Contact, Privacy, Terms, FAQ and Disclaimer pages",
+  "src/components/pri/council-reminder.tsx": "\"Talk to your psychedelic council\" reminder (assessment, medicine profiles, printed report)",
+  "src/components/pri/disclaimer-gate.tsx": "Disclaimer pop-up before results and medicine profiles",
+  "src/lib/content/pri-disclaimer.ts": "Disclaimer and council reminder text (pop-up, Full Disclaimer, Terms, About, FAQ)",
+  "src/lib/content/site-pages.ts": "Privacy and Contact page text",
+  "src/lib/content/faq.ts": "FAQ page questions and answers",
 };
 
 function routeFromAppPath(segments: string[]): string {

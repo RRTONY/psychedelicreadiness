@@ -504,7 +504,7 @@ async function rulesVersionOrNull(): Promise<string | null> {
 // duplicated here, so they can't drift. Some clients ignore these
 // instructions, which is why the write tools are also hard-gated on
 // rules_version (see project-rules.ts).
-const ADMIN_SERVER_INSTRUCTIONS = `This server lets you edit the psychedelicreadiness.com Next.js site's code
+export const ADMIN_SERVER_INSTRUCTIONS = `This server lets you edit the psychedelicreadiness.com Next.js site's code
 (the Psychedelic Readiness Index). The site has no CMS: every edit is a code edit.
 
 STEP 1, EVERY CONVERSATION: call get_project_rules before anything else, read the rules it
@@ -527,7 +527,16 @@ The rules cover, among other things:
 - Next.js 16 (params are Promises, proxy.ts not middleware.ts), Server Components by default.
 - Tailwind v4 + shadcn/ui only: no inline style={{}}, no framer-motion, next/image only.
 - Where things live: PRI medicines, questions, scoring and safety data are typed .ts modules
-  in src/lib/content/; page copy is in the page files.
+  in src/lib/content/; page copy is in the page files. The disclaimer and the "Talk to your
+  psychedelic council" reminder are in src/lib/content/pri-disclaimer.ts (one copy shared by the
+  pop-up, /disclaimer, /terms, /about and /faq). Privacy and Contact text is in
+  src/lib/content/site-pages.ts and FAQ answers in src/lib/content/faq.ts.
+- The Privacy page must stay true to the code: a change that starts storing or sending anything
+  new (a database, analytics, cookies, a form) updates site-pages.ts in the same change.
+- Scoring safety: any hard-stop answer below "Often true" pauses the score (HARD_STOP_CLEAR_MIN
+  in src/lib/content/pri-shared.ts) and every question needs an answer. Never weaken either.
+- FAQ answers and medicine warnings use approved text only; new medical wording needs the
+  clinical reviewer.
 - Safety content (contraindications, drug interactions, crisis resources) is never changed
   without the owner's clear yes.
 - Zero Manus dependency: never add a Manus-hosted URL.

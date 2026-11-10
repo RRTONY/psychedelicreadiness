@@ -145,6 +145,13 @@ incidents: [`docs/ai/`](docs/ai/README.md).
     also offers "Save as PDF"). Examples: `src/components/pri/pri-report.tsx`,
     `src/components/facilitator/facilitator-print-sheet.tsx`.
 
+22. **PRI scoring safety (owner/Tony's review, 2026-11-11).** Every readiness question needs an
+    explicit answer before a personal result, and any hard-stop answer below "Often true"
+    (`HARD_STOP_CLEAR_MIN` in `src/lib/content/pri-shared.ts`) pauses the score, matches, report and
+    referral. Never weaken either. The council reminder and disclaimer text live once in
+    `src/lib/content/pri-disclaimer.ts`; Privacy text (`site-pages.ts`) must stay true to the code,
+    so a change that starts storing or sending anything new updates it in the same change.
+
 ## Coding Patterns (also from ramprate-ui)
 
 Same team, same conventions as ramprate-ui (`~/Desktop/ramprate-ui/AGENTS.md`), where they fit

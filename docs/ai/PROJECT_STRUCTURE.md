@@ -12,6 +12,7 @@ request: [`TASK_GUIDE.md`](TASK_GUIDE.md).
 | `/pri-efficacy` | `pri-efficacy/page.tsx` | Monte Carlo validation report (`lib/content/pri-efficacy-data.json`) |
 | `/disclaimer` | `disclaimer/page.tsx` | Full PRI disclaimer (`lib/content/pri-disclaimer.ts`); `/psychedelic-readiness-index/disclaimer` redirects here |
 | `/about` | `about/page.tsx` | About the Index (Tony's approved text from `pri-disclaimer.ts`) |
+| `/faq` | `faq/page.tsx` | FAQ + FAQPage structured data (`lib/content/faq.ts`; answers only from approved text or checked facts) |
 | `/contact` | `contact/page.tsx` | Tony's email, the correction route, crisis lines |
 | `/privacy` | `privacy/page.tsx` | How the site handles information (`lib/content/site-pages.ts`; keep in step with the code) |
 | `/terms` | `terms/page.tsx` | Terms of Use (approved disclaimer text) |
