@@ -41,7 +41,6 @@ export const LATUDA_MIRROR: LatudaMirrorRow[] = [
   { receptor: "BDNF", latuda: "Increases over weeks", mescaline: "Acute surge (one session)" },
 ];
 
-export const LATUDA_MIRROR_ONELINER = "Latuda suppresses the serotonin system daily. Mescaline resets it once.";
 
 /* ── Outcomes Data ── */
 
@@ -59,6 +58,8 @@ export const MESCALINE_OUTCOMES: OutcomeRow[] = [
 ];
 
 export const OUTCOMES_SOURCE = "Agin-Liebes et al., ACS Pharmacology 2021 (n=452 naturalistic users)";
+// The figures are what survey respondents said about themselves, not trial results (QA, 2026-11-13).
+export const OUTCOMES_CAVEAT = "People rated their own symptoms in a survey. This is not a clinical trial and does not show that mescaline treats any condition.";
 export const OUTCOMES_SPIRITUAL = "35\u201350% rated it single most spiritually significant experience of their life";
 export const OUTCOMES_INTENT = "Only 2\u20135% took it intending to treat a condition";
 

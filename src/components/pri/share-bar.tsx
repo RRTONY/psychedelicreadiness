@@ -9,7 +9,7 @@ import { FacebookIcon, LinkedinIcon, XIcon } from "@/components/icons/brand-icon
 // domain — corrected to this site's real canonical domain (see
 // `src/lib/structured-data.ts`'s `siteUrl`).
 const SHARE_URL = "https://psychedelicreadiness.com";
-const SHARE_TEXT = "The Psychedelic Readiness Index ... find your medicine match. 39 substances, 6 domains, hard-stop screening, medication interaction matrix.";
+const SHARE_TEXT = "The Psychedelic Readiness Index ... an honest look at where you stand before you go. 39 substances, 6 domains. Education only, not medical clearance.";
 
 const BTN_CLASS =
   "flex items-center gap-1.5 rounded-lg border border-pri-purple-light/30 bg-pri-purple/12 px-4 py-2 text-[.82rem] text-pri-ink no-underline transition-colors hover:bg-pri-purple/20";

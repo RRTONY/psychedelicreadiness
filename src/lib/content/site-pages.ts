@@ -38,7 +38,7 @@ export const PRIVACY = {
       items: [
         "Suggest a Correction: the medicine and section, your suggested text, an optional source link, and your name and email if you give them are emailed to Tony Greenberg.",
         "Facilitator Index: your pasted responses, an optional code name and archetype, and, if you ask for an introduction, your region and contact details are emailed to Tony Greenberg.",
-        "Introduction requests and the Iboga Compass email buttons open your own email app with a message filled in. Nothing is sent unless you send it yourself.",
+        "The Iboga Compass email buttons open your own email app with a message filled in. Nothing is sent unless you send it yourself.",
       ],
     },
     {

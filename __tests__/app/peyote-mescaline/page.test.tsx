@@ -26,7 +26,7 @@ describe("/peyote-mescaline", () => {
 
   it("shows the pharmacology and the Latuda comparison", () => {
     const { container } = render(<PeyoteMescalinePage />);
-    for (const h of ["Key Receptors", "Same Targets. Opposite Actions.", "Clinical Outcomes", "Research & References"]) {
+    for (const h of ["Key Receptors", "Same Targets. Opposite Actions.", "Self-Reported Outcomes", "Research & References"]) {
       expect(screen.getByRole("heading", { level: 2, name: h })).toBeInTheDocument();
     }
     expect(container.textContent).toContain("mescaline has no serotonin transporter (SERT) affinity");
