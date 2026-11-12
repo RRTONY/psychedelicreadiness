@@ -11,7 +11,7 @@
 - Tester's "site is indexable" is not right: robots.txt allows crawling, but every live page sends
   `X-Robots-Tag: noindex, nofollow` (checked with curl). Lifting it is `release/lift-noindex` (Sam).
 
-**Fixed 2026-11-13 (user approved all four, on behalf of Tony / Darryl / Sam), branch `fix/qa-2026-11-13`, not live:**
+**Fixed 2026-11-13 (user approved all four, on behalf of Tony / Darryl / Sam), branch `fix/qa-2026-11-13`, live 2026-11-13:**
 - [x] C12: every MAO-B matrix row is Hard Stop (psilocybin, LSD, mescaline were Caution), so it
   agrees with the MAO-B Inhibitors label. New line under both tables (`HARD_STOP_MEANING`): "Hard
   Stop means never combine it with a psychedelic while you are taking it. Only stop or taper a
@@ -34,7 +34,12 @@
 - [ ] 14 cards with no reviewed safety data: AI-drafted lists for Darryl to correct and sign off,
   in the Claude doc "PRI safety data draft for clinical review"
   (https://claude.ai/artifact/WdVZmDfs1A1fXDNcKiFUVN). Nothing goes on the site until he ticks a card.
-- [ ] Publishing both branches: waiting for a clear yes. Lifting noindex: still waiting on Sam.
+- [x] Published 2026-11-13 (user: "Yes, publish both"): `fix/qa-2026-11-13` merged to main, checked
+  live (Hard Stop line on, referral/Latuda/Amazon links gone, noindex still on).
+- [ ] tonygreenberg.com redirect: built and checked locally (307s, `?m=` kept, `/pri-research` 200),
+  but its main branch is protected: a person must open and merge
+  https://github.com/RRTONY/tonygreenberg-website/pull/new/fix/pri-redirect-to-psychedelicreadiness
+- [ ] Lifting noindex: still waiting on Sam.
 
 ## Status — 2026-11-11
 
