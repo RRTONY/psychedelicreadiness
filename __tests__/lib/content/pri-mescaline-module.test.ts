@@ -26,12 +26,12 @@ describe("pri-mescaline-module", () => {
     expect(OUTCOMES_SOURCE).toMatch(/n=452/);
   });
 
-  it("has PRE, DAY-OF and POST-INTEGRATION supplement phases with https or empty links", () => {
+  it("has PRE, DAY-OF and POST-INTEGRATION supplement phases and no shop links", () => {
     expect(SUPPLEMENT_STACKS.map((p) => p.phase)).toEqual(["PRE", "DAY-OF", "POST-INTEGRATION"]);
     for (const phase of SUPPLEMENT_STACKS) {
       for (const item of phase.items) {
         expect(item.name && item.dosage).toBeTruthy();
-        expect(item.searchUrl === "" || /^https:\/\//.test(item.searchUrl)).toBe(true);
+        expect(item).not.toHaveProperty("searchUrl");
       }
     }
   });

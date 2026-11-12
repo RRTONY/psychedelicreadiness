@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import Image from "next/image";
 import Link from "next/link";
-import { AlertTriangle, ArrowDown, ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { AlertTriangle, ArrowDown, ArrowLeft, Check } from "lucide-react";
 import {
   MESCALINE_PHARMACOLOGY,
   LATUDA_MIRROR,
@@ -249,17 +249,11 @@ export default function PeyoteMescalinePage() {
               </div>
               <div className="p-4">
                 {phase.items.map((item, i) => (
-                  <div key={item.name} className={`flex items-start justify-between gap-2 py-2 ${i < phase.items.length - 1 ? "border-b border-[#E8E2D8]" : ""}`}>
+                  <div key={item.name} className={`py-2 ${i < phase.items.length - 1 ? "border-b border-[#E8E2D8]" : ""}`}>
                     <div>
                       <div className="text-[.85rem] font-semibold text-pri-ink">{item.name}</div>
                       <div className="text-[.72rem] text-pri-tan">{item.dosage}</div>
                     </div>
-                    {item.searchUrl && (
-                      <a href={item.searchUrl} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center gap-1 border border-pri-purple/20 px-1.5 py-0.5 text-[.75rem] font-bold whitespace-nowrap text-pri-purple">
-                        Buy
-                        <ArrowRight aria-hidden="true" className="size-3" />
-                      </a>
-                    )}
                   </div>
                 ))}
               </div>
