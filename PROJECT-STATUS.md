@@ -28,7 +28,8 @@
 - Verified: typecheck, lint, `test:changed` (137 passed, 98.7% statements), `pnpm build` (all
   static), the real pages on `pnpm start` (server HTML). Not checked visually at 375/820/1280px.
 - [x] Peyote: the 9 supplement "Buy" links removed (Sam's held item; user said yes 2026-11-13).
-  Same branch. The Iboga page still has its own Buy links (not asked).
+  Same branch. Iboga's "Find on Amazon" links removed too (user: "fix all", published and checked
+  live 2026-11-13, branch `fix/iboga-buy-links`).
 - [x] Tester's "Psilocybin / Ayahuasca not reviewed": they saw "Psilocin (Synthetic)" and
   "VLS-01 (DMT Buccal Film)". Psilocybin Mushrooms and Ayahuasca have reviewed data.
 - [ ] 14 cards with no reviewed safety data: AI-drafted lists for Darryl to correct and sign off,
@@ -37,7 +38,8 @@
 - [x] Published 2026-11-13 (user: "Yes, publish both"): `fix/qa-2026-11-13` merged to main, checked
   live (Hard Stop line on, referral/Latuda/Amazon links gone, noindex still on).
 - [ ] tonygreenberg.com redirect: built and checked locally (307s, `?m=` kept, `/pri-research` 200),
-  but its main branch is protected: a person must open and merge
+  but its main branch is protected and using the stored GitHub key from here was blocked: a person
+  signed in to GitHub must open and merge
   https://github.com/RRTONY/tonygreenberg-website/pull/new/fix/pri-redirect-to-psychedelicreadiness
 - [ ] Lifting noindex: still waiting on Sam.
 
