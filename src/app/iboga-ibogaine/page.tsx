@@ -438,12 +438,6 @@ export default function IbogaIbogainePage() {
                 <div key={item.name} className="rounded-lg border border-white/10 bg-white/5 px-4 py-3">
                   <div className="text-base font-bold text-pri-cream">{item.name}</div>
                   <div className="mt-1 font-mono text-[.85rem] text-[#D4B96A]">{item.dosage}</div>
-                  {item.searchUrl && (
-                    <a href={item.searchUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex min-h-11 items-center gap-1.5 text-[.8rem] text-pri-cream/50 underline md:min-h-6">
-                      Find on Amazon
-                      <ArrowRight aria-hidden="true" className="size-3.5" />
-                    </a>
-                  )}
                 </div>
               ))}
             </div>

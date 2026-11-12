@@ -43,4 +43,11 @@ describe("/iboga-ibogaine", () => {
     expect(screen.queryByText("What Iboga Replaces")).not.toBeInTheDocument();
     expect(screen.queryByText(/Plant Alternatives/)).not.toBeInTheDocument();
   });
+
+  it("lists the supplements with no Amazon links (removed 2026-11-13, same as Peyote)", () => {
+    const { container } = render(<IbogaIbogainePage />);
+    expect(screen.getByText("Preparation & Integration Stacks")).toBeInTheDocument();
+    expect(screen.queryAllByRole("link", { name: /Find on Amazon/ })).toHaveLength(0);
+    expect(container.querySelector('a[href*="amazon."]')).toBeNull();
+  });
 });
