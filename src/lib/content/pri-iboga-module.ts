@@ -104,10 +104,10 @@ export const IBOGAINE_OUTCOMES: OutcomeRow[] = [
 ];
 
 /* ── Supplement Stacks ── */
+// No shop links: the "Find on Amazon" links were removed, like Peyote's Buy buttons (2026-11-13).
 export interface SupplementItem {
   name: string;
   dosage: string;
-  searchUrl: string;
 }
 export interface SupplementPhase {
   phase: string;
@@ -119,33 +119,33 @@ export const IBOGA_SUPPLEMENT_STACKS: SupplementPhase[] = [
     phase: "PRE",
     timing: "4–8 weeks before (critical preparation window)",
     items: [
-      { name: "Magnesium Glycinate", dosage: "400–600mg/day (cardiac support)", searchUrl: "https://amazon.com/s?k=magnesium+glycinate" },
-      { name: "CoQ10 (Ubiquinol)", dosage: "200–400mg/day (cardiac protection)", searchUrl: "https://amazon.com/s?k=coq10+ubiquinol" },
-      { name: "Omega-3 EPA+DHA", dosage: "3–4g/day (neuroprotection)", searchUrl: "https://amazon.com/s?k=nordic+naturals+omega+3" },
-      { name: "Lion's Mane", dosage: "1000–2000mg/day (NGF support)", searchUrl: "https://amazon.com/s?k=lions+mane+extract" },
-      { name: "NAC", dosage: "600mg 2x/day (stop 72hr before)", searchUrl: "https://amazon.com/s?k=n+acetyl+cysteine+NAC" },
-      { name: "D3 + K2", dosage: "5000IU + 100mcg", searchUrl: "https://amazon.com/s?k=vitamin+d3+k2" },
-      { name: "Potassium", dosage: "Electrolyte balance (critical for QT)", searchUrl: "https://amazon.com/s?k=potassium+supplement" },
+      { name: "Magnesium Glycinate", dosage: "400–600mg/day (cardiac support)" },
+      { name: "CoQ10 (Ubiquinol)", dosage: "200–400mg/day (cardiac protection)" },
+      { name: "Omega-3 EPA+DHA", dosage: "3–4g/day (neuroprotection)" },
+      { name: "Lion's Mane", dosage: "1000–2000mg/day (NGF support)" },
+      { name: "NAC", dosage: "600mg 2x/day (stop 72hr before)" },
+      { name: "D3 + K2", dosage: "5000IU + 100mcg" },
+      { name: "Potassium", dosage: "Electrolyte balance (critical for QT)" },
     ],
   },
   {
     phase: "DAY-OF",
     timing: "Day of treatment (clinical protocol)",
     items: [
-      { name: "Electrolytes (LMNT)", dosage: "2 packets pre-treatment", searchUrl: "https://amazon.com/s?k=LMNT+electrolytes" },
-      { name: "Ginger root", dosage: "1000mg (nausea — iboga is intensely emetic)", searchUrl: "https://amazon.com/s?k=ginger+root+capsules" },
-      { name: "Activated charcoal", dosage: "On standby (emergency purge support)", searchUrl: "https://amazon.com/s?k=activated+charcoal+capsules" },
+      { name: "Electrolytes (LMNT)", dosage: "2 packets pre-treatment" },
+      { name: "Ginger root", dosage: "1000mg (nausea — iboga is intensely emetic)" },
+      { name: "Activated charcoal", dosage: "On standby (emergency purge support)" },
     ],
   },
   {
     phase: "POST-INTEGRATION",
     timing: "4–12 weeks after (extended integration — noribogaine active 24–48h)",
     items: [
-      { name: "Lion's Mane continued", dosage: "2000mg/day (BDNF/NGF support)", searchUrl: "https://amazon.com/s?k=lions+mane+extract" },
-      { name: "Omega-3 continued", dosage: "3g/day", searchUrl: "https://amazon.com/s?k=nordic+naturals+omega+3" },
-      { name: "Magnesium L-Threonate", dosage: "Standard dose (crosses BBB)", searchUrl: "https://amazon.com/s?k=magnesium+l-threonate" },
-      { name: "Phosphatidylserine", dosage: "300mg/day (cortisol modulation)", searchUrl: "https://amazon.com/s?k=phosphatidylserine" },
-      { name: "Microdose protocol (iboga)", dosage: "50–100mg root bark / every 3 days (Bwiti tradition)", searchUrl: "" },
+      { name: "Lion's Mane continued", dosage: "2000mg/day (BDNF/NGF support)" },
+      { name: "Omega-3 continued", dosage: "3g/day" },
+      { name: "Magnesium L-Threonate", dosage: "Standard dose (crosses BBB)" },
+      { name: "Phosphatidylserine", dosage: "300mg/day (cortisol modulation)" },
+      { name: "Microdose protocol (iboga)", dosage: "50–100mg root bark / every 3 days (Bwiti tradition)" },
     ],
   },
 ];

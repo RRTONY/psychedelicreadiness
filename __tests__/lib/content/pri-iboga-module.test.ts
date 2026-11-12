@@ -27,11 +27,11 @@ describe("pri-iboga-module", () => {
     expect(ALKALOID_COMPARISON[0].alkaloid).toBe("Ibogaine");
   });
 
-  it("has PRE, DAY-OF and POST supplement phases with https or empty search links", () => {
+  it("has PRE, DAY-OF and POST supplement phases and no shop links", () => {
     expect(IBOGA_SUPPLEMENT_STACKS[0].phase).toBe("PRE");
     for (const phase of IBOGA_SUPPLEMENT_STACKS) {
       expect(phase.items.length).toBeGreaterThan(0);
-      for (const item of phase.items) expect(item.searchUrl === "" || /^https:\/\//.test(item.searchUrl)).toBe(true);
+      for (const item of phase.items) expect(item).not.toHaveProperty("searchUrl");
     }
   });
 
