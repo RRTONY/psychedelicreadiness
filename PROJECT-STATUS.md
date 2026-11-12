@@ -27,10 +27,14 @@
   (307, temporary, query kept), and leave its sitemap. `/pri-research` stays.
 - Verified: typecheck, lint, `test:changed` (137 passed, 98.7% statements), `pnpm build` (all
   static), the real pages on `pnpm start` (server HTML). Not checked visually at 375/820/1280px.
-- [ ] Still open: 14 cards with no reviewed safety data (2C-B, Blue Lotus, Brugmansia, Datura,
-  Kanna, Kava, Mambe, Nitrous Oxide, Sassafras, clinical cards `psilocin`, `mm120`, `bpl003`,
-  `emp01`, `vls01`): Darryl to supply. Psilocybin Mushrooms and Ayahuasca DO have data: ask the
-  tester which card they saw. Peyote Buy buttons (Sam's hold) and "39 substances" wording unchanged.
+- [x] Peyote: the 9 supplement "Buy" links removed (Sam's held item; user said yes 2026-11-13).
+  Same branch. The Iboga page still has its own Buy links (not asked).
+- [x] Tester's "Psilocybin / Ayahuasca not reviewed": they saw "Psilocin (Synthetic)" and
+  "VLS-01 (DMT Buccal Film)". Psilocybin Mushrooms and Ayahuasca have reviewed data.
+- [ ] 14 cards with no reviewed safety data: AI-drafted lists for Darryl to correct and sign off,
+  in the Claude doc "PRI safety data draft for clinical review"
+  (https://claude.ai/artifact/WdVZmDfs1A1fXDNcKiFUVN). Nothing goes on the site until he ticks a card.
+- [ ] Publishing both branches: waiting for a clear yes. Lifting noindex: still waiting on Sam.
 
 ## Status — 2026-11-11
 
