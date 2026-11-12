@@ -3,7 +3,40 @@
 > The main project file. Read the "Current status" block at the start of every session and update
 > it (plus the items you finished) at the end.
 
-## Current status — 2026-11-11
+## Current status — 2026-11-13
+
+**QA pass received 2026-11-13 (tester, Chrome, 11 Nov), checked against the code.**
+- Confirmed passing: A2 hard-stop pause, A3 Next disabled until answered, A4 council line, A5 QR,
+  C10 Peyote table gone, D13 internal links.
+- Tester's "site is indexable" is not right: robots.txt allows crawling, but every live page sends
+  `X-Robots-Tag: noindex, nofollow` (checked with curl). Lifting it is `release/lift-noindex` (Sam).
+
+**Fixed 2026-11-13 (user approved all four, on behalf of Tony / Darryl / Sam), branch `fix/qa-2026-11-13`, not live:**
+- [x] C12: every MAO-B matrix row is Hard Stop (psilocybin, LSD, mescaline were Caution), so it
+  agrees with the MAO-B Inhibitors label. New line under both tables (`HARD_STOP_MEANING`): "Hard
+  Stop means never combine it with a psychedelic while you are taking it. Only stop or taper a
+  medicine with your prescriber."
+- [x] D14 wording: share text no longer says "find your medicine match ... hard-stop screening";
+  ImpactSoul box no longer says "tells you which medicine fits your biology"; Peyote's Latuda
+  one-liner removed, outcomes renamed "Self-Reported Outcomes" with a "not a clinical trial" note;
+  the medicine card's Peyote blurb no longer mentions the removed pharma table.
+- [x] D14 referral: the results page's "connect you with a vetted facility" card removed; Privacy
+  no longer mentions PRI introduction requests.
+- [x] A1: on tonygreenberg.com (`RRTONY/tonygreenberg-website`, branch
+  `fix/pri-redirect-to-psychedelicreadiness`) the 8 PRI pages + its disclaimer redirect here
+  (307, temporary, query kept), and leave its sitemap. `/pri-research` stays.
+- Verified: typecheck, lint, `test:changed` (137 passed, 98.7% statements), `pnpm build` (all
+  static), the real pages on `pnpm start` (server HTML). Not checked visually at 375/820/1280px.
+- [x] Peyote: the 9 supplement "Buy" links removed (Sam's held item; user said yes 2026-11-13).
+  Same branch. The Iboga page still has its own Buy links (not asked).
+- [x] Tester's "Psilocybin / Ayahuasca not reviewed": they saw "Psilocin (Synthetic)" and
+  "VLS-01 (DMT Buccal Film)". Psilocybin Mushrooms and Ayahuasca have reviewed data.
+- [ ] 14 cards with no reviewed safety data: AI-drafted lists for Darryl to correct and sign off,
+  in the Claude doc "PRI safety data draft for clinical review"
+  (https://claude.ai/artifact/WdVZmDfs1A1fXDNcKiFUVN). Nothing goes on the site until he ticks a card.
+- [ ] Publishing both branches: waiting for a clear yes. Lifting noindex: still waiting on Sam.
+
+## Status — 2026-11-11
 
 **Done 2026-11-11 (user: "don't wait for anyone"), on `feat/review-completion`:**
 - New pages /about, /contact, /privacy, /terms (footer "About" group, sitemap), each with a "last

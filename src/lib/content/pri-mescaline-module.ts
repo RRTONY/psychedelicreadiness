@@ -41,7 +41,6 @@ export const LATUDA_MIRROR: LatudaMirrorRow[] = [
   { receptor: "BDNF", latuda: "Increases over weeks", mescaline: "Acute surge (one session)" },
 ];
 
-export const LATUDA_MIRROR_ONELINER = "Latuda suppresses the serotonin system daily. Mescaline resets it once.";
 
 /* ── Outcomes Data ── */
 
@@ -59,15 +58,17 @@ export const MESCALINE_OUTCOMES: OutcomeRow[] = [
 ];
 
 export const OUTCOMES_SOURCE = "Agin-Liebes et al., ACS Pharmacology 2021 (n=452 naturalistic users)";
+// The figures are what survey respondents said about themselves, not trial results (QA, 2026-11-13).
+export const OUTCOMES_CAVEAT = "People rated their own symptoms in a survey. This is not a clinical trial and does not show that mescaline treats any condition.";
 export const OUTCOMES_SPIRITUAL = "35\u201350% rated it single most spiritually significant experience of their life";
 export const OUTCOMES_INTENT = "Only 2\u20135% took it intending to treat a condition";
 
 /* ── Supplement Stack ── */
 
+// No shop links: the Peyote "Buy" buttons were removed (Sam's held item, approved 2026-11-13).
 export interface SupplementItem {
   name: string;
   dosage: string;
-  searchUrl: string;
 }
 
 export interface SupplementPhase {
@@ -81,31 +82,31 @@ export const SUPPLEMENT_STACKS: SupplementPhase[] = [
     phase: "PRE",
     timing: "4\u20136 weeks before",
     items: [
-      { name: "Lion\u2019s Mane", dosage: "500\u20131500mg/day", searchUrl: "https://amazon.com/s?k=lions+mane+extract" },
-      { name: "Omega-3 EPA+DHA", dosage: "2\u20134g/day", searchUrl: "https://amazon.com/s?k=nordic+naturals+omega+3" },
-      { name: "Magnesium L-Threonate (Magtein)", dosage: "Standard dose", searchUrl: "https://amazon.com/s?k=magnesium+l-threonate" },
-      { name: "Ashwagandha KSM-66", dosage: "300\u2013600mg 2x/day", searchUrl: "https://amazon.com/s?k=ashwagandha+ksm-66" },
-      { name: "NAC", dosage: "600mg 2x (stop 48hr before)", searchUrl: "https://amazon.com/s?k=n+acetyl+cysteine+NAC" },
-      { name: "D3 + K2", dosage: "5000IU + 100mcg", searchUrl: "https://amazon.com/s?k=vitamin+d3+k2" },
+      { name: "Lion\u2019s Mane", dosage: "500\u20131500mg/day" },
+      { name: "Omega-3 EPA+DHA", dosage: "2\u20134g/day" },
+      { name: "Magnesium L-Threonate (Magtein)", dosage: "Standard dose" },
+      { name: "Ashwagandha KSM-66", dosage: "300\u2013600mg 2x/day" },
+      { name: "NAC", dosage: "600mg 2x (stop 48hr before)" },
+      { name: "D3 + K2", dosage: "5000IU + 100mcg" },
     ],
   },
   {
     phase: "DAY-OF",
     timing: "Day of ceremony",
     items: [
-      { name: "Ginger root", dosage: "500mg 1hr before (nausea)", searchUrl: "https://amazon.com/s?k=ginger+root+capsules" },
-      { name: "Niacin (flush)", dosage: "100\u2013500mg emergency grounding", searchUrl: "https://amazon.com/s?k=niacin+flush" },
-      { name: "Electrolytes (LMNT)", dosage: "1 packet pre + during", searchUrl: "https://amazon.com/s?k=LMNT+electrolytes" },
+      { name: "Ginger root", dosage: "500mg 1hr before (nausea)" },
+      { name: "Niacin (flush)", dosage: "100\u2013500mg emergency grounding" },
+      { name: "Electrolytes (LMNT)", dosage: "1 packet pre + during" },
     ],
   },
   {
     phase: "POST-INTEGRATION",
     timing: "4\u20138 weeks after",
     items: [
-      { name: "Lion\u2019s Mane continued", dosage: "1000\u20132000mg/day", searchUrl: "https://amazon.com/s?k=lions+mane+extract" },
-      { name: "Phosphatidylserine", dosage: "300\u2013400mg/day", searchUrl: "https://amazon.com/s?k=phosphatidylserine" },
-      { name: "5-HTP", dosage: "100mg evening (MDMA only; never with SSRIs)", searchUrl: "https://amazon.com/s?k=5-htp+100mg" },
-      { name: "Microdose protocol (Fadiman)", dosage: "0.1g psilocybin / every 3 days", searchUrl: "" },
+      { name: "Lion\u2019s Mane continued", dosage: "1000\u20132000mg/day" },
+      { name: "Phosphatidylserine", dosage: "300\u2013400mg/day" },
+      { name: "5-HTP", dosage: "100mg evening (MDMA only; never with SSRIs)" },
+      { name: "Microdose protocol (Fadiman)", dosage: "0.1g psilocybin / every 3 days" },
     ],
   },
 ];

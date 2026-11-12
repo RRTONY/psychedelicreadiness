@@ -159,8 +159,7 @@ export function MedicineModal({
                 <div className="mt-6 bg-pri-ink p-6">
                   <div className="mb-1 text-xs font-extrabold tracking-[0.1em] text-pri-purple-light uppercase">Deep Dive Available</div>
                   <div className="mb-3 text-[.85rem] leading-[1.6] text-pri-cream/60">
-                    Full pharmacology, Latuda mirror comparison, outcomes data (n=452), pharma-to-plant alternatives table, supplement stacks, and medicine
-                    selector.
+                    Full pharmacology, Latuda mirror comparison, self-reported outcomes (n=452), supplement stacks, and medicine selector.
                   </div>
                   <Link href="/peyote-mescaline" className="inline-flex items-center gap-2 bg-pri-purple px-5 py-2.5 text-[.78rem] font-bold tracking-[0.06em] text-pri-cream uppercase">
                     Explore Full Module

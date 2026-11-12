@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import Image from "next/image";
 import Link from "next/link";
-import { AlertTriangle, ArrowDown, ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { AlertTriangle, ArrowDown, ArrowLeft, Check } from "lucide-react";
 import {
   MESCALINE_PHARMACOLOGY,
   LATUDA_MIRROR,
-  LATUDA_MIRROR_ONELINER,
   MESCALINE_OUTCOMES,
   OUTCOMES_SOURCE,
+  OUTCOMES_CAVEAT,
   OUTCOMES_SPIRITUAL,
   OUTCOMES_INTENT,
   SUPPLEMENT_STACKS,
@@ -186,9 +186,6 @@ export default function PeyoteMescalinePage() {
             </tbody>
           </table>
         </div>
-        <div className="mt-8 border-l-4 border-pri-purple bg-pri-purple/12 px-8 py-6">
-          <p className="m-0 font-heading text-[clamp(1rem,3vw,1.2rem)] leading-[1.5] font-bold text-pri-cream">&ldquo;{LATUDA_MIRROR_ONELINER}&rdquo;</p>
-        </div>
       </PriSection>
 
       {/* ── OUTCOMES ── */}
@@ -204,14 +201,14 @@ export default function PeyoteMescalinePage() {
           <div className="absolute inset-0 bg-linear-to-b from-transparent from-50% to-pri-parchment" />
         </div>
         <PriEyebrow>Outcomes Data</PriEyebrow>
-        <h2 className="mb-1 font-heading text-[clamp(1.5rem,4vw,2.5rem)] text-pri-ink">Clinical Outcomes</h2>
-        <p className="mb-8 text-[.82rem] text-pri-tan">Source: {OUTCOMES_SOURCE}</p>
+        <h2 className="mb-1 font-heading text-[clamp(1.5rem,4vw,2.5rem)] text-pri-ink">Self-Reported Outcomes</h2>
+        <p className="mb-8 text-[.82rem] text-pri-tan">Source: {OUTCOMES_SOURCE}. {OUTCOMES_CAVEAT}</p>
 
         <div className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-px border border-pri-border bg-pri-border">
           {MESCALINE_OUTCOMES.map((o) => (
             <div key={o.condition} className="bg-pri-parchment px-4 py-6 text-center">
               <div className="font-heading text-[clamp(2rem,6vw,3rem)] leading-none font-black text-pri-purple">{o.improved}</div>
-              <div className="mt-1 text-xs font-bold tracking-[0.08em] text-pri-tan uppercase">{o.condition} improved</div>
+              <div className="mt-1 text-xs font-bold tracking-[0.08em] text-pri-tan uppercase">{o.condition} improved (self-reported)</div>
             </div>
           ))}
         </div>
@@ -252,17 +249,11 @@ export default function PeyoteMescalinePage() {
               </div>
               <div className="p-4">
                 {phase.items.map((item, i) => (
-                  <div key={item.name} className={`flex items-start justify-between gap-2 py-2 ${i < phase.items.length - 1 ? "border-b border-[#E8E2D8]" : ""}`}>
+                  <div key={item.name} className={`py-2 ${i < phase.items.length - 1 ? "border-b border-[#E8E2D8]" : ""}`}>
                     <div>
                       <div className="text-[.85rem] font-semibold text-pri-ink">{item.name}</div>
                       <div className="text-[.72rem] text-pri-tan">{item.dosage}</div>
                     </div>
-                    {item.searchUrl && (
-                      <a href={item.searchUrl} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center gap-1 border border-pri-purple/20 px-1.5 py-0.5 text-[.75rem] font-bold whitespace-nowrap text-pri-purple">
-                        Buy
-                        <ArrowRight aria-hidden="true" className="size-3" />
-                      </a>
-                    )}
                   </div>
                 ))}
               </div>

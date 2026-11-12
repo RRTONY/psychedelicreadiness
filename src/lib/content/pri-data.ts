@@ -150,10 +150,17 @@ export const MAOB_INTERACTIONS: MAOBInteraction[] = [
   { compound: "DMT / Ayahuasca", interaction: "High potentiation risk — MAO enzymes metabolize tryptamines; inhibition makes DMT unpredictably potent", riskLevel: "hard_stop", riskLabel: "Hard Stop" },
   { compound: "5-MeO-DMT", interaction: "High potentiation + serotonin toxicity risk — case reports of severe agitation, hyperthermia, rhabdomyolysis", riskLevel: "hard_stop", riskLabel: "Hard Stop" },
   { compound: "MDMA", interaction: "Hypertensive crisis, serotonin syndrome — stimulant + MAOI combination potentially fatal", riskLevel: "hard_stop", riskLabel: "Hard Stop" },
-  { compound: "Psilocybin", interaction: "Possible attenuation or potentiation; unpredictable — elevated serotonin from MAO blockade may alter response", riskLevel: "caution_md", riskLabel: "Caution — MD Consult" },
-  { compound: "LSD", interaction: "Likely attenuated; serotonin load risk at higher doses — historical data shows MAOIs may block LSD effects", riskLevel: "caution_md", riskLabel: "Caution — MD Consult" },
-  { compound: "Mescaline", interaction: "Insufficient clinical data — theoretical serotonergic interaction risk", riskLevel: "data_limited", riskLabel: "Caution — Data Limited" },
+  { compound: "Psilocybin", interaction: "Possible attenuation or potentiation; unpredictable — elevated serotonin from MAO blockade may alter response", riskLevel: "hard_stop", riskLabel: "Hard Stop" },
+  { compound: "LSD", interaction: "Likely attenuated; serotonin load risk at higher doses — historical data shows MAOIs may block LSD effects", riskLevel: "hard_stop", riskLabel: "Hard Stop" },
+  { compound: "Mescaline", interaction: "Insufficient clinical data — theoretical serotonergic interaction risk", riskLevel: "hard_stop", riskLabel: "Hard Stop" },
 ];
+
+/**
+ * What a "Hard Stop" badge means, shown under both interaction tables. Rows that say Hard Stop and
+ * also give a taper or washout read as a contradiction without it (QA, 2026-11-13; approved).
+ */
+export const HARD_STOP_MEANING =
+  "Hard Stop means never combine it with a psychedelic while you are taking it. Only stop or taper a medicine with your prescriber.";
 
 /** Wash-out guidance for MAO-B inhibitors */
 export const MAOB_WASHOUT = {
@@ -169,7 +176,8 @@ export interface MedInteraction {
    * `risk` ("LIFE-THREATENING", "ABSOLUTE", "Seizure"), which contradicted the text on three rows
    * (SSRIs / SNRIs, MAOIs, MAO-B Inhibitors; review of 2026-11-11). It is set per row now. MAOIs and
    * MAO-B Inhibitors were moved to "hard_stop" to match their own text ("Hard stop for all
-   * psychedelics"; the MAO-B matrix's Hard Stops), the cautious direction, pending clinical review.
+   * psychedelics"; the MAO-B matrix's Hard Stops), the cautious direction. Every MAO-B matrix row
+   * is Hard Stop too, so the matrix agrees with this label (approved 2026-11-13).
    */
   label: "hard_stop" | "caution";
   category: string;

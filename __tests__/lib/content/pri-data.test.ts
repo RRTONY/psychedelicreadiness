@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { getMedicineWithSafety } from "@/lib/content/pri-shared";
 import {
-  DIMS, DIM_LABELS, DIM_ICONS, SLIDER_LABELS, MAOB_INTERACTIONS, MAOB_WASHOUT, MEDICATION_INTERACTIONS, SCORE_PROFILES,
+  DIMS, DIM_LABELS, DIM_ICONS, SLIDER_LABELS, MAOB_INTERACTIONS, MAOB_WASHOUT, HARD_STOP_MEANING, MEDICATION_INTERACTIONS, SCORE_PROFILES,
   CRISIS_RESOURCES, INTEGRATION_RESOURCES, MEDICINES, QUESTIONS, PATHWAY_QUESTIONS,
 } from "@/lib/content/pri-data";
 
@@ -74,6 +74,17 @@ describe("MEDICATION_INTERACTIONS labels", () => {
       Tramadol: "hard_stop",
       "Supplements to Flag": "caution",
     });
+  });
+});
+
+// QA 2026-11-13 (approved): the MAO-B matrix must not say "Caution" for any compound while the
+// MAO-B Inhibitors row says Hard Stop.
+describe("MAO-B matrix agrees with the MAO-B Inhibitors label", () => {
+  it("marks every compound Hard Stop and explains what Hard Stop means", () => {
+    expect(MEDICATION_INTERACTIONS.find((m) => m.category === "MAO-B Inhibitors")?.label).toBe("hard_stop");
+    for (const row of MAOB_INTERACTIONS) expect([row.compound, row.riskLevel, row.riskLabel]).toEqual([row.compound, "hard_stop", "Hard Stop"]);
+    expect(HARD_STOP_MEANING).toMatch(/never combine/);
+    expect(HARD_STOP_MEANING).toMatch(/prescriber/);
   });
 });
 

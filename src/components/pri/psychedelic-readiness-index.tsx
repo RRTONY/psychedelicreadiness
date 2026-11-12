@@ -5,7 +5,7 @@ import { flushSync } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { Heart, X, AlertTriangle, Ban, Star, FileText, CheckCircle2, Target, ArrowLeft, ArrowRight } from "lucide-react";
+import { Heart, X, AlertTriangle, Ban, Star, FileText, Target, ArrowLeft, ArrowRight } from "lucide-react";
 import {
   MEDICINES,
   QUESTIONS,
@@ -14,6 +14,7 @@ import {
   SLIDER_LABELS,
   MAOB_INTERACTIONS,
   MAOB_WASHOUT,
+  HARD_STOP_MEANING,
   MEDICATION_INTERACTIONS,
   CRISIS_RESOURCES,
   PATHWAY_QUESTIONS,
@@ -32,8 +33,6 @@ import { PriShareBar } from "@/components/pri/share-bar";
 import { CinematicBand } from "@/components/pri/cinematic-band";
 import { PriReport } from "@/components/pri/pri-report";
 import { CouncilReminder } from "@/components/pri/council-reminder";
-
-const CONTACT_EMAIL = "tony@tonygreenberg.com";
 
 // Keys that operate a range input. Tab (focus moving onto the slider) is not an answer.
 const SLIDER_KEYS = new Set(["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End", "PageUp", "PageDown"]);
@@ -154,9 +153,9 @@ const PHILOSOPHY_PARAGRAPHS = [
 //   dropped at first. Since 2026-10-10 consent and corrections save to Supabase
 //   again (`disclaimer-gate.tsx` and `correction-form.tsx`, through
 //   src/app/forms/actions.ts); consent is still kept in `sessionStorage`
-//   for the page's gating too. The referral form still uses a real
-//   `mailto:` fallback (this file's referral card) rather than
-//   reproducing a submit call with nothing behind it — legacy's correction
+//   for the page's gating too. The results page's "connect you with a vetted
+//   facility" referral card was removed (QA, 2026-11-13, approved): it
+//   contradicted the disclaimer's "We are not sending you anywhere". Legacy's correction
 //   form's error path was a real fake-success bug ("still show success for
 //   UX" even when the mutation threw), not reproduced here.
 // - The inert "Add my results to the research pool" checkbox (no handler,
@@ -197,11 +196,6 @@ export function PsychedelicReadinessIndex() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [compareMode, setCompareMode] = useState(false);
   const [compareList, setCompareList] = useState<string[]>([]);
-  const [referralConsent, setReferralConsent] = useState(false);
-  const [referralName, setReferralName] = useState("");
-  const [referralEmail, setReferralEmail] = useState("");
-  const [referralRegion, setReferralRegion] = useState("");
-  const [referralSent, setReferralSent] = useState(false);
 
   const hasConsent = useSyncExternalStore(subscribeConsent, readConsent, getConsentServerSnapshot);
   const savedMeds = useSyncExternalStore(subscribeSaved, readSaved, getSavedServerSnapshot);
@@ -368,21 +362,6 @@ export function PsychedelicReadinessIndex() {
       }
     }
   }
-
-  const handleReferralSubmit = useCallback(() => {
-    if (!referralEmail || !referralRegion) return;
-    const subject = encodeURIComponent("PRI Facility Introduction Request");
-    const bodyLines = [
-      `Name: ${referralName || "(not provided)"}`,
-      `Email: ${referralEmail}`,
-      `Region: ${referralRegion}`,
-      "",
-      results ? `PRI score: ${results.overall} (${results.level.label})` : "",
-      results ? `Top matches: ${results.topMatches.map((m) => m.name).join(", ")}` : "",
-    ].filter(Boolean);
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    setReferralSent(true);
-  }, [referralEmail, referralRegion, referralName, results]);
 
   const domain = QUESTIONS[currentQ];
   const pathwayQ = PATHWAY_QUESTIONS[currentPathwayQ];
@@ -778,10 +757,12 @@ export function PsychedelicReadinessIndex() {
 
           <div className="mb-6 flex flex-wrap gap-4">
             {[
-              { label: "Hard Stop", color: "bg-[#ef4444]" },
-              { label: "Caution ... MD Consult", color: "bg-[#f97316]" },
-              { label: "Data Limited", color: "bg-[#eab308]" },
-            ].map((l) => (
+              { level: "hard_stop", label: "Hard Stop", color: "bg-[#ef4444]" },
+              { level: "caution_md", label: "Caution ... MD Consult", color: "bg-[#f97316]" },
+              { level: "data_limited", label: "Data Limited", color: "bg-[#eab308]" },
+            ]
+              .filter((l) => MAOB_INTERACTIONS.some((row) => row.riskLevel === l.level))
+              .map((l) => (
               <div key={l.label} className="flex items-center gap-1.5">
                 <div className={`size-3 shrink-0 ${l.color}`} />
                 <span className="text-[.75rem] font-bold tracking-[0.04em] text-pri-cream/60 uppercase">{l.label}</span>
@@ -817,6 +798,7 @@ export function PsychedelicReadinessIndex() {
               </tbody>
             </table>
           </div>
+          <p className="mt-4 text-[.85rem] leading-[1.6] font-bold text-[#F87171]">{HARD_STOP_MEANING}</p>
 
           <div className="mt-8">
             <div className="mb-4 text-xs font-extrabold tracking-[0.12em] text-pri-purple-light uppercase">MAO-B Inhibitor Wash-Out Guidance</div>
@@ -853,6 +835,7 @@ export function PsychedelicReadinessIndex() {
               If you take any of these medications, review the guidance carefully before considering any psychedelic experience. This is not exhaustive ...
               always consult your prescribing physician.
             </p>
+            <p className="mt-3 max-w-175 text-[.9rem] leading-[1.7] font-bold text-pri-ink">{HARD_STOP_MEANING}</p>
           </div>
 
           <div className="grid gap-px border border-pri-border bg-pri-border">
@@ -1259,58 +1242,6 @@ export function PsychedelicReadinessIndex() {
                   Save My Results
                 </button>
 
-                {!referralSent ? (
-                  <div className="mt-4 w-full border border-pri-purple-light/25 bg-pri-purple-light/8 p-5 text-left">
-                    <div className="mb-2 text-xs font-bold tracking-[0.1em] text-pri-purple-light uppercase">Want a personal introduction?</div>
-                    <p className="mb-4 text-[.82rem] leading-[1.55] text-pri-cream/60">
-                      Tony reviews these himself. If you&apos;d like him to connect you with a vetted facility in your region ... no spam, no lead gen, just
-                      a personal introduction ... check the box below.
-                    </p>
-                    <label className={`flex cursor-pointer items-start gap-2.5 text-[.82rem] text-pri-cream/75 ${referralConsent ? "mb-4" : ""}`}>
-                      <input type="checkbox" checked={referralConsent} onChange={(e) => setReferralConsent(e.target.checked)} className="mt-0.5 size-4 shrink-0 accent-pri-purple-light" />
-                      <span>Yes, I&apos;d like Tony to connect me with a vetted facility in my region.</span>
-                    </label>
-                    {referralConsent && (
-                      <div className="flex flex-col gap-2.5">
-                        <input
-                          type="text"
-                          placeholder="Your name"
-                          value={referralName}
-                          onChange={(e) => setReferralName(e.target.value)}
-                          className="rounded border border-pri-purple-light/30 bg-pri-cream/6 px-3.5 py-2.5 text-[.82rem] text-pri-cream outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                        />
-                        <input
-                          type="email"
-                          placeholder="Your email"
-                          value={referralEmail}
-                          onChange={(e) => setReferralEmail(e.target.value)}
-                          className="rounded border border-pri-purple-light/30 bg-pri-cream/6 px-3.5 py-2.5 text-[.82rem] text-pri-cream outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                        />
-                        <input
-                          type="text"
-                          placeholder="Your region (e.g. New York, London, Sydney)"
-                          value={referralRegion}
-                          onChange={(e) => setReferralRegion(e.target.value)}
-                          className="rounded border border-pri-purple-light/30 bg-pri-cream/6 px-3.5 py-2.5 text-[.82rem] text-pri-cream outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                        />
-                        <button
-                          disabled={!referralEmail || !referralRegion}
-                          onClick={handleReferralSubmit}
-                          className={`self-start bg-pri-purple px-5 py-2.5 text-[.8rem] font-bold text-pri-cream ${!referralEmail || !referralRegion ? "opacity-50" : ""}`}
-                        >
-                          Send Introduction Request
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="mt-4 w-full border border-pri-purple-light/25 bg-pri-purple-light/8 p-5 text-center">
-                    <CheckCircle2 className="mx-auto mb-1 size-6 text-pri-purple-light" />
-                    <div className="text-[.85rem] font-bold text-pri-purple-light">Your email client should be open.</div>
-                    <div className="mt-1 text-[.78rem] text-pri-cream/50">Send it and Tony will reach out personally when he has a match in your region.</div>
-                  </div>
-                )}
-
                 <Link href="/pri-calibration" className="flex items-center justify-center gap-2 bg-linear-to-br from-pri-purple to-pri-purple-light px-6 py-3 text-sm font-bold text-pri-cream uppercase">
                   <Target className="size-4" />
                   Calibrate My Results
@@ -1351,7 +1282,7 @@ export function PsychedelicReadinessIndex() {
             <span className="text-[#9b59b6]">measures what this can&apos;t.</span>
           </h2>
           <p className="mx-auto mb-8 max-w-130 text-base leading-[1.7] text-pri-cream/70">
-            The PRI tells you which medicine fits your biology. The ImpactSoul Score tells you where you are in your evolution ... and what kind of capital,
+            The PRI is a rough guide to questions worth raising with a clinician. The ImpactSoul Score tells you where you are in your evolution ... and what kind of capital,
             community, and consciousness work you&apos;re actually ready for.
           </p>
           <a

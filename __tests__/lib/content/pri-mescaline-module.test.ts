@@ -3,7 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import * as mod from "@/lib/content/pri-mescaline-module";
 import {
-  MESCALINE_PHARMACOLOGY, LATUDA_MIRROR, LATUDA_MIRROR_ONELINER, MESCALINE_OUTCOMES, OUTCOMES_SOURCE,
+  MESCALINE_PHARMACOLOGY, LATUDA_MIRROR, MESCALINE_OUTCOMES, OUTCOMES_SOURCE, OUTCOMES_CAVEAT,
   SUPPLEMENT_STACKS, MESCALINE_DIM_SCORES, MEDICINE_SELECTOR, MESCALINE_SOURCES, MESCALINE_META, MESCALINE_DISCLAIMER,
 } from "@/lib/content/pri-mescaline-module";
 
@@ -22,16 +22,16 @@ describe("pri-mescaline-module", () => {
       expect(table.length).toBeGreaterThan(0);
       for (const row of table) for (const v of Object.values(row)) if (typeof v === "string") expect(v.trim()).not.toBe("");
     }
-    expect(LATUDA_MIRROR_ONELINER).toBe("Latuda suppresses the serotonin system daily. Mescaline resets it once.");
+    expect(OUTCOMES_CAVEAT).toMatch(/not a clinical trial/);
     expect(OUTCOMES_SOURCE).toMatch(/n=452/);
   });
 
-  it("has PRE, DAY-OF and POST-INTEGRATION supplement phases with https or empty links", () => {
+  it("has PRE, DAY-OF and POST-INTEGRATION supplement phases and no shop links", () => {
     expect(SUPPLEMENT_STACKS.map((p) => p.phase)).toEqual(["PRE", "DAY-OF", "POST-INTEGRATION"]);
     for (const phase of SUPPLEMENT_STACKS) {
       for (const item of phase.items) {
         expect(item.name && item.dosage).toBeTruthy();
-        expect(item.searchUrl === "" || /^https:\/\//.test(item.searchUrl)).toBe(true);
+        expect(item).not.toHaveProperty("searchUrl");
       }
     }
   });

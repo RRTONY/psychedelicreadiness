@@ -182,22 +182,15 @@ describe("PsychedelicReadinessIndex", { timeout: 120000 }, () => {
     expect(button("Compare Medicines")).toBeInTheDocument();
   });
 
-  it("the referral request needs email and region, then confirms", async () => {
+  it("offers no facility introduction on the results (removed, QA 2026-11-13)", async () => {
     sessionStorage.setItem("pri-consent", "true");
-    vi.spyOn(console, "error").mockImplementation(() => {}); // jsdom can't open the mailto: link
     const user = userEvent.setup();
     render(<PsychedelicReadinessIndex />);
     await startQuiz(user);
     await finishQuiz(cleared(() => 5));
-    await user.click(screen.getByRole("checkbox", { name: /connect me with a vetted facility/i }));
-    const send = button(/send introduction request/i);
-    expect(send).toBeDisabled();
-    await user.type(screen.getByPlaceholderText("Your email"), "ada@example.com");
-    expect(send).toBeDisabled();
-    await user.type(screen.getByPlaceholderText(/your region/i), "London");
-    expect(send).toBeEnabled();
-    await user.click(send);
-    await waitFor(() => expect(screen.getByText("Your email client should be open.")).toBeInTheDocument());
+    expect(button("Save My Results")).toBeInTheDocument();
+    expect(screen.queryByText(/vetted facility/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /send introduction request/i })).not.toBeInTheDocument();
   });
 
   it("Back on a later pathway question goes to the previous one, and its slider shows the chosen value", async () => {
@@ -464,17 +457,6 @@ describe("PsychedelicReadinessIndex", { timeout: 120000 }, () => {
       const top = expected.topMatches[0];
       await user.click(button(`Open ${top.name}: match #1`));
       expect(await screen.findByText(MEDICINES.find((x) => x.id === top.id)!.latin, {}, { timeout: 15000 })).toBeInTheDocument();
-    });
-
-    it("the referral form keeps the optional name", async () => {
-      vi.spyOn(console, "error").mockImplementation(() => {});
-      const user = userEvent.setup();
-      render(<PsychedelicReadinessIndex />);
-      await startQuiz(user);
-      await finishQuiz(cleared(() => 5));
-      await user.click(screen.getByRole("checkbox", { name: /connect me with a vetted facility/i }));
-      await user.type(screen.getByPlaceholderText("Your name"), "Ada");
-      expect(screen.getByPlaceholderText("Your name")).toHaveValue("Ada");
     });
   });
 
