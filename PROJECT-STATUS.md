@@ -3,7 +3,29 @@
 > The main project file. Read the "Current status" block at the start of every session and update
 > it (plus the items you finished) at the end.
 
-## Current status — 2026-11-13
+## Current status — 2026-11-17
+
+**MCP access, 2026-11-17:** Ben (ben@ramprate.com, `write`) added to `MCP_ADMIN_USERS` in the local
+env files of this repo, ramprate-ui (`.env`) and tonyg-site (`.env.local`); the three lists are
+identical (10 people). Login on the RampRate MCP server checked (works, as Chitraket).
+- [x] psychedelicreadiness.com: `MCP_ADMIN_USERS` updated on Netlify via API (user said yes),
+  redeployed (deploy `6afb5895612cb3cb40d40fa4`, ready). Verified live: Ben's token is accepted
+  (`tools/list` returns 22 tools). Empty `MCP_PUBLIC_ORIGIN` / `MCP_OAUTH_REDIRECT_HOSTS` removed
+  from local `.env.local` (live metadata already advertises https://psychedelicreadiness.com).
+- [x] Live MCP server was broken for everyone (Netlify's `GITHUB_TOKEN` got 401 Bad credentials).
+  User said yes: Netlify `GITHUB_TOKEN` replaced with the working local one and `MCP_SITE_ORIGIN`
+  set to https://psychedelicreadiness.com (was the jolly-salamander netlify.app URL), locally and
+  on Netlify. Redeployed (`6afb5e98187f360dd9718e8c`, ready). Verified live: `get_project_rules`
+  as Ben returns `{name: Ben, role: write}`.
+- [x] ramprate.com and tonygreenberg.com: `MCP_ADMIN_USERS` with Ben set on Netlify (both live
+  lists matched the local ones minus Ben), both redeployed. All four lists are now identical.
+- [x] Git remote URL no longer carries the GitHub token; git signs in through the macOS keychain
+  (push dry-run OK). The token itself was exposed in a chat log, so it should still be rotated on
+  GitHub (owner of the token), then updated in the keychain.
+- Note: "VCOS" is a separate Netlify site, vcos.ramprate.com (Supabase + `AUTH_SECRET`, no
+  `MCP_ADMIN_USERS`). Ben's login there is managed in that app, not in these lists.
+
+## Earlier status — 2026-11-13
 
 **QA pass received 2026-11-13 (tester, Chrome, 11 Nov), checked against the code.**
 - Confirmed passing: A2 hard-stop pause, A3 Next disabled until answered, A4 council line, A5 QR,
