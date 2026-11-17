@@ -6,8 +6,9 @@
 ## Current status — 2026-11-18
 
 **Site-watch report (RED, pasted 2026-11-18) checked item by item, live with curl:**
-- [x] **Real safety gap found and fixed on branch `fix/port-tony-safety-holds` (NOT live, not
-  committed yet: waiting for the user's yes).** Tony's emergency holds on tonygreenberg.com
+- [x] **Real safety gap found and fixed on branch `fix/port-tony-safety-holds` (pushed 2026-11-18,
+  NOT live; `gh` not signed in here, so the pull request must be opened by a person:
+  https://github.com/RRTONY/psychedelicreadiness/pull/new/fix/port-tony-safety-holds).** Tony's emergency holds on tonygreenberg.com
   (#44 `?m=ibogaine`, #48 the 14 medicines with no reviewed safety data: hold page + kept out of
   matches) were never copied here, and tonygreenberg.com's 307s (#49) now send those links here,
   around the holds. Live check: `psychedelicreadiness.com/?m=ibogaine` and `?m=psilocin` show the
