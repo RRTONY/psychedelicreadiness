@@ -16,7 +16,9 @@
   `computeScores` in `pri-shared.ts`, plus tests. `/` is now dynamic (same as Tony's version);
   every other route still static. Verified: typecheck, lint, `test:changed` (93 passed), build,
   `pnpm start` (ibogaine, kanna, vls01, mixed `?m=psilocybin&m=mm120` held; `?m=psilocybin`,
-  plain `/`, unknown ids not held; 404 still 404). Not checked visually at 375/820/1280px.
+  plain `/`, unknown ids not held; 404 still 404). Checked visually 2026-11-18 at 375 (Chrome
+  device emulation, no sideways scroll), 820 and 1280px: readable, centered, menu works. PR still
+  not opened as of 2026-11-18 (GitHub API shows none).
 - Not a fault (evidence): sitemap 541 → 533 is exactly the 8 PRI pages #49 removed on purpose.
   `/heroes` was never a real page (legacy rendered the homepage; tonyg `project_go_live_record`).
   `/api/img/iboga-hero-KSMG...` is the old Manus image proxy, removed on purpose (zero-Manus rule);
