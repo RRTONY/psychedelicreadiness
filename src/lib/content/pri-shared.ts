@@ -102,7 +102,9 @@ export function computeScores(answers: readonly (number | null | undefined)[]): 
 
   // "Hard Stop" entries (Brugmansia, Datura) are deliriants listed only as a
   // warning: they must never be recommended, whatever the answers.
-  const allMeds = MEDICINES.filter((m) => m.complexityLevel !== "Hard Stop").map(getMedicineWithSafety);
+  // Medicines without reviewed safety data are withheld from every personal match, the report
+  // and the sequence (Tony's hold #48 on tonygreenberg.com, copied here 2026-11-18).
+  const allMeds = MEDICINES.filter((m) => m.complexityLevel !== "Hard Stop" && SAFETY_DATA[m.id]).map(getMedicineWithSafety);
   const scored: ScoredMedicine[] = allMeds
     .map((m) => {
       let s = 0;
