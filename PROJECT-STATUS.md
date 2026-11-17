@@ -6,19 +6,18 @@
 ## Current status — 2026-11-18
 
 **Site-watch report (RED, pasted 2026-11-18) checked item by item, live with curl:**
-- [x] **Real safety gap found and fixed on branch `fix/port-tony-safety-holds` (pushed 2026-11-18,
-  NOT live; `gh` not signed in here, so the pull request must be opened by a person:
-  https://github.com/RRTONY/psychedelicreadiness/pull/new/fix/port-tony-safety-holds).** Tony's emergency holds on tonygreenberg.com
+- [x] **Real safety gap found and fixed: LIVE 2026-11-18 (PR #3, merged by the user).**
+  Tony's emergency holds on tonygreenberg.com
   (#44 `?m=ibogaine`, #48 the 14 medicines with no reviewed safety data: hold page + kept out of
-  matches) were never copied here, and tonygreenberg.com's 307s (#49) now send those links here,
-  around the holds. Live check: `psychedelicreadiness.com/?m=ibogaine` and `?m=psilocin` show the
-  full tool, no hold. Ported Tony's code and wording to `src/app/page.tsx` and
+  matches) were never copied here, and tonygreenberg.com's 307s (#49) sent those links here,
+  around the holds. Ported Tony's code and wording to `src/app/page.tsx` and
   `computeScores` in `pri-shared.ts`, plus tests. `/` is now dynamic (same as Tony's version);
   every other route still static. Verified: typecheck, lint, `test:changed` (93 passed), build,
   `pnpm start` (ibogaine, kanna, vls01, mixed `?m=psilocybin&m=mm120` held; `?m=psilocybin`,
-  plain `/`, unknown ids not held; 404 still 404). Checked visually 2026-11-18 at 375 (Chrome
-  device emulation, no sideways scroll), 820 and 1280px: readable, centered, menu works. PR still
-  not opened as of 2026-11-18 (GitHub API shows none).
+  plain `/`, unknown ids not held; 404 still 404). Checked live after merge: ibogaine, kanna, vls01, mixed links held; `/`, `?m=psilocybin` not;
+  tonygreenberg.com's ibogaine link lands on the hold; 404 still 404; noindex still on.
+  Checked visually 2026-11-18 at 375 (Chrome
+  device emulation, no sideways scroll), 820 and 1280px: readable, centered, menu works.
 - Not a fault (evidence): sitemap 541 → 533 is exactly the 8 PRI pages #49 removed on purpose.
   `/heroes` was never a real page (legacy rendered the homepage; tonyg `project_go_live_record`).
   `/api/img/iboga-hero-KSMG...` is the old Manus image proxy, removed on purpose (zero-Manus rule);
