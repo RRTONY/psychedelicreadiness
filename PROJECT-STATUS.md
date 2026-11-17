@@ -3,7 +3,39 @@
 > The main project file. Read the "Current status" block at the start of every session and update
 > it (plus the items you finished) at the end.
 
-## Current status — 2026-11-17
+## Current status — 2026-11-18
+
+**Site-watch report (RED, pasted 2026-11-18) checked item by item, live with curl:**
+- [x] **Real safety gap found and fixed on branch `fix/port-tony-safety-holds` (pushed 2026-11-18,
+  NOT live; `gh` not signed in here, so the pull request must be opened by a person:
+  https://github.com/RRTONY/psychedelicreadiness/pull/new/fix/port-tony-safety-holds).** Tony's emergency holds on tonygreenberg.com
+  (#44 `?m=ibogaine`, #48 the 14 medicines with no reviewed safety data: hold page + kept out of
+  matches) were never copied here, and tonygreenberg.com's 307s (#49) now send those links here,
+  around the holds. Live check: `psychedelicreadiness.com/?m=ibogaine` and `?m=psilocin` show the
+  full tool, no hold. Ported Tony's code and wording to `src/app/page.tsx` and
+  `computeScores` in `pri-shared.ts`, plus tests. `/` is now dynamic (same as Tony's version);
+  every other route still static. Verified: typecheck, lint, `test:changed` (93 passed), build,
+  `pnpm start` (ibogaine, kanna, vls01, mixed `?m=psilocybin&m=mm120` held; `?m=psilocybin`,
+  plain `/`, unknown ids not held; 404 still 404). Checked visually 2026-11-18 at 375 (Chrome
+  device emulation, no sideways scroll), 820 and 1280px: readable, centered, menu works. PR still
+  not opened as of 2026-11-18 (GitHub API shows none).
+- Not a fault (evidence): sitemap 541 → 533 is exactly the 8 PRI pages #49 removed on purpose.
+  `/heroes` was never a real page (legacy rendered the homepage; tonyg `project_go_live_record`).
+  `/api/img/iboga-hero-KSMG...` is the old Manus image proxy, removed on purpose (zero-Manus rule);
+  no live page references it (checked both sites' HTML). `/medicine` → `/psychedelic-readiness-index`
+  (308) → `psychedelicreadiness.com/` (307) is documented in tonyg `next.config.ts` /
+  `pri-moved.ts`; there is no CMS by owner decision.
+- [ ] Decision: the reporter says "no cutover is approved", but the tonygreenberg.com → here
+  redirect (#49) is live (user approved A1 on 2026-11-13 on behalf of Tony/Darryl/Sam). Keep or
+  revert is the owner's call.
+- [ ] Analytics: this site has no analytics tag at all (tonygreenberg.com has GA4 G-4GVW40S47N).
+  Adding one changes the Privacy page and needs Tony's yes.
+- [ ] 14 (not 16) cards still unreviewed; Darryl's sign-off doc unchanged. "Public legacy
+  assessment exposure": couldn't match it to a live URL (legacy PRI 404, `/pri-research` gated,
+  tonyg PRI pages redirect); need the Nov 10 report's exact URL.
+- [ ] Nobody owns the site-watch process; that's a staffing decision, not code.
+
+## Status — 2026-11-17
 
 **MCP access, 2026-11-17:** Ben (ben@ramprate.com, `write`) added to `MCP_ADMIN_USERS` in the local
 env files of this repo, ramprate-ui (`.env`) and tonyg-site (`.env.local`); the three lists are

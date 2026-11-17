@@ -33,6 +33,15 @@ describe("READINESS_LEVELS", () => {
 });
 
 describe("computeScores", () => {
+  it("never recommends or sequences a medicine without reviewed safety data", () => {
+    const unreviewedNames = MEDICINES.filter((m) => !SAFETY_DATA[m.id]).map((m) => m.name);
+    for (const score of [1, 5, 7, 10]) {
+      const result = computeScores(all(score));
+      for (const match of result.topMatches) expect(SAFETY_DATA[match.id]).toBeDefined();
+      for (const step of result.sequence) expect(unreviewedNames).not.toContain(step.name);
+    }
+  });
+
   it("scores every dimension and the overall from the 1-10 slider answers (x10)", () => {
     const r = computeScores(all(10));
     for (const d of DIMS) expect(r.dimScores[d]).toBe(100);
