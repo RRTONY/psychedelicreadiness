@@ -38,6 +38,11 @@ const nextConfig: NextConfig = {
       { source: "/pri", destination: "/", permanent: true },
       // The 7 Nov 2026 scoring review's QR code uses tonygreenberg.com's path for the disclaimer.
       { source: "/psychedelic-readiness-index/disclaimer", destination: "/disclaimer", permanent: true },
+      // The site watch (2026-11-19) keeps checking /medicine and /heroes. Neither was ever a
+      // page. The medicine hub is the Index; Tony's heroes and influences are on his own site.
+      { source: "/medicine", destination: "/", permanent: true },
+      { source: "/medicines", destination: "/", permanent: true },
+      { source: "/heroes", destination: "https://tonygreenberg.com/the-territory", permanent: true },
     ];
   },
   images: {
