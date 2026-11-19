@@ -45,6 +45,16 @@ decisions below (redirect keep/revert, analytics, 14 unreviewed cards, site-watc
   psychedelicreadiness.com/ (was 308 → 307 chain). Verified: typecheck, lint, next.config tests
   (6 passed), build, `next start` (both redirect; `/pri-research` 200, unknown page 404,
   `?m=ibogaine` still carried over). PRI pages kept at 307, not 301: this site is still noindex.
+- [ ] This site, branch `fix/heroes-medicine-redirects` (pushed 2026-11-20, waiting to merge):
+  `/heroes` 308 → https://tonygreenberg.com/the-territory, `/medicine` and `/medicines` 308 → `/`
+  (all three were 404 here). Verified: typecheck, lint, `next-config` tests (3 passed), build,
+  `next start` on port 3007 (3000 is held by another app, pid 17881): redirects right,
+  `?m=ibogaine` hold intact, unknown page 404, noindex on. Pushing to `main` directly was blocked
+  by Claude Code's permission check; merge on GitHub.
+- [ ] Outside links not answering 2026-11-20 (Tony's content, needs the right address from him):
+  clearskyrecovery.com (no DNS; `iboga-ibogaine/page.tsx`, `pri-iboga-facility-data.ts`),
+  ibogainealliance.org (no response; GITA guideline in `pri-iboga-compass-data.ts`),
+  tabularasaretreat.com (times out). experienceibogaine.com is 403 to bots only.
 
 ## Status — 2026-11-18
 

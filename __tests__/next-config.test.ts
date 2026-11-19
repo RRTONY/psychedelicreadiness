@@ -8,3 +8,22 @@ describe("next.config headers", () => {
     expect(hold?.headers).toContainEqual({ key: "X-Robots-Tag", value: "noindex, nofollow" });
   });
 });
+
+describe("next.config redirects", () => {
+  it("sends /medicine and /medicines to the Index and /heroes to Tony's heroes page", async () => {
+    const redirects = await nextConfig.redirects!();
+    expect(redirects).toContainEqual({ source: "/medicine", destination: "/", permanent: true });
+    expect(redirects).toContainEqual({ source: "/medicines", destination: "/", permanent: true });
+    expect(redirects).toContainEqual({
+      source: "/heroes",
+      destination: "https://tonygreenberg.com/the-territory",
+      permanent: true,
+    });
+  });
+
+  it("keeps tonygreenberg.com's old Index addresses working here", async () => {
+    const redirects = await nextConfig.redirects!();
+    expect(redirects).toContainEqual({ source: "/psychedelic-readiness-index", destination: "/", permanent: true });
+    expect(redirects).toContainEqual({ source: "/pri", destination: "/", permanent: true });
+  });
+});
