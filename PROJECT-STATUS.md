@@ -5,6 +5,32 @@
 
 ## Current status — 2026-11-20
 
+**Ready to merge (pushed 2026-11-20; pushing to `main` from here is blocked by Claude Code's
+permission check, so a person merges on GitHub):**
+- [ ] `fix/heroes-medicine-redirects`: `/heroes` → tonygreenberg.com/the-territory, `/medicine`
+  and `/medicines` → `/` (were 404). Checked on a build (`next start` on 3007; 3000 is another app).
+- [ ] tonyg-site `fix/heroes-and-medicine-redirect`: `/heroes` → `/the-territory`, `/medicine` one
+  hop to psychedelicreadiness.com.
+- [ ] `feat/site-watch`: `scripts/site-watch.sh` + daily GitHub Action (07:00 IST, plus a "Run
+  workflow" button). Checks both sites' redirects, 404s, Tony's safety holds (`?m=ibogaine`,
+  `?m=kanna` held, `?m=psilocybin` not) and every sitemap page; reports noindex as info. Run live
+  2026-11-20: everything ok except the 4 checks for the two unmerged fixes above. Failure emails
+  go to whoever GitHub notifies for this repo's Actions; a named owner is still needed.
+- [ ] `feat/analytics`: GA4 behind `NEXT_PUBLIC_GA_MEASUREMENT_ID` (off when unset). On: tag only
+  on the live domain, page address without query string, Privacy page and its description switch
+  to the Google Analytics wording (`buildPrivacy` in `site-pages.ts`). Verified: typecheck, lint,
+  `test:changed` (22 passed, 100% lines), builds with the id unset (no tag, "no analytics") and set
+  (tag, GA text); route table unchanged. **Going live = Tony's yes + setting the id in Netlify**
+  (which GA4 property: a new stream, or tonygreenberg.com's G-4GVW40S47N). Then bump
+  `LAST_REVIEWED` on the Privacy page.
+- [ ] `release/lift-noindex` (Sam): still merges cleanly with main and with the heroes fix.
+- [ ] Darryl: the 14 cards' review doc already exists
+  (https://claude.ai/artifact/WdVZmDfs1A1fXDNcKiFUVN); they stay on the safety hold until he ticks.
+- [ ] Outside links not answering 2026-11-20 (Tony's content): clearskyrecovery.com (no DNS),
+  ibogainealliance.org (GITA guidelines, no response), tabularasaretreat.com (times out).
+
+## Earlier — 2026-11-20 (recheck)
+
 **Nov 19 site-watch report (RED, same five findings as Nov 18) rechecked live 2026-11-20, curl:**
 nothing changed since the Nov 18 check below. Iboga `/api/img/` 404, `/heroes` 404 (both sites),
 `/medicine` 308 → `/psychedelic-readiness-index` 307 → psychedelicreadiness.com/ 200, sitemap 533
