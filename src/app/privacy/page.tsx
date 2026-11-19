@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import { SITE_OPEN_GRAPH } from "@/lib/site-open-graph";
 import { SitePage, SiteList, SiteParagraphs, SiteSection } from "@/components/site-page";
 import { CONTACT_EMAIL, PRIVACY } from "@/lib/content/site-pages";
+import { ANALYTICS_ON } from "@/lib/analytics";
 
 // How the site handles information, checked against the code (see `site-pages.ts`).
 export const metadata: Metadata = {
   title: "Privacy — Psychedelic Readiness Index",
-  description: "What psychedelicreadiness.com does with your information: answers stay in your browser, no cookies, no analytics, and forms email Tony only when you send them.",
+  description: ANALYTICS_ON
+    ? "How psychedelicreadiness.com handles your information: answers stay in your browser, visits are counted with Google Analytics, forms email Tony only when sent."
+    : "What psychedelicreadiness.com does with your information: answers stay in your browser, no cookies, no analytics, and forms email Tony only when you send them.",
   alternates: { canonical: "/privacy" },
   openGraph: { ...SITE_OPEN_GRAPH, url: "/privacy" },
 };
