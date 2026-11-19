@@ -3,32 +3,38 @@
 > The main project file. Read the "Current status" block at the start of every session and update
 > it (plus the items you finished) at the end.
 
-## Current status — 2026-11-20
+## Current status — 2026-11-20 (evening)
 
-**Ready to merge (pushed 2026-11-20; pushing to `main` from here is blocked by Claude Code's
-permission check, so a person merges on GitHub):**
-- [ ] `fix/heroes-medicine-redirects`: `/heroes` → tonygreenberg.com/the-territory, `/medicine`
-  and `/medicines` → `/` (were 404). Checked on a build (`next start` on 3007; 3000 is another app).
-- [ ] tonyg-site `fix/heroes-and-medicine-redirect`: `/heroes` → `/the-territory`, `/medicine` one
-  hop to psychedelicreadiness.com. PR #51 open (checked 2026-11-20): all checks green, mergeable,
-  preview deploy-preview-51 verified (both redirects right, PRI 307s, `/pri-research` 200, 404 ok).
-- [ ] `feat/site-watch`: `scripts/site-watch.sh` + daily GitHub Action (07:00 IST, plus a "Run
-  workflow" button). Checks both sites' redirects, 404s, Tony's safety holds (`?m=ibogaine`,
-  `?m=kanna` held, `?m=psilocybin` not) and every sitemap page; reports noindex as info. Run live
-  2026-11-20: everything ok except the 4 checks for the two unmerged fixes above. Failure emails
-  go to whoever GitHub notifies for this repo's Actions; a named owner is still needed.
-- [ ] `feat/analytics`: GA4 behind `NEXT_PUBLIC_GA_MEASUREMENT_ID` (off when unset). On: tag only
-  on the live domain, page address without query string, Privacy page and its description switch
-  to the Google Analytics wording (`buildPrivacy` in `site-pages.ts`). Verified: typecheck, lint,
-  `test:changed` (22 passed, 100% lines), builds with the id unset (no tag, "no analytics") and set
-  (tag, GA text); route table unchanged. **Going live = Tony's yes + setting the id in Netlify**
-  (which GA4 property: a new stream, or tonygreenberg.com's G-4GVW40S47N). Then bump
-  `LAST_REVIEWED` on the Privacy page.
-- [ ] `release/lift-noindex` (Sam): still merges cleanly with main and with the heroes fix.
-- [ ] Darryl: the 14 cards' review doc already exists
-  (https://claude.ai/artifact/WdVZmDfs1A1fXDNcKiFUVN); they stay on the safety hold until he ticks.
-- [ ] Outside links not answering 2026-11-20 (Tony's content): clearskyrecovery.com (no DNS),
-  ibogainealliance.org (GITA guidelines, no response), tabularasaretreat.com (times out).
+**Live 2026-11-20 (merged by the user, checked live with `scripts/site-watch.sh`: all clear):**
+- [x] PR #4 `/heroes` → tonygreenberg.com/the-territory, `/medicine` + `/medicines` → `/`.
+- [x] PR #5 daily site watch (GitHub Action 07:00 IST). A named owner for its emails is still needed.
+- [x] PR #6 Google Analytics switch: merged, **off** (no `NEXT_PUBLIC_GA_MEASUREMENT_ID` on Netlify;
+  live home has no tag, Privacy says no analytics). Going on = Tony's yes + the id in Netlify, then
+  bump `LAST_REVIEWED`.
+- [x] PR #7 noindex lifted: live pages no longer send `X-Robots-Tag: noindex` (netlify.app hosts
+  still do). This answers Search Console's "Excluded by 'noindex' tag" for this site; Google clears
+  it on its next crawl.
+- [x] tonyg-site PR #51 (`/heroes`, one-hop `/medicine`): merged and live.
+
+**Search Console "Page with redirect" on tonygreenberg.com (2026-11-20):** tonyg-site branch
+`fix/search-console-redirects` pushed, PR to open + merge: PRI move 307 → permanent 308 (now that
+this site is indexable), links go to final addresses (`priHref`, essay links via
+`resolveInternalHref`, "Originally published at" as text). Production-build crawl: internal
+redirecting links 91 → 1 (`/flow-circuit` → flow.tonygreenberg.com, intended). Verified:
+typecheck, lint, `vitest --changed` (412 passed), build, `next start`. This repo's branch
+`chore/site-watch-permanent-pri` updates the site watch to expect those 308s (merge right after the
+tonyg one, or the watch fails) and now fails if noindex comes back.
+Note: "Page with redirect" never goes to zero: old addresses that redirect on purpose (WordPress
+posts, http/www) are listed there by design. tonygreenberg.com's Search Console property is
+"unverified" for the MCP service account, so the exact URL list couldn't be read.
+
+**Still open:**
+- [ ] Darryl: the 14 cards' review doc (https://claude.ai/artifact/WdVZmDfs1A1fXDNcKiFUVN); they
+  stay on the safety hold until he ticks.
+- [ ] Tony: analytics yes/no and which GA4 property; new addresses for clearskyrecovery.com (no
+  DNS), ibogainealliance.org (no response), tabularasaretreat.com (times out), or remove them.
+- [ ] A named owner for the site-watch emails.
+- [ ] GitHub token on Netlify expires 2026-11-21: renew.
 
 ## Earlier — 2026-11-20 (recheck)
 

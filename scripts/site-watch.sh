@@ -49,16 +49,18 @@ page_has "$PR/?m=ibogaine" "Temporary safety hold"
 page_has "$PR/?m=kanna" "Temporary safety hold"
 page_lacks "$PR/?m=psilocybin" "Temporary safety hold"
 if curl -sI --max-time 30 "$PR/" | grep -qi "x-robots-tag: noindex"; then
-  info "$PR/" "hidden from Google (noindex), waiting on Sam"
+  bad "$PR/" "hidden from Google (noindex) again; it was lifted on 2026-11-20"
 else
-  info "$PR/" "visible to Google (noindex lifted)"
+  ok "$PR/" "visible to Google (no noindex)"
 fi
 
-# --- tonygreenberg.com: the PRI pages moved here (temporary 307, query kept) ---------------
-expect "$TG/psychedelic-readiness-index" 307 "$PR/"
-expect "$TG/psychedelic-readiness-index?m=ibogaine" 307 "$PR/?m=ibogaine"
-expect "$TG/iboga-ibogaine" 307 "$PR/iboga-ibogaine"
-expect "$TG/medicine" 307 "$PR/"
+# --- tonygreenberg.com: the PRI pages moved here (permanent 308 since noindex was lifted on
+# 2026-11-20, tonygreenberg-website fix/search-console-redirects; query kept) ----------------
+expect "$TG/psychedelic-readiness-index" 308 "$PR/"
+expect "$TG/psychedelic-readiness-index?m=ibogaine" 308 "$PR/?m=ibogaine"
+expect "$TG/iboga-ibogaine" 308 "$PR/iboga-ibogaine"
+expect "$TG/medicine" 308 "$PR/"
+expect "$TG/psychedelic-readiness-index/calibration" 308 "$PR/pri-calibration"
 expect "$TG/heroes" 308 "$TG/the-territory"
 expect "$TG/pri-research" 200
 expect "$TG/the-territory" 200
