@@ -4,6 +4,7 @@ import { Playfair_Display, DM_Mono, Source_Sans_3 } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteChrome } from "@/components/site-chrome";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import "./globals.css";
 
 const playfairDisplay = Playfair_Display({
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteChrome>
           <SiteFooter />
         </SiteChrome>
+        <GoogleAnalytics />
       </body>
     </html>
   );
