@@ -1,0 +1,17 @@
+name: Site watch
+
+# Daily check of psychedelicreadiness.com and tonygreenberg.com (scripts/site-watch.sh).
+# The results table is on the run's summary page; a failed run emails whoever GitHub notifies
+# for this repo's Actions (the person who last changed this schedule, plus anyone watching).
+on:
+  schedule:
+    - cron: "30 1 * * *" # 07:00 IST every day
+  workflow_dispatch: # "Run workflow" button for a check on demand
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/site-watch.sh
