@@ -3,7 +3,23 @@
 > The main project file. Read the "Current status" block at the start of every session and update
 > it (plus the items you finished) at the end.
 
-## Current status — 2026-11-18
+## Current status — 2026-11-20
+
+**Nov 19 site-watch report (RED, same five findings as Nov 18) rechecked live 2026-11-20, curl:**
+nothing changed since the Nov 18 check below. Iboga `/api/img/` 404, `/heroes` 404 (both sites),
+`/medicine` 308 → `/psychedelic-readiness-index` 307 → psychedelicreadiness.com/ 200, sitemap 533
+(+14 here). Crawled all 547 sitemap URLs on both sites: all 200, zero `api/img`/`manuscdn`/
+`iboga-hero` references (the tonyg-site source hits are code comments only). The 8 PRI pages +
+disclaimer 307 here and are out of tonyg's sitemap; `/pri-research` 200; `?m=ibogaine` still lands
+on the safety hold; noindex still on. No code change needed. Open items are still the four
+decisions below (redirect keep/revert, analytics, 14 unreviewed cards, site-watch owner).
+- [ ] tonyg-site branch `fix/heroes-and-medicine-redirect` (pushed 2026-11-20, PR to open and
+  merge after the user's yes): `/heroes` 308 → `/the-territory`; `/medicine` one hop 307 →
+  psychedelicreadiness.com/ (was 308 → 307 chain). Verified: typecheck, lint, next.config tests
+  (6 passed), build, `next start` (both redirect; `/pri-research` 200, unknown page 404,
+  `?m=ibogaine` still carried over). PRI pages kept at 307, not 301: this site is still noindex.
+
+## Status — 2026-11-18
 
 **Site-watch report (RED, pasted 2026-11-18) checked item by item, live with curl:**
 - [x] **Real safety gap found and fixed: LIVE 2026-11-18 (PR #3, merged by the user).**
