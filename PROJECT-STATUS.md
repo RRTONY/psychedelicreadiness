@@ -10,7 +10,8 @@ permission check, so a person merges on GitHub):**
 - [ ] `fix/heroes-medicine-redirects`: `/heroes` → tonygreenberg.com/the-territory, `/medicine`
   and `/medicines` → `/` (were 404). Checked on a build (`next start` on 3007; 3000 is another app).
 - [ ] tonyg-site `fix/heroes-and-medicine-redirect`: `/heroes` → `/the-territory`, `/medicine` one
-  hop to psychedelicreadiness.com.
+  hop to psychedelicreadiness.com. PR #51 open (checked 2026-11-20): all checks green, mergeable,
+  preview deploy-preview-51 verified (both redirects right, PRI 307s, `/pri-research` 200, 404 ok).
 - [ ] `feat/site-watch`: `scripts/site-watch.sh` + daily GitHub Action (07:00 IST, plus a "Run
   workflow" button). Checks both sites' redirects, 404s, Tony's safety holds (`?m=ibogaine`,
   `?m=kanna` held, `?m=psilocybin` not) and every sitemap page; reports noindex as info. Run live
