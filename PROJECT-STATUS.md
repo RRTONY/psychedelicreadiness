@@ -3,6 +3,13 @@
 > The main project file. Read the "Current status" block at the start of every session and update
 > it (plus the items you finished) at the end.
 
+## Current status — 2026-11-22
+
+**Assessment availability change in review, not live (PR #8):**
+- [ ] The page-wide hold on `?m=ibogaine` is removed so the informational index opens. No scoring threshold, cardiac hard-stop, or medicine safety data is changed. Links to 14 substances without reviewed safety data remain held.
+- [x] Preview checked: `?m=ibogaine` loads the Index and shows “Begin Assessment”; Netlify build and GitHub checks pass. Existing automated cardiac test still asserts score, matches, save and referral are paused for a negative cardiac answer.
+- [ ] Independent mobile visual check and owner approval to publish are pending.
+
 ## Current status — 2026-11-20
 
 **Ready to merge (pushed 2026-11-20; pushing to `main` from here is blocked by Claude Code's
