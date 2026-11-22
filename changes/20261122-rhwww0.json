@@ -8,11 +8,66 @@
     "name": "Tony Greenberg",
     "email": "t@ramprate.com"
   },
-  "status": "draft",
+  "status": "ready_for_review",
   "createdAt": "2026-11-22T20:29:18.559Z",
   "branch": "admin/mcp-20261122-rhwww0",
   "prNumber": 8,
   "undoes": null,
   "conversationUrl": null,
-  "lastEditedAt": "2026-11-22T20:36:40.199Z"
+  "lastEditedAt": "2026-11-22T20:36:40.199Z",
+  "lint": {
+    "headSha": "1bfa906c939ffbebdccc6f2a7cd608ca646aa535",
+    "files": [
+      {
+        "path": "__tests__/app/page.test.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/app/page.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      }
+    ]
+  },
+  "summary": "Removed the page-wide block for the ibogaine assessment link so the informational Index opens. Cardiac hard-stop scoring and the 14 unreviewed-medicine holds remain. The preview build and CI checks pass; mobile visual QA was not completed.",
+  "beforeAfter": [
+    {
+      "_key": "df04f9d9c59d",
+      "label": "Ibogaine assessment link",
+      "before": "Opening ?m=ibogaine shows a temporary safety-hold page and blocks the Index.",
+      "after": "Opening ?m=ibogaine shows the Index with the Begin Assessment option. The questionnaire's cardiac hard-stop remains active."
+    }
+  ],
+  "files": [
+    {
+      "_key": "9e7a7de0c470",
+      "path": "PROJECT-STATUS.md",
+      "status": "modified"
+    },
+    {
+      "_key": "b3f8f14fd748",
+      "path": "__tests__/app/page.test.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "19b55e395bfa",
+      "path": "scripts/site-watch.sh",
+      "status": "modified"
+    },
+    {
+      "_key": "f7d1c5f6a78f",
+      "path": "src/app/page.tsx",
+      "status": "modified"
+    }
+  ],
+  "areas": [
+    "Behind-the-scenes file: PROJECT-STATUS.md",
+    "Behind-the-scenes file: __tests__/app/page.test.tsx",
+    "Behind-the-scenes file: scripts/site-watch.sh",
+    "Home page"
+  ],
+  "submittedAt": "2026-11-22T20:38:38.020Z"
 }
