@@ -3,6 +3,13 @@
 > The main project file. Read the "Current status" block at the start of every session and update
 > it (plus the items you finished) at the end.
 
+## Current status — 2026-11-22
+
+**Assessment availability change in review, not live (PR #8):**
+- [ ] The page-wide hold on `?m=ibogaine` is removed so the informational index opens. No scoring threshold, cardiac hard-stop, or medicine safety data is changed. Links to 14 substances without reviewed safety data remain held.
+- [x] Preview checked: `?m=ibogaine` loads the Index and shows “Begin Assessment”; Netlify build and GitHub checks pass. Existing automated cardiac test still asserts score, matches, save and referral are paused for a negative cardiac answer.
+- [ ] Independent mobile visual check and owner approval to publish are pending.
+
 ## Current status — 2026-11-20
 
 **Ready to merge (pushed 2026-11-20; pushing to `main` from here is blocked by Claude Code's
@@ -13,10 +20,10 @@ permission check, so a person merges on GitHub):**
   hop to psychedelicreadiness.com. PR #51 open (checked 2026-11-20): all checks green, mergeable,
   preview deploy-preview-51 verified (both redirects right, PRI 307s, `/pri-research` 200, 404 ok).
 - [ ] `feat/site-watch`: `scripts/site-watch.sh` + daily GitHub Action (07:00 IST, plus a "Run
-  workflow" button). Checks both sites' redirects, 404s, Tony's safety holds (`?m=ibogaine`,
-  `?m=kanna` held, `?m=psilocybin` not) and every sitemap page; reports noindex as info. Run live
-  2026-11-20: everything ok except the 4 checks for the two unmerged fixes above. Failure emails
-  go to whoever GitHub notifies for this repo's Actions; a named owner is still needed.
+  workflow" button). Checks both sites' redirects, 404s, that `?m=ibogaine` opens the assessment,
+  `?m=kanna` stays held and `?m=psilocybin` is not held, plus every sitemap page; reports noindex
+  as info. Run live 2026-11-20: everything ok except the 4 checks for the two unmerged fixes above.
+  Failure emails go to whoever GitHub notifies for this repo's Actions; a named owner is still needed.
 - [ ] `feat/analytics`: GA4 behind `NEXT_PUBLIC_GA_MEASUREMENT_ID` (off when unset). On: tag only
   on the live domain, page address without query string, Privacy page and its description switch
   to the Google Analytics wording (`buildPrivacy` in `site-pages.ts`). Verified: typecheck, lint,

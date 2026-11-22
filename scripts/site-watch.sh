@@ -44,8 +44,10 @@ expect "$PR/no-such-page-site-watch" 404
 expect "$PR/psychedelic-readiness-index" 308 "$PR/"
 expect "$PR/medicine" 308 "$PR/"
 expect "$PR/heroes" 308 "$TG/the-territory"
-# Safety: Tony's emergency holds (ibogaine, and the 14 medicines with no reviewed safety data).
-page_has "$PR/?m=ibogaine" "Temporary safety hold"
+# The assessment opens from the ibogaine deep link. Individual hard-stop scoring still pauses
+# results, and medicines without reviewed safety data stay held at their profile links.
+page_lacks "$PR/?m=ibogaine" "Temporary safety hold"
+page_has "$PR/?m=ibogaine" "Begin Assessment"
 page_has "$PR/?m=kanna" "Temporary safety hold"
 page_lacks "$PR/?m=psilocybin" "Temporary safety hold"
 if curl -sI --max-time 30 "$PR/" | grep -qi "x-robots-tag: noindex"; then
