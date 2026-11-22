@@ -20,10 +20,10 @@ permission check, so a person merges on GitHub):**
   hop to psychedelicreadiness.com. PR #51 open (checked 2026-11-20): all checks green, mergeable,
   preview deploy-preview-51 verified (both redirects right, PRI 307s, `/pri-research` 200, 404 ok).
 - [ ] `feat/site-watch`: `scripts/site-watch.sh` + daily GitHub Action (07:00 IST, plus a "Run
-  workflow" button). Checks both sites' redirects, 404s, Tony's safety holds (`?m=ibogaine`,
-  `?m=kanna` held, `?m=psilocybin` not) and every sitemap page; reports noindex as info. Run live
-  2026-11-20: everything ok except the 4 checks for the two unmerged fixes above. Failure emails
-  go to whoever GitHub notifies for this repo's Actions; a named owner is still needed.
+  workflow" button). Checks both sites' redirects, 404s, that `?m=ibogaine` opens the assessment,
+  `?m=kanna` stays held and `?m=psilocybin` is not held, plus every sitemap page; reports noindex
+  as info. Run live 2026-11-20: everything ok except the 4 checks for the two unmerged fixes above.
+  Failure emails go to whoever GitHub notifies for this repo's Actions; a named owner is still needed.
 - [ ] `feat/analytics`: GA4 behind `NEXT_PUBLIC_GA_MEASUREMENT_ID` (off when unset). On: tag only
   on the live domain, page address without query string, Privacy page and its description switch
   to the Google Analytics wording (`buildPrivacy` in `site-pages.ts`). Verified: typecheck, lint,
