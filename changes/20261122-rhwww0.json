@@ -1,0 +1,17 @@
+{
+  "key": "20261122-rhwww0",
+  "title": "Make ibogaine assessment available",
+  "request": "Make the assessment available",
+  "understoodAs": "Remove the page-level hold that blocks the entire assessment when ibogaine is selected. Keep the informational assessment accessible, preserve the existing hard-stop score pause for cardiac and other flagged answers, and retain holds for medicines whose safety data has not been reviewed.",
+  "appliesTo": "both",
+  "requestedBy": {
+    "name": "Tony Greenberg",
+    "email": "t@ramprate.com"
+  },
+  "status": "draft",
+  "createdAt": "2026-11-22T20:29:18.559Z",
+  "branch": null,
+  "prNumber": null,
+  "undoes": null,
+  "conversationUrl": null
+}
