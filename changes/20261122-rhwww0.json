@@ -11,7 +11,7 @@
   "status": "draft",
   "createdAt": "2026-11-22T20:29:18.559Z",
   "branch": "admin/mcp-20261122-rhwww0",
-  "prNumber": null,
+  "prNumber": 8,
   "undoes": null,
   "conversationUrl": null,
   "lastEditedAt": "2026-11-22T20:30:50.860Z"
