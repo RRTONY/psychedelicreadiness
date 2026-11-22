@@ -6,13 +6,11 @@ import { MEDICINES, QUESTIONS } from "@/lib/content/pri-data";
 import { SAFETY_DATA } from "@/lib/content/pri-safety-data";
 
 describe("/ (the Psychedelic Readiness Index)", () => {
-  // Tony's emergency holds from tonygreenberg.com (#44, #48), copied 2026-11-18.
-  it("withholds all scoring UI for the ibogaine link", async () => {
+  it("makes the assessment available from the ibogaine link", async () => {
     render(await PsychedelicReadinessIndexPage({ searchParams: Promise.resolve({ m: "ibogaine" }) }));
-    expect(screen.getByRole("heading", { name: "This assessment is temporarily unavailable" })).toBeInTheDocument();
-    expect(screen.getByText(/No scores, suitability recommendations, or medicine matches/)).toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: /Begin Assessment/ })).not.toBeInTheDocument();
-    expect(screen.queryByText(/Find MyMedicine/)).not.toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "This assessment is temporarily unavailable" })).not.toBeInTheDocument();
+    expect(screen.getAllByRole("button", { name: /Begin Assessment/ }).length).toBeGreaterThan(0);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Find MyMedicine");
   });
 
   it("holds every medicine without reviewed safety data, also when it is one of several", async () => {
