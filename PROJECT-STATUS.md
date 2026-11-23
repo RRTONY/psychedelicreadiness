@@ -5,6 +5,12 @@
 
 ## Current status — 2026-11-23
 
+**Site-watch incident review, PR #11, not merged or published:**
+- [x] Corrected inverted ibogaine monitor expectations: `?m=ibogaine` must show `Temporary safety hold` and must not show `Begin Assessment`. This changes only the monitoring script, not the assessment or medicine safety data.
+- [ ] Confirm the third failed run's complete job summary and other failed assertions before attributing the entire run to this one bug. Commit `6818daa` is PR #9's merge commit, not evidence by itself of a site-watch cause.
+- [ ] Name a person who receives and acknowledges site-watch alerts. Current GitHub Actions workflow relies on recipients' GitHub notification settings; no explicit owner is configured.
+- [ ] PR #9 was merged on 2026-11-23 despite the prior hold. PR #10 remains unmerged. Do not merge or publish PR #8, #10, or this PR without explicit owner authorization. Preserve the ibogaine and 14-medicine safety holds.
+
 **Advisor reminder wording change in review, not live (PR #9):**
 - [x] Shared copy now says “Talk with your psychedelic advisors.” in the reminder and the related guidance paragraph. Updated existing wording checks.
 - [x] Netlify preview and GitHub checks pass. Verified the new wording on `/disclaimer` and confirmed the medicine index loads.
