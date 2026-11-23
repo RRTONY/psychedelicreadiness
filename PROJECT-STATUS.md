@@ -10,7 +10,7 @@
 - [x] Replaced universal medicine ladders and readiness judgments with educational groupings and database-match language. The scoring logic is unchanged.
 - [x] Reframed the assessment’s ordered treatment sequence as educational profiles; removed prescriptive timing and dose copy.
 - [x] ESLint and repository pattern checks passed for edited TypeScript files. Netlify preview and GitHub checks passed; preview copy verified on /medicine-sequencing, /iboga-ibogaine, and /disclaimer.
-- [x] Updated copy expectations. Test suites were not run.
+- [x] Updated copy expectations. Automatic GitHub tests, lint, type check, and build passed.
 - [ ] Owner review and publish approval pending.
 
 **Advisor reminder wording change remains in review, not live (PR #9):**
