@@ -29,7 +29,7 @@ export const FAQ: readonly FaqItem[] = [
   },
   {
     question: "Who should I talk to about my results?",
-    answer: `${COUNCIL_REMINDER.title} ${SCORE_CAN_TELL.paragraphs[1]}`,
+    answer: SCORE_CAN_TELL.paragraphs[1],
   },
   {
     question: "Why is my score paused?",
