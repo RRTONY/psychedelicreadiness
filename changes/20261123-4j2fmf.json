@@ -1,0 +1,17 @@
+{
+  "key": "20261123-4j2fmf",
+  "title": "Site copy and sensitivity fixes",
+  "request": "Fix all spelling and insensitive wording issues identified in the full-site audit.",
+  "understoodAs": "Correct the verified spelling and FAQ repetition; revise the flagged Indigenous-culture, addiction, and health-screen wording across the medicine profiles, ladder, Iboga Compass, disclaimers, and comparison tables. Preserve scoring and clinical safety logic.",
+  "appliesTo": "both",
+  "requestedBy": {
+    "name": "Tony Greenberg",
+    "email": "t@ramprate.com"
+  },
+  "status": "draft",
+  "createdAt": "2026-11-23T03:23:42.002Z",
+  "branch": null,
+  "prNumber": null,
+  "undoes": null,
+  "conversationUrl": null
+}
