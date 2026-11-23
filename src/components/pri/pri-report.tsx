@@ -95,13 +95,13 @@ export function PriReport({ results, savedMeds, date }: { results: Results; save
         </tbody>
       </table>
 
-      <SectionTitle>Recommended Healing Sequence</SectionTitle>
+      <SectionTitle>Educational Profiles and Context</SectionTitle>
       <table className="w-full border-collapse">
         <thead>
           <tr>
-            <th className={HEAD}>Step &amp; Rationale</th>
-            <th className={HEAD}>Timing</th>
-            <th className={HEAD}>Est. Cost</th>
+            <th className={HEAD}>Profile &amp; Context</th>
+            <th className={HEAD}>Scope</th>
+            <th className={HEAD}>Listed Price</th>
           </tr>
         </thead>
         <tbody>
