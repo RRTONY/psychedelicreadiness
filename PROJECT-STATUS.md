@@ -3,9 +3,15 @@
 > The main project file. Read the "Current status" block at the start of every session and update
 > it (plus the items you finished) at the end.
 
-## Current status — 2026-11-23
+## Current status — 2026-11-22
 
-**Advisor reminder wording change in review, not live (PR #9):**
+**Site-wide spelling and sensitivity copy review in progress (PR #10, not live):**
+- [x] Corrected the sequencing page’s universal-ladder language and its page metadata.
+- [x] Reworked identified cultural descriptions and provider claims to name specific communities, attribute unverified claims, and avoid generic or romanticized wording.
+- [x] Updated stigmatizing labels and repeated advisor wording; corrected identified spelling and name errors.
+- [ ] Final preview and automated checks pending. Owner review required before publishing.
+
+**Advisor reminder wording change remains in review, not live (PR #9):**
 - [x] Shared copy now says “Talk with your psychedelic advisors.” in the reminder and the related guidance paragraph. Updated existing wording checks.
 - [x] Netlify preview and GitHub checks pass. Verified the new wording on `/disclaimer` and confirmed the medicine index loads.
 - [ ] Owner approval to publish is pending.
