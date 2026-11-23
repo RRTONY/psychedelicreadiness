@@ -1,0 +1,17 @@
+{
+  "key": "20261123-qmo56i",
+  "title": "Update psychedelic advisor wording",
+  "request": "Replace “Talk to your psychedelic council” with “Talk with your psychedelic advisors.”",
+  "understoodAs": "Update the shared reminder copy on psychedelicreadiness.com so the assessment, medicine profile, print report, disclaimer, and share image say “Talk with your psychedelic advisors.”",
+  "appliesTo": "both",
+  "requestedBy": {
+    "name": "Tony Greenberg",
+    "email": "t@ramprate.com"
+  },
+  "status": "draft",
+  "createdAt": "2026-11-23T02:53:24.838Z",
+  "branch": null,
+  "prNumber": null,
+  "undoes": null,
+  "conversationUrl": null
+}
