@@ -34,11 +34,10 @@ export default function MedicineSequencingPage() {
           The Spectrum · Know Before You Go
         </p>
         <h1 className="mb-5 font-heading text-4xl leading-tight font-bold text-facilitator-ink sm:text-5xl lg:text-6xl">
-          The Medicine Sequencing Ladder
+          Medicine Intensity & Context
         </h1>
         <p className="mb-8 max-w-175 text-base leading-relaxed text-[#4A3728] sm:text-lg">
-          {MEDICINES.length} medicines. Six rungs. One principle: don&apos;t skip the ladder. This is not a
-          recommendation. It is an educational map, not a universal sequence.
+          {MEDICINES.length} medicine profiles, grouped for comparison. These categories are educational, not a sequence or a personal readiness rating.
         </p>
 
         <div className="mb-10 rounded-xl border border-l-4 border-facilitator-amber-deep/20 border-l-facilitator-amber-deep bg-white/70 p-4 backdrop-blur-sm sm:p-7">
@@ -54,14 +53,13 @@ export default function MedicineSequencingPage() {
 
       <div className="mx-auto max-w-175 px-4 pt-8 pb-12 text-center sm:px-12">
         <p className="mb-6 text-sm leading-relaxed text-[#7A6050] sm:text-base">
-          Ready to find out where you sit on this ladder? The Psychedelic Readiness Index assesses your readiness
-          across six dimensions and tells you which medicines match your current profile.
+          Want to explore the Index? It compares your answers with medicine profiles, but cannot establish readiness or tell you what to take. Review personal risks with a licensed clinician.
         </p>
         <Link
           href="/"
           className="inline-block rounded-lg bg-linear-to-br from-facilitator-amber-deep to-[#D97706] px-8 py-3.5 font-bold text-white transition-opacity hover:opacity-90"
         >
-          Take the Readiness Index
+          Open the Readiness Index
         </Link>
         <p className="mt-6 text-sm text-[#7A6050]">
           Or read <Link href="https://tonygreenberg.com/the-philosophy" className="underline underline-offset-2 hover:text-facilitator-amber-deep">the philosophy</Link>{" "}
