@@ -8,13 +8,13 @@
     "name": "Tony Greenberg",
     "email": "t@ramprate.com"
   },
-  "status": "ready_for_review",
+  "status": "draft",
   "createdAt": "2026-11-23T03:23:42.002Z",
   "branch": "admin/mcp-20261123-4j2fmf",
   "prNumber": 10,
   "undoes": null,
   "conversationUrl": null,
-  "lastEditedAt": "2026-11-23T04:19:23.706Z",
+  "lastEditedAt": "2026-11-23T04:21:23.376Z",
   "lint": {
     "headSha": "3e820e6554d24ad0b5b13059e2e071e68e1889c7",
     "files": [
@@ -345,5 +345,5 @@
     "Site data \"pri-safety-data\" (quizzes, directories, page text)",
     "Site data \"pri-shared\" (quizzes, directories, page text)"
   ],
-  "submittedAt": "2026-11-23T04:20:55.987Z"
+  "submittedAt": null
 }
