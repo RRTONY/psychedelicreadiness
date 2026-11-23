@@ -318,7 +318,7 @@ type Phase = "questions" | "rank" | "gate" | "results";
 // budget range). Replaced with a `mailto:` to Tony carrying the same
 // structured summary — honest-degradation pattern used throughout this
 // migration — rather than reproducing a submit call with nothing behind
-// it. The "Submitting..." pending state and its error-toast path (both
+// it. The pending state and its error-toast path (both
 // meaningless once there's no network call) are dropped along with it.
 export function IbogaCompassAssessment() {
   const [phase, setPhase] = useState<Phase>("questions");
