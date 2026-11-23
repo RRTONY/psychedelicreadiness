@@ -8,7 +8,7 @@
     "name": "Tony Greenberg",
     "email": "t@ramprate.com"
   },
-  "status": "ready_for_review",
+  "status": "published",
   "createdAt": "2026-11-23T02:53:24.838Z",
   "branch": "admin/mcp-20261123-qmo56i",
   "prNumber": 9,
@@ -85,52 +85,52 @@
   ],
   "files": [
     {
-      "_key": "d07485f93f4f",
+      "_key": "6e7b41a3833f",
       "path": "PROJECT-STATUS.md",
       "status": "modified"
     },
     {
-      "_key": "f216676d8a6c",
+      "_key": "5986815ac41a",
       "path": "__tests__/app/contact/page.test.tsx",
       "status": "modified"
     },
     {
-      "_key": "10e363acd6d4",
+      "_key": "7f6da44ce001",
       "path": "__tests__/app/opengraph-image.test.tsx",
       "status": "modified"
     },
     {
-      "_key": "70a2d931b7c1",
+      "_key": "d8293fe59f12",
       "path": "__tests__/components/pri/medicine-modal.test.tsx",
       "status": "modified"
     },
     {
-      "_key": "ea275dcdb43a",
+      "_key": "094248d9e9cd",
       "path": "__tests__/components/pri/pri-report.test.tsx",
       "status": "modified"
     },
     {
-      "_key": "b94e6cf6f4e1",
+      "_key": "4f891d80e9d4",
       "path": "__tests__/components/pri/psychedelic-readiness-index.test.tsx",
       "status": "modified"
     },
     {
-      "_key": "8c282698edae",
+      "_key": "1000bd3b7bfe",
       "path": "__tests__/lib/content/pri-disclaimer.test.ts",
       "status": "modified"
     },
     {
-      "_key": "898035baee6d",
+      "_key": "aeb70453c202",
       "path": "docs/ai/PROJECT_STRUCTURE.md",
       "status": "modified"
     },
     {
-      "_key": "07fa160c7bfa",
+      "_key": "56c5e59202a5",
       "path": "src/components/pri/council-reminder.tsx",
       "status": "modified"
     },
     {
-      "_key": "55f69c5a9ef9",
+      "_key": "411d693da997",
       "path": "src/lib/content/pri-disclaimer.ts",
       "status": "modified"
     }
@@ -147,5 +147,8 @@
     "\"Talk to your psychedelic council\" reminder (assessment, medicine profiles, printed report)",
     "Disclaimer and council reminder text (pop-up, Full Disclaimer, Terms, About, FAQ)"
   ],
-  "submittedAt": "2026-11-23T02:57:54.717Z"
+  "submittedAt": "2026-11-23T02:57:54.717Z",
+  "publishedAt": "2026-11-23T03:09:21.860Z",
+  "publishedBy": "Tony Greenberg",
+  "mergeSha": "6818daa5d01854d41833d63124c676dd81d4c7b8"
 }
