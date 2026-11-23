@@ -1,8 +1,8 @@
 // The PRI disclaimer, in one place. The consent pop-up (`disclaimer-gate.tsx`), the full
-// disclaimer page (`/disclaimer`) and the "Talk to your psychedelic council" reminder all read
+// disclaimer page (`/disclaimer`) and the "Talk with your psychedelic advisors" reminder all read
 // from here, so the wording can't drift between them.
 //
-// Owner-approved 2026-11-11 (PRI scoring review of 7 Nov 2026): the council reminder, the
+// Owner-approved 2026-11-11 (PRI scoring review of 7 Nov 2026): the advisor reminder, the
 // "What the score can tell you" section, and the second "What This Is" bullet, which replaces
 // "Not anonymous internet advice. Every data point in here has been cross-referenced against
 // clinical trials, harm reduction databases, and people who have actually sat with these
@@ -11,7 +11,7 @@
 export const DISCLAIMER_PATH = "/disclaimer";
 
 export const COUNCIL_REMINDER = {
-  title: "Talk to your psychedelic council.",
+  title: "Talk with your psychedelic advisors.",
   body: "A rough guide from the database. No medical clearance. Review personal risks with a licensed clinician.",
   link: "Read the full disclaimer",
 } as const;
@@ -20,7 +20,7 @@ export const SCORE_CAN_TELL = {
   title: "What the score can tell you",
   paragraphs: [
     "The index compares your answers with profiles in a curated database. These profiles can bring a question into focus. A score cannot establish safety, predict benefit or harm, diagnose a condition, or tell you which substance or dose to take.",
-    "Talk to your psychedelic council, the people you trust for support and perspective. Bring medical questions, your health history and your full medication list to a licensed clinician familiar with psychedelics. Discuss any medication change with your prescriber first.",
+    "Talk with your psychedelic advisors, the people you trust for support and perspective. Bring medical questions, your health history and your full medication list to a licensed clinician familiar with psychedelics. Discuss any medication change with your prescriber first.",
     "Profiles and research can be incomplete. The same score can describe people with very different risks. The index offers neither medical clearance nor a diagnosis.",
   ],
 } as const;
