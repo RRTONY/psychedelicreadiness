@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { COUNCIL_REMINDER, DISCLAIMER_PATH } from "@/lib/content/pri-disclaimer";
 import { DisclaimerQr } from "@/components/pri/disclaimer-qr";
 
-// The "Talk to your psychedelic council" reminder (owner-approved 2026-11-11). Shown on every
+// The "Talk with your psychedelic advisors" reminder (owner-approved 2026-11-11). Shown on every
 // assessment screen, the medicine profile and the printed report. `tone` matches the section
 // it sits in: "dark" on the ink assessment band, "light" on parchment (the profile), "print"
 // in the report, where a link can't be clicked: the address is written out next to a QR code.
