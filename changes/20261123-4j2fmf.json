@@ -8,11 +8,342 @@
     "name": "Tony Greenberg",
     "email": "t@ramprate.com"
   },
-  "status": "draft",
+  "status": "ready_for_review",
   "createdAt": "2026-11-23T03:23:42.002Z",
   "branch": "admin/mcp-20261123-4j2fmf",
   "prNumber": 10,
   "undoes": null,
   "conversationUrl": null,
-  "lastEditedAt": "2026-11-23T04:19:23.706Z"
+  "lastEditedAt": "2026-11-23T04:19:23.706Z",
+  "lint": {
+    "headSha": "3e820e6554d24ad0b5b13059e2e071e68e1889c7",
+    "files": [
+      {
+        "path": "__tests__/app/iboga-ibogaine/page.test.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "__tests__/app/medicine-sequencing/page.test.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "__tests__/components/pri/pri-report.test.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "__tests__/components/pri/psychedelic-readiness-index.test.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "__tests__/lib/content/pri-iboga-compass-engine.test.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "__tests__/lib/content/pri-shared.test.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/app/iboga-ibogaine/page.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/app/medicine-sequencing/page.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/app/peyote-mescaline/page.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/components/pri/iboga-compass-assessment.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/components/pri/medicine-modal.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/components/pri/medicine-sequencing-ladder.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/components/pri/pri-report.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/components/pri/psychedelic-readiness-index.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/lib/content/facilitator-index-data.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/lib/content/faq.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/lib/content/pri-data.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/lib/content/pri-disclaimer.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/lib/content/pri-iboga-compass-data.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/lib/content/pri-iboga-compass-engine.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/lib/content/pri-iboga-facility-data.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/lib/content/pri-iboga-module.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/lib/content/pri-safety-data.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/lib/content/pri-shared.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      }
+    ]
+  },
+  "summary": "Corrected identified spelling and name issues, revised cultural descriptions, and attributed unverified provider claims across the medicine and iboga content. Replaced universal readiness language and treatment sequencing with educational groupings and database-match wording; the scoring logic is unchanged.",
+  "beforeAfter": [
+    {
+      "_key": "48b893228efa",
+      "label": "Medicine sequencing page",
+      "before": "39 medicines. Six rungs. One principle: don’t skip the ladder.",
+      "after": "39 medicine profiles, grouped for comparison. These categories are educational, not a sequence or a personal readiness rating."
+    },
+    {
+      "_key": "38ff8267c464",
+      "label": "Assessment result bands",
+      "before": "Ready to Go Deep · Strong Ground · Building Toward It · Not Yet · Start Here",
+      "after": "Higher · Moderate · Mixed · Lower · Limited Database Match, with copy clarifying that a score is not readiness, safety clearance, or a recommendation."
+    },
+    {
+      "_key": "564ff5aac5dd",
+      "label": "Iboga cultural context",
+      "before": "Traditional Bwiti practitioners have always insisted the whole root bark is greater than any single compound.",
+      "after": "Some community sources describe the whole root bark as important in particular Bwiti contexts. Practices and views vary; the page does not speak for Bwiti practitioners."
+    }
+  ],
+  "files": [
+    {
+      "_key": "428931d58c3a",
+      "path": "PROJECT-STATUS.md",
+      "status": "modified"
+    },
+    {
+      "_key": "804f3964df01",
+      "path": "__tests__/app/iboga-ibogaine/page.test.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "32ec1580df00",
+      "path": "__tests__/app/medicine-sequencing/page.test.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "79b5a9ae918c",
+      "path": "__tests__/components/pri/pri-report.test.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "ca8553d20c81",
+      "path": "__tests__/components/pri/psychedelic-readiness-index.test.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "2738320fd975",
+      "path": "__tests__/lib/content/pri-iboga-compass-engine.test.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "0083a890a3b6",
+      "path": "__tests__/lib/content/pri-shared.test.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "64b602c74530",
+      "path": "docs/ai/PROJECT_STRUCTURE.md",
+      "status": "modified"
+    },
+    {
+      "_key": "a286d526f0e8",
+      "path": "src/app/iboga-ibogaine/page.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "fdd25ac08eae",
+      "path": "src/app/medicine-sequencing/page.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "c571f66b2d1c",
+      "path": "src/app/peyote-mescaline/page.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "30722226a9ba",
+      "path": "src/components/pri/iboga-compass-assessment.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "d1f5dbd44c2f",
+      "path": "src/components/pri/medicine-modal.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "9d3d133035ef",
+      "path": "src/components/pri/medicine-sequencing-ladder.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "5b8a541fd31d",
+      "path": "src/components/pri/pri-report.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "08ed2d2a9ee3",
+      "path": "src/components/pri/psychedelic-readiness-index.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "20e0ee01a0eb",
+      "path": "src/lib/content/facilitator-index-data.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "7c7d8836ef76",
+      "path": "src/lib/content/faq.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "c1c1e0171b49",
+      "path": "src/lib/content/pri-data.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "2adaeb02020d",
+      "path": "src/lib/content/pri-disclaimer.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "7148158437a6",
+      "path": "src/lib/content/pri-iboga-compass-data.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "14ea2064f7c8",
+      "path": "src/lib/content/pri-iboga-compass-engine.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "58138bef101c",
+      "path": "src/lib/content/pri-iboga-facility-data.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "4afdfa0ac4a0",
+      "path": "src/lib/content/pri-iboga-module.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "28e15fd9ee77",
+      "path": "src/lib/content/pri-safety-data.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "4798d67473c5",
+      "path": "src/lib/content/pri-shared.ts",
+      "status": "modified"
+    }
+  ],
+  "areas": [
+    "Behind-the-scenes file: PROJECT-STATUS.md",
+    "Behind-the-scenes file: __tests__/app/iboga-ibogaine/page.test.tsx",
+    "Behind-the-scenes file: __tests__/app/medicine-sequencing/page.test.tsx",
+    "Behind-the-scenes file: __tests__/components/pri/pri-report.test.tsx",
+    "Behind-the-scenes file: __tests__/components/pri/psychedelic-readiness-index.test.tsx",
+    "Behind-the-scenes file: __tests__/lib/content/pri-iboga-compass-engine.test.ts",
+    "Behind-the-scenes file: __tests__/lib/content/pri-shared.test.ts",
+    "Behind-the-scenes file: docs/ai/PROJECT_STRUCTURE.md",
+    "/iboga-ibogaine page",
+    "/medicine-sequencing page",
+    "/peyote-mescaline page",
+    "Shared section \"iboga-compass-assessment\" (may appear on several pages)",
+    "Shared section \"medicine-modal\" (may appear on several pages)",
+    "Shared section \"medicine-sequencing-ladder\" (may appear on several pages)",
+    "Shared section \"pri-report\" (may appear on several pages)",
+    "Shared section \"psychedelic-readiness-index\" (may appear on several pages)",
+    "Site data \"facilitator-index-data\" (quizzes, directories, page text)",
+    "FAQ page questions and answers",
+    "Site data \"pri-data\" (quizzes, directories, page text)",
+    "Disclaimer and council reminder text (pop-up, Full Disclaimer, Terms, About, FAQ)",
+    "Site data \"pri-iboga-compass-data\" (quizzes, directories, page text)",
+    "Site data \"pri-iboga-compass-engine\" (quizzes, directories, page text)",
+    "Site data \"pri-iboga-facility-data\" (quizzes, directories, page text)",
+    "Site data \"pri-iboga-module\" (quizzes, directories, page text)",
+    "Site data \"pri-safety-data\" (quizzes, directories, page text)",
+    "Site data \"pri-shared\" (quizzes, directories, page text)"
+  ],
+  "submittedAt": "2026-11-23T04:20:55.987Z"
 }
