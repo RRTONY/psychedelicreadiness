@@ -8,7 +8,7 @@
     "name": "Tony Greenberg",
     "email": "t@ramprate.com"
   },
-  "status": "ready_for_review",
+  "status": "published",
   "createdAt": "2026-11-23T17:16:26.354Z",
   "branch": "admin/mcp-20261123-k3gcez",
   "prNumber": 13,
@@ -23,12 +23,12 @@
   "beforeAfter": [],
   "files": [
     {
-      "_key": "edf117aaa11b",
+      "_key": "9a33fadcc460",
       "path": "PROJECT-STATUS.md",
       "status": "modified"
     },
     {
-      "_key": "27998eae05fb",
+      "_key": "ef6b6fcc0cb3",
       "path": "scripts/site-watch.sh",
       "status": "modified"
     }
@@ -37,5 +37,8 @@
     "Behind-the-scenes file: PROJECT-STATUS.md",
     "Behind-the-scenes file: scripts/site-watch.sh"
   ],
-  "submittedAt": "2026-11-23T17:17:19.532Z"
+  "submittedAt": "2026-11-23T17:17:19.532Z",
+  "publishedAt": "2026-11-23T17:37:58.981Z",
+  "publishedBy": "Tony Greenberg",
+  "mergeSha": "22988880224829ac09b4fa447185342cac5700d5"
 }
