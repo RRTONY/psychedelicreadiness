@@ -45,11 +45,11 @@ export interface ReadinessLevel {
 }
 
 export const READINESS_LEVELS: ReadinessLevel[] = [
-  { threshold: 85, label: "Ready to Go Deep", description: "You have built something real. The high-intensity work... ayahuasca, iboga, 5-MeO... is accessible to you with the right people. Do not skip the facilitation. The container matters as much as the medicine." },
-  { threshold: 70, label: "Strong Ground", description: "Most of the foundation is there. Psilocybin, MDMA therapy, San Pedro... these are honest next steps. A few dimensions are worth tending before you go further. You are closer than you think." },
-  { threshold: 55, label: "Building Toward It", description: "The container is not quite ready yet. Start with lower-intensity medicines. Do the preparation work like it matters. Because it does. Every single time." },
-  { threshold: 40, label: "Not Yet. And That Is Honest.", description: "The groundwork is still ahead of you. Breathwork, microdosing, somatic practice, a real integration community. These are not consolation prizes. They are the work. The actual work." },
-  { threshold: 0, label: "Start Here", description: "This is where it begins. And beginning here is the right call. Cacao ceremony, breathwork, meditation, intentional cannabis. Build from the ground up. The deeper work will wait for you. It always does." },
+  { threshold: 85, label: "Higher Database Match", description: "Your answers align with profiles that this database classifies as higher intensity. This score is not clinical clearance, a measure of preparedness, or a recommendation. Review individual risks with qualified professionals." },
+  { threshold: 70, label: "Moderate Database Match", description: "Your answers align with several profiles in this database. This score does not establish readiness, safety, or likely benefit, and it does not suggest a next step. Review evidence and personal risks with a qualified clinician." },
+  { threshold: 55, label: "Mixed Database Match", description: "Your answers show mixed alignment with database profiles. A score cannot determine readiness or guide a sequence; it is not a judgment about you or a prediction of outcomes." },
+  { threshold: 40, label: "Lower Database Match", description: "Your answers align with fewer profiles in the current dataset. This is not a judgment about you or a prediction of outcomes; the Index cannot determine what you should do." },
+  { threshold: 0, label: "Limited Database Match", description: "This score reflects your answers against this database only. It does not establish risk or suitability, and no medicine or practice is a required next step." },
 ];
 
 /**
