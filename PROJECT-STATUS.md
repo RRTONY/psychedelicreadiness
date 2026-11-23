@@ -7,7 +7,8 @@
 
 **Advisor reminder wording change in review, not live (PR #9):**
 - [x] Shared copy now says “Talk with your psychedelic advisors.” in the reminder and the related guidance paragraph. Updated existing wording checks.
-- [ ] Preview checks and owner approval to publish are pending.
+- [x] Netlify preview and GitHub checks pass. Verified the new wording on `/disclaimer` and confirmed the medicine index loads.
+- [ ] Owner approval to publish is pending.
 
 ## Current status — 2026-11-22
 
