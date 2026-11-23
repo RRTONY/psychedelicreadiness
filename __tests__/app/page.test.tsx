@@ -6,11 +6,15 @@ import { MEDICINES, QUESTIONS } from "@/lib/content/pri-data";
 import { SAFETY_DATA } from "@/lib/content/pri-safety-data";
 
 describe("/ (the Psychedelic Readiness Index)", () => {
-  it("makes the assessment available from the ibogaine link", async () => {
-    render(await PsychedelicReadinessIndexPage({ searchParams: Promise.resolve({ m: "ibogaine" }) }));
-    expect(screen.queryByRole("heading", { name: "This assessment is temporarily unavailable" })).not.toBeInTheDocument();
-    expect(screen.getAllByRole("button", { name: /Begin Assessment/ }).length).toBeGreaterThan(0);
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Find MyMedicine");
+  it("holds ibogaine before the assessment mounts, including mixed links", async () => {
+    for (const m of ["ibogaine", ["psilocybin", "ibogaine"]]) {
+      const { unmount } = render(await PsychedelicReadinessIndexPage({ searchParams: Promise.resolve({ m }) }));
+      expect(screen.getByText("Temporary safety hold")).toBeInTheDocument();
+      expect(screen.getByRole("heading", { name: "This assessment is temporarily unavailable" })).toBeInTheDocument();
+      expect(screen.getByText(/No scores, suitability recommendations, or medicine matches/)).toBeInTheDocument();
+      expect(screen.queryByRole("button", { name: /Begin Assessment/ })).not.toBeInTheDocument();
+      unmount();
+    }
   });
 
   it("holds every medicine without reviewed safety data, also when it is one of several", async () => {
@@ -19,7 +23,7 @@ describe("/ (the Psychedelic Readiness Index)", () => {
     for (const medicine of unreviewed) {
       const { unmount } = render(await PsychedelicReadinessIndexPage({ searchParams: Promise.resolve({ m: ["psilocybin", medicine.id] }) }));
       expect(screen.getByRole("heading", { name: "This assessment is temporarily unavailable" })).toBeInTheDocument();
-      expect(screen.getByText(new RegExp(`The ${medicine.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")} readiness assessment is paused`))).toBeInTheDocument();
+      expect(screen.getByText(/readiness assessment is paused pending medical and safety review/)).toBeInTheDocument();
       expect(screen.queryByRole("button", { name: /Begin Assessment/ })).not.toBeInTheDocument();
       unmount();
     }
