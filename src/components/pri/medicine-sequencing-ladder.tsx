@@ -30,6 +30,15 @@ export function levelOf(m: Medicine): Level {
   return (COMPLEXITY_ORDER as readonly string[]).includes(level) ? (level as Level) : "Intermediate";
 }
 
+const LEVEL_LABELS: Record<Level, string> = {
+  Entry: "Lower Intensity",
+  Beginner: "Lower to Moderate Intensity",
+  Intermediate: "Moderate to High Intensity",
+  Advanced: "High Intensity",
+  "Clinical Only": "Clinical / Investigational",
+  "Hard Stop": "High Poisoning Risk",
+};
+
 const COMPLEXITY_DESCRIPTIONS: Record<Level, string> = {
   Entry: "Lower-intensity profiles in this database. Effects and risks vary by person, preparation, and setting.",
   Beginner: "Profiles generally described as lower to moderate intensity. This label is not a safety rating or a recommendation.",
@@ -204,7 +213,7 @@ export function MedicineSequencingLadder() {
               onClick={() => setSelectedLevel(active ? null : level)}
               className={cn(FILTER_BASE, active ? LEVEL_STYLES[level].filterActive : LEVEL_STYLES[level].filterIdle)}
             >
-              {level} ({count})
+              {LEVEL_LABELS[level]} ({count})
             </button>
           );
         })}
@@ -218,7 +227,7 @@ export function MedicineSequencingLadder() {
           return (
             <section
               key={level}
-              aria-label={`${level} category`}
+              aria-label={`${LEVEL_LABELS[level]} category`}
               className={cn("mb-12", selectedLevel !== null && selectedLevel !== level && "hidden")}
             >
               <div className={cn("mb-4 flex flex-col gap-3 rounded-xl border px-5 py-4 backdrop-blur-sm sm:flex-row sm:items-center sm:gap-4", s.header)}>
@@ -228,7 +237,7 @@ export function MedicineSequencingLadder() {
                     s.badge,
                   )}
                 >
-                  {level}
+                  {LEVEL_LABELS[level]}
                 </span>
                 <p className={cn("text-sm leading-normal sm:text-base", s.text)}>{COMPLEXITY_DESCRIPTIONS[level]}</p>
               </div>
