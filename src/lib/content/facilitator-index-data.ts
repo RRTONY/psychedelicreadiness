@@ -303,7 +303,7 @@ export const FACILITATOR_BANDS: FacilitatorBand[] = [
     traditions: [
       { n: 1, text: "Shipibo vegetalismo. Amazonian. Icaro as instrument, dieta as apprenticeship, the plant as teacher rather than tool." },
       { n: 2, text: "Santo Daime. Brazilian syncretic church. Hymnal, uniform, collective works, movement in formation." },
-      { n: 3, text: "Uniao do Vegetal. Brazilian. Seated, structured, question and answer with the mestre, doctrinal rather than shamanic." },
+      { n: 3, text: "Uniao do Vegetal. Brazilian. Seated, structured, question and answer with the mestre, organized around doctrine rather than a healer-led model." },
       { n: 4, text: "Andean huachuma. Day-long, outdoors, walking, mountain-facing, the long slow onset as the point." },
       { n: 5, text: "Mazatec velada. Oaxacan. Nighttime, prayer-led, Catholic and pre-Catholic layered, the curandera speaking throughout." },
       { n: 6, text: "Wixarika pilgrimage. Pilgrimage as the container, the journey to the site inseparable from what happens there." },
