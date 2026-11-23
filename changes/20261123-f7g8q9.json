@@ -1,0 +1,17 @@
+{
+  "key": "20261123-f7g8q9",
+  "title": "Restore ibogaine safety hold after live site-watch failure",
+  "request": "Restore the existing owner-mandated ibogaine hold that PR #8 removed, preserving the 14 other holds; leave PR #10 and all other changes unpublished.",
+  "understoodAs": "Restore the page-wide ibogaine Temporary safety hold on any deep link containing ibogaine, prevent Begin Assessment on that held page, update its regression test, leave the existing fourteen medicine holds intact. Prepare an isolated pull request for review without merging.",
+  "appliesTo": "both",
+  "requestedBy": {
+    "name": "Tony Greenberg",
+    "email": "t@ramprate.com"
+  },
+  "status": "draft",
+  "createdAt": "2026-11-23T16:35:49.178Z",
+  "branch": null,
+  "prNumber": null,
+  "undoes": null,
+  "conversationUrl": null
+}
