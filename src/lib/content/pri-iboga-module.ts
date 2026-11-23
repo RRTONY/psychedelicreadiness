@@ -77,14 +77,14 @@ export const HEAD_TO_HEAD: ComparisonRow[] = [
   { dimension: "Alkaloid profile", iboga: "12+ alkaloids in full-spectrum synergy", ibogaine: "Single isolated compound" },
   { dimension: "Duration", iboga: "24–72 hours (variable)", ibogaine: "18–36 hours (more predictable)" },
   { dimension: "Dosing precision", iboga: "Variable — bark potency differs by harvest, age, region", ibogaine: "Exact mg/kg dosing possible" },
-  { dimension: "Visionary intensity", iboga: "Extremely intense — full Bwiti initiation can last 3 days", ibogaine: "Intense but more contained; fewer hallucinations reported" },
-  { dimension: "Traditional context", iboga: "Bwiti religion (Gabon/Cameroon) — initiation, healing, ancestor communion", ibogaine: "Clinical addiction treatment — Mexico, Brazil, New Zealand, South Africa" },
+  { dimension: "Visionary intensity", iboga: "Effects and duration vary; some community-led Bwiti practices involve multi-day participation", ibogaine: "Effects vary by dose, preparation, and person" },
+  { dimension: "Traditional context", iboga: "Bwiti traditions in Gabon and Cameroon — diverse, community-led practices", ibogaine: "Clinical addiction treatment — Mexico, Brazil, New Zealand, South Africa" },
   { dimension: "Primary application", iboga: "Spiritual development, community healing, rites of passage", ibogaine: "Opioid/stimulant addiction interruption, PTSD, TBI, depression" },
   { dimension: "Cardiac risk", iboga: "Present — compounded by variable dosing and companion alkaloids", ibogaine: "Present — QT prolongation; mitigated by cardiac screening + monitoring" },
   { dimension: "Regulatory status", iboga: "Legal/unregulated in Gabon, Cameroon; Schedule I in US", ibogaine: "Unscheduled in Mexico, Brazil; prescription in NZ, AU; Schedule I in US" },
   { dimension: "Entourage effect", iboga: "Yes — companion alkaloids modulate, buffer, and extend the experience", ibogaine: "No — single compound; predictable but potentially less nuanced" },
   { dimension: "Metabolite profile", iboga: "Noribogaine + metabolites of all companion alkaloids", ibogaine: "Noribogaine (12-hydroxyibogamine) — sustained 24–48h half-life" },
-  { dimension: "Cost", iboga: "$500–2,000 (ceremony, traditional setting)", ibogaine: "$5,000–12,000 (clinical treatment with medical monitoring)" },
+  { dimension: "Cost", iboga: "Varies by provider and community context", ibogaine: "Varies by clinic and level of medical monitoring" },
 ];
 
 /* ── Outcomes Data ── */
@@ -145,7 +145,7 @@ export const IBOGA_SUPPLEMENT_STACKS: SupplementPhase[] = [
       { name: "Omega-3 continued", dosage: "3g/day" },
       { name: "Magnesium L-Threonate", dosage: "Standard dose (crosses BBB)" },
       { name: "Phosphatidylserine", dosage: "300mg/day (cortisol modulation)" },
-      { name: "Microdose protocol (iboga)", dosage: "50–100mg root bark / every 3 days (Bwiti tradition)" },
+      { name: "Iboga microdosing", dosage: "No universal dose or community-wide protocol" },
     ],
   },
 ];
@@ -162,8 +162,8 @@ export const IBOGA_DIM_SCORES: DimScoreRow[] = [
   { icon: Brain, dimension: "Mental", ibogaThreshold: "Very High", ibogaineThreshold: "High", keyNote: "24–72hr duration demands exceptional psychological stability; no active psychosis, bipolar, or schizophrenia" },
   { icon: Heart, dimension: "Emotional", ibogaThreshold: "Very High", ibogaineThreshold: "High", keyNote: "Life-review visions surface buried trauma; full emotional surrender required" },
   { icon: Hospital, dimension: "Physical", ibogaThreshold: "Critical", ibogaineThreshold: "Critical", keyNote: "Mandatory cardiac screening (EKG + electrolytes); QT prolongation risk; liver function tests required" },
-  { icon: Earth, dimension: "Set & Setting", ibogaThreshold: "Critical (Ceremonial)", ibogaineThreshold: "Critical (Clinical)", keyNote: "Iboga: Bwiti-trained facilitator non-negotiable. Ibogaine: medical supervision with cardiac monitoring" },
-  { icon: HandHeart, dimension: "Spiritual", ibogaThreshold: "Highest Alignment", ibogaineThreshold: "High Alignment", keyNote: "Iboga is considered a sacrament in Bwiti — ancestor communion, death-rebirth initiation" },
+  { icon: Earth, dimension: "Set & Setting", ibogaThreshold: "Critical (Ceremonial)", ibogaineThreshold: "Critical (Clinical)", keyNote: "Community-led Bwiti contexts follow community protocols. Ibogaine settings require qualified medical screening and cardiac safeguards." },
+  { icon: HandHeart, dimension: "Spiritual", ibogaThreshold: "Highest Alignment", ibogaineThreshold: "High Alignment", keyNote: "Some Bwiti communities describe iboga within religious or initiation practices; meaning and protocols vary. Follow community authority." },
 ];
 
 /* ── Medicine Selector (Iboga context) ── */

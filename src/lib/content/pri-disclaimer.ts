@@ -43,7 +43,7 @@ export const NOT_A_DOCTOR = {
 export const WHAT_THIS_IS = {
   title: "What This Is ... And What It Is Not",
   items: [
-    "Not a doctor. Not a therapist. Not a shaman. We are none of those things and we are not pretending to be.",
+    "We do not provide medical or mental health care, and we do not represent Indigenous traditions or their practitioners.",
     "The database brings together clinical literature, harm reduction resources and practitioner accounts. The quality and completeness of the evidence vary by entry.",
     "Not a recommendation. Nothing in here says you should do anything. It says here is what is known, here is what the research shows, here is what experienced practitioners report.",
     "A synthesis. Built from clinical literature, DanceSafe, Zendo Project, MAPS, ethnobotanical research, and the kind of conversations that happen when people stop performing and start being honest.",

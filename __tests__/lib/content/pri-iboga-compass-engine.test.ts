@@ -290,17 +290,17 @@ describe("scoreAllFacilities: 'why this matched' wording", () => {
     expect(results.find((r) => r.facility.id === "tmw")!.whyMatched).not.toMatch(/substance/);
   });
 
-  it("calls out authentic Bwiti lineage and indigenous reciprocity when the visitor weighs them heavily", () => {
+  it("describes community relationships and benefit-sharing when the visitor weighs them heavily", () => {
     const answers = { Q1: 3, Q10: 4, Q11: 0, Q12: 0 };
     const order = getInitialRankOrder(answers);
     const results = scoreAllFacilities(answers, order);
     const bwiti = results.find((r) => r.facility.bwitiAuthenticity >= 8)!;
-    expect(bwiti.whyMatched).toContain("authentic Bwiti lineage");
+    expect(bwiti.whyMatched).toContain("documented community relationship");
     const nagoya = results.find((r) => r.facility.nagoyaReciprocity >= 8)!;
-    expect(nagoya.whyMatched).toContain("strong indigenous reciprocity");
+    expect(nagoya.whyMatched).toContain("reported community benefit-sharing");
     // A medical-first visitor gets neither highlight.
     const medical = scoreAllFacilities({ Q10: 0, Q27: 0 }, ["medicalSafety"]);
-    expect(medical.some((r) => /authentic Bwiti lineage|strong indigenous reciprocity/.test(r.whyMatched))).toBe(false);
+    expect(medical.some((r) => /documented community relationship|reported community benefit-sharing/.test(r.whyMatched))).toBe(false);
   });
 
 });

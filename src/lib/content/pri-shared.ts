@@ -45,11 +45,11 @@ export interface ReadinessLevel {
 }
 
 export const READINESS_LEVELS: ReadinessLevel[] = [
-  { threshold: 85, label: "Ready to Go Deep", description: "You have built something real. The high-intensity work... ayahuasca, iboga, 5-MeO... is accessible to you with the right people. Do not skip the facilitation. The container matters as much as the medicine." },
-  { threshold: 70, label: "Strong Ground", description: "Most of the foundation is there. Psilocybin, MDMA therapy, San Pedro... these are honest next steps. A few dimensions are worth tending before you go further. You are closer than you think." },
-  { threshold: 55, label: "Building Toward It", description: "The container is not quite ready yet. Start with lower-intensity medicines. Do the preparation work like it matters. Because it does. Every single time." },
-  { threshold: 40, label: "Not Yet. And That Is Honest.", description: "The groundwork is still ahead of you. Breathwork, microdosing, somatic practice, a real integration community. These are not consolation prizes. They are the work. The actual work." },
-  { threshold: 0, label: "Start Here", description: "This is where it begins. And beginning here is the right call. Cacao ceremony, breathwork, meditation, intentional cannabis. Build from the ground up. The deeper work will wait for you. It always does." },
+  { threshold: 85, label: "Higher Database Match", description: "Your answers align with profiles that this database classifies as higher intensity. This score is not clinical clearance, a measure of preparedness, or a recommendation. Review individual risks with qualified professionals." },
+  { threshold: 70, label: "Moderate Database Match", description: "Your answers align with several profiles in this database. This score does not establish readiness, safety, or likely benefit, and it does not suggest a next step. Review evidence and personal risks with a qualified clinician." },
+  { threshold: 55, label: "Mixed Database Match", description: "Your answers show mixed alignment with database profiles. A score cannot determine readiness or guide a sequence; it is not a judgment about you or a prediction of outcomes." },
+  { threshold: 40, label: "Lower Database Match", description: "Your answers align with fewer profiles in the current dataset. This is not a judgment about you or a prediction of outcomes; the Index cannot determine what you should do." },
+  { threshold: 0, label: "Limited Database Match", description: "This score reflects your answers against this database only. It does not establish risk or suitability, and no medicine or practice is a required next step." },
 ];
 
 /**
@@ -125,23 +125,23 @@ export function computeScores(answers: readonly (number | null | undefined)[]): 
   const sequence =
     overall >= 75
       ? [
-          { icon: Sparkles, name: "Psilocybin (Facilitated Ceremony)", time: "Now — within 3 months", why: "Your readiness supports deep ceremonial work. Begin here to calibrate the psychedelic space and build your integration practice before going further.", cost: "$400–$2,000" },
-          { icon: top.icon, name: top.name, time: "3–6 months after first session", why: "Your highest-alignment medicine. Come to it after integrating your first psilocybin experience with committed practice. Do not rush this one.", cost: top.pricing[1]?.amount || "$500–$3,000" },
-          { icon: Leaf, name: "Ayahuasca (Multi-night retreat)", time: "6–18 months in", why: "The vine rewards those who have built an integration foundation. After two or more psilocybin sessions, you are ready for deeper ancestral work.", cost: "$2,000–$6,000" },
-          { icon: HeartHandshake, name: "MDMA (Trauma-focused)", time: "Parallel track — any time", why: "If trauma is underneath your healing goals, MDMA runs as a parallel track. It reaches places other medicines cannot.", cost: "$500–$8,000" },
+          { icon: Sparkles, name: "Psilocybin: research and risk profile", time: "For information", why: "This database score identifies a profile match only; it does not establish readiness, safety, or likely benefit. Review clinical evidence and personal risks with a licensed clinician.", cost: "$400–$2,000" },
+          { icon: top.icon, name: top.name + " (profile and evidence)", time: "For information", why: "This profile ranked among your database matches. A score does not establish suitability; verify research, legal status, and personal risks.", cost: top.pricing[1]?.amount || "$500–$3,000" },
+          { icon: Leaf, name: "Ayahuasca: traditions, research, and risks", time: "For information", why: "Practices are diverse and community-specific. Do not treat this entry as an invitation or infer readiness from prior experiences.", cost: "$2,000–$6,000" },
+          { icon: HeartHandshake, name: "MDMA: research and risk profile", time: "For information", why: "Research status and availability vary. A database profile is not a treatment recommendation; review current evidence and personal risks with qualified clinicians.", cost: "$500–$8,000" },
         ]
       : overall >= 55
         ? [
-            { icon: Wind, name: "Holotropic Breathwork", time: "Start now — no substances", why: "Build capacity to navigate altered states before medicine work. 3–6 sessions create the container and skills.", cost: "$100–$400" },
-            { icon: Microscope, name: "Microdosing Protocol (30 days)", time: "Month 1–3", why: "Psilocybin microdosing with the Fadiman protocol and lion's mane stack builds neuroplasticity and helps you track your baseline safely.", cost: "$100–$300/mo" },
-            { icon: Sparkles, name: "Psilocybin (Low dose, guided)", time: "Month 3–6", why: "Facilitated low-dose experience (1–2g) in trusted setting. Calibrates your nervous system for deeper work.", cost: "$400–$1,500" },
-            { icon: top.icon, name: top.name + " (Full dose)", time: "Month 6–12", why: "Your optimal medicine once the foundation is established. Meaningful potential here with proper preparation and real integration support.", cost: top.pricing[1]?.amount || "$1,000–$4,000" },
+            { icon: Wind, name: "Breathwork: methods and considerations", time: "For information", why: "Some people explore breathwork as a substance-free practice. Effects and contraindications vary; this database cannot determine whether it suits you.", cost: "$100–$400" },
+            { icon: Microscope, name: "Psilocybin microdosing: evidence and risks", time: "For information", why: "Evidence about benefits and safety is limited. This site does not recommend a dose or schedule; review current research, legal status, and personal risks.", cost: "$100–$300/mo" },
+            { icon: Sparkles, name: "Psilocybin: research and risk profile", time: "For information", why: "This is an educational profile, not a dose or treatment recommendation. Review current evidence and personal risks with a qualified clinician.", cost: "$400–$1,500" },
+            { icon: top.icon, name: top.name + " (profile and evidence)", time: "For information", why: "This profile ranked among your database matches. A score does not establish suitability; verify research, legal status, and personal risks.", cost: top.pricing[1]?.amount || "$1,000–$4,000" },
           ]
         : [
-            { icon: Bean, name: "Ceremonial Cacao + Intention", time: "Start immediately", why: "Build a heart relationship with plant medicines in the safest container available. This cultivates the receptivity that all deeper work requires.", cost: "$50–$200" },
-            { icon: Wind, name: "Breathwork (Wim Hof / Holotropic)", time: "Month 1–3", why: "The most important preparation you can do is learning to ride altered states. Six or more sessions before any medicine work changes outcomes dramatically.", cost: "$50–$200" },
-            { icon: Microscope, name: "Microdosing Psilocybin", time: "Month 2–4", why: "Sub-perceptual doses build your relationship with the medicine, improve your baseline, and prepare your nervous system. The best starting point in the whole spectrum.", cost: "$100–$300/mo" },
-            { icon: Pill, name: "Ketamine-Assisted Therapy", time: "If acute need — any time", why: "The only currently legal psychedelic-adjacent therapy in the US. Rapid relief with professional oversight. If there is an acute need, this is where to start.", cost: "$400–$800/session" },
+            { icon: Bean, name: "Cacao: evidence and risks", time: "For information", why: "Cacao is not risk-free or a readiness screen. Effects, tolerability, and interactions vary; review personal risks with a clinician.", cost: "$50–$200" },
+            { icon: Wind, name: "Breathwork: methods and considerations", time: "For information", why: "Some people explore breathwork as a substance-free practice. Effects and contraindications vary; this database cannot determine whether it suits you.", cost: "$50–$200" },
+            { icon: Microscope, name: "Psilocybin microdosing: evidence and risks", time: "For information", why: "Evidence about benefits and safety is limited. This site does not recommend a dose or schedule; review current research, legal status, and personal risks.", cost: "$100–$300/mo" },
+            { icon: Pill, name: "Ketamine-assisted therapy: evidence and access", time: "For information", why: "Availability and evidence vary by jurisdiction, indication, and clinical protocol. This is not an instruction to begin treatment; discuss options with qualified clinicians.", cost: "$400–$800/session" },
           ];
 
   return { dimScores, overall, level, topMatches: scored.slice(0, 6), sequence, hardStops: getHardStops(answers) };

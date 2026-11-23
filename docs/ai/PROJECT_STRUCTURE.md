@@ -39,7 +39,7 @@ request: [`TASK_GUIDE.md`](TASK_GUIDE.md).
 | File | Holds |
 | --- | --- |
 | `pri-data.ts` | Medicines, questions, dimensions, MAO-B and medication interactions, crisis resources |
-| `pri-shared.ts` | Scoring (`computeScores`), readiness levels, healing sequence, tag colours |
+| `pri-shared.ts` | Scoring (`computeScores`), database match bands, educational profile list, tag colours |
 | `pri-safety-data.ts` | Per-medicine safety sheets |
 | `pri-medicine-images.ts` | Medicine photos (Sanity CDN URLs) |
 | `pri-iboga-module.ts`, `pri-mescaline-module.ts` | Deep-dive page data |

@@ -54,7 +54,7 @@ describe("PriReport", () => {
     expect(bar(fake.topMatches[2].name, "Top Medicine Matches")).toHaveClass("bg-pri-purple");
   });
 
-  it("ranks the top matches and lists the healing sequence with timing and cost", () => {
+  it("ranks database matches and lists educational profiles with scope and prices", () => {
     render(<PriReport results={results} savedMeds={[]} date="d" />);
     const matches = within(table("Top Medicine Matches"));
     results.topMatches.forEach((m, i) => {
@@ -62,8 +62,8 @@ describe("PriReport", () => {
       expect(row).toHaveTextContent(`#${i + 1}`);
       expect(row).toHaveTextContent(`${m.matchScore}%`);
     });
-    const seq = within(table("Recommended Healing Sequence"));
-    expect(seq.getAllByRole("columnheader").map((h) => h.textContent)).toEqual(["Step & Rationale", "Timing", "Est. Cost"]);
+    const seq = within(table("Educational Profiles and Context"));
+    expect(seq.getAllByRole("columnheader").map((h) => h.textContent)).toEqual(["Profile & Context", "Scope", "Listed Price"]);
     for (const s of results.sequence) {
       const row = seq.getByText(s.name).closest("tr")!;
       expect(row).toHaveTextContent(s.time);
@@ -81,11 +81,12 @@ describe("PriReport", () => {
   });
 
   it("ends with the disclaimer and this site's name, and renders text as text", () => {
-    const evil = { ...results, level: { ...results.level, label: "<img src=x onerror=alert(1)>" } };
+    const maliciousLabel = String.fromCharCode(60) + "img src=x onerror=alert(1)>";
+    const evil = { ...results, level: { ...results.level, label: maliciousLabel } };
     const { container } = render(<PriReport results={evil} savedMeds={[]} date="d" />);
     expect(container).toHaveTextContent("This is not medical advice.");
     expect(container.querySelector("footer")).toHaveTextContent("Generated at psychedelicreadiness.com · d");
     expect(container.querySelector("img")).toBeNull();
-    expect(screen.getByText("<img src=x onerror=alert(1)>")).toBeInTheDocument();
+    expect(screen.getByText(maliciousLabel)).toBeInTheDocument();
   });
 });

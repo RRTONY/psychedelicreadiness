@@ -15,14 +15,14 @@ export const COMPASS_INTRO = {
 };
 
 export const COMPASS_WHATS_NEW = [
-  "14 substance categories — opioids, opioid replacement, alcohol, cocaine, methamphetamine, cannabis, nicotine, prescription stimulants, benzodiazepines, ketamine, MDMA, polydrug, process addictions, none",
+  "14 substance and behavior categories — opioids, opioid replacement, alcohol, cocaine, methamphetamine, cannabis, nicotine, prescription stimulants, benzodiazepines, ketamine, MDMA, multiple substances, behavioral concerns, none",
   "Family cardiac history screen — Long QT Syndrome, sudden cardiac death under 50, general heart disease",
   "Liver, kidney, and diabetes screen — hepatitis, cirrhosis, kidney disease, elevated LFTs",
   "Mental health contraindication screen — personal/family psychosis, bipolar mania, PTSD",
   "Pregnancy and breastfeeding hard filter — absolute exclusion",
   "Antipsychotic and cardiac medication screen — added to the SSRI/MAOI/stimulant question",
   "Drag-rank step — reorder your top 10 dimensions to fine-tune match weighting (×2 at top, ×0.5 at bottom)",
-  "Process addiction outcome path — gambling, porn, food, gaming routes to Tabula Rasa (explicit gambling program) and Ambio",
+  "Assessment path for gambling-related concerns routes to programs listing dedicated gambling support; verify each provider claim independently",
 ];
 
 export const COMPASS_HOW_IT_WORKS =
@@ -42,12 +42,12 @@ export interface DimensionRow {
 export const COMPASS_DIMENSIONS: DimensionRow[] = [
   { num: "01", dimension: "Medical Safety", measures: "EKG, cardiac screening, on-site MD, hospital proximity" },
   { num: "02", dimension: "Clinical Track Record", measures: "Years operating, sessions completed, outcome data" },
-  { num: "03", dimension: "Bwiti Authenticity", measures: "True Iboga lineage, Gabon training, ceremony depth" },
+  { num: "03", dimension: "Community & Lineage Context", measures: "Documented community relationships, training, consent, and accountability" },
   { num: "04", dimension: "Integration Depth", measures: "Pre-prep, post-care, ongoing community support" },
   { num: "05", dimension: "Specialty Fit", measures: "Match between facility focus and your situation" },
   { num: "06", dimension: "Facility Quality", measures: "Accommodations, food, environment, privacy" },
   { num: "07", dimension: "Cost-to-Value", measures: "What you get per dollar of total program cost" },
-  { num: "08", dimension: "Nagoya Reciprocity", measures: "Returns benefit to indigenous stewards" },
+  { num: "08", dimension: "Community Benefit Sharing", measures: "Transparent, documented benefit-sharing with source communities" },
   { num: "09", dimension: "Access & Intake", measures: "Speed to admission, intake quality, eligibility" },
   { num: "10", dimension: "Reputation", measures: "Third-party credibility, peer reviews, media" },
 ];
@@ -96,7 +96,7 @@ export const COMPASS_QUESTIONS: QuestionSection[] = [
           "Neurodegenerative — Parkinson's, MS, TBI",
           "Spiritual reckoning, identity reset, soul work",
           "Optimization, insight, peak performance",
-          "Process addiction (gambling, porn, food, gaming)",
+          "Concerns involving gambling, sexual behavior, eating, or gaming",
         ],
       },
       {
@@ -127,7 +127,7 @@ export const COMPASS_QUESTIONS: QuestionSection[] = [
           "Ketamine misuse",
           "MDMA chronic use",
           "Polydrug — multiple substances together",
-          "Process addiction — gambling, porn, food, shopping",
+          "Behavioral concerns involving gambling, sexual behavior, eating, or shopping",
           "No active substance issue",
         ],
       },
@@ -141,7 +141,7 @@ export const COMPASS_QUESTIONS: QuestionSection[] = [
         id: "Q4",
         text: "Personal cardiac history",
         options: [
-          "Clean — no heart issues, no QT problems",
+          "No known heart condition or QT issue",
           "Hypertension, well managed → Med Safety ≥ 7",
           "Arrhythmia, prior cardiac event, or QT concerns → Med Safety ≥ 9",
           "I haven't had a recent cardiac workup → Med Safety ≥ 8",
@@ -218,15 +218,15 @@ export const COMPASS_QUESTIONS: QuestionSection[] = [
           "Medical primary, light ceremonial framing",
           "Balanced hybrid — medical and ceremonial",
           "Ceremony primary, medical safety net",
-          "Pure traditional Bwiti only",
+          "I am seeking a community-led Bwiti program",
         ],
       },
       {
         id: "Q11",
-        text: "How important is true Bwiti lineage?",
+        text: "How important is a documented relationship with a Bwiti community?",
         options: [
-          "Critical — must be Bwiti-trained at the source",
-          "Important — strongly prefer Bwiti-trained",
+          "Critical — I want a documented, community-led relationship",
+          "Important — I prefer a program with a documented community relationship",
           "Neutral — open to either path",
           "I prefer modern clinical setting",
           "Want zero ceremony, medicine only",
@@ -234,9 +234,9 @@ export const COMPASS_QUESTIONS: QuestionSection[] = [
       },
       {
         id: "Q12",
-        text: "Does indigenous reciprocity matter to you?",
+        text: "Does community benefit-sharing matter to you?",
         options: [
-          "Critical — capital must flow back to Gabon stewards",
+          "Critical — transparent benefit-sharing with communities in Gabon is essential",
           "Important — prefer facilities that give back",
           "Neutral but supportive in principle",
           "Not a factor in this decision",
@@ -299,7 +299,7 @@ export const COMPASS_QUESTIONS: QuestionSection[] = [
         options: [
           "English only → excludes Gabon",
           "English primary, multilingual fine",
-          "Want native Bwiti or French speakers",
+          "I prefer staff who speak languages used by the host community, and/or French",
         ],
       },
     ],
@@ -455,7 +455,7 @@ export const COMPASS_SUBSTANCE_ROUTING: SubstanceRoutingRow[] = [
   { substance: "Ketamine misuse", facilities: "Ambio +4 · Beond +3" },
   { substance: "MDMA chronic use", facilities: "Ambio +4 · Beond +3" },
   { substance: "Polydrug", facilities: "Experience Ibogaine +8 · Ambio +5 · Clear Sky +4 · Dardashti +4" },
-  { substance: "Process addiction (gambling, porn, food)", facilities: "Tabula Rasa +6 · Ambio +4 · Iboga Wellness +3 · Root Healing +3" },
+  { substance: "Gambling-related concerns", facilities: "Tabula Rasa +6 · Ambio +4 · Iboga Wellness +3 · Root Healing +3" },
   { substance: "None active", facilities: "Iboga Wellness +4 · Bwiti House +3 · Iboga Healing +3 · Root Healing +3" },
 ];
 
@@ -486,7 +486,7 @@ export interface ScenarioResult {
 
 export const COMPASS_SCENARIOS: ScenarioResult[] = [
   {
-    title: "Scenario 1 — Polydrug User (cocaine + alcohol + benzodiazepines)",
+    title: "Scenario 1 — Person using multiple substances (cocaine + alcohol + benzodiazepines)",
     results: [
       "Ambio Life Sciences — 100% (broad addiction + benzo taper expertise)",
       "Tabula Rasa Retreat — 94% (alcohol + benzo + European option)",
@@ -504,9 +504,9 @@ export const COMPASS_SCENARIOS: ScenarioResult[] = [
     ],
   },
   {
-    title: "Scenario 3 — Process Addiction (Gambling)",
+    title: "Scenario 3 — Gambling-related concerns",
     results: [
-      "Tabula Rasa Retreat — 92% (explicit gambling addiction program)",
+      "Tabula Rasa Retreat — 92% (lists a gambling-focused program; verify independently)",
       "Ambio Life Sciences — 92%",
       "Iboga Wellness Center — 86%",
     ],

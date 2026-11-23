@@ -16,7 +16,7 @@ describe("/iboga-ibogaine", () => {
     const { container } = render(<IbogaIbogainePage />);
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Iboga vs Ibogaine");
-    expect(container).toHaveTextContent("Twelve companion alkaloids in sacred synergy");
+    expect(container).toHaveTextContent("Iboga contains multiple alkaloids");
     expect(container).toHaveTextContent("Cardiac screening mandatory");
   });
 

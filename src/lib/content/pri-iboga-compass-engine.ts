@@ -25,12 +25,12 @@ export type DimensionKey = (typeof DIMENSION_KEYS)[number];
 export const DIMENSION_LABELS: Record<DimensionKey, string> = {
   medicalSafety: "Medical Safety",
   clinicalTrackRecord: "Clinical Track Record",
-  bwitiAuthenticity: "Bwiti Authenticity",
+  bwitiAuthenticity: "Community & Lineage Context",
   integrationDepth: "Integration Depth",
   specialtyFit: "Specialty Fit",
   facilityQuality: "Facility Quality",
   costToValue: "Cost-to-Value",
-  nagoyaReciprocity: "Nagoya Reciprocity",
+  nagoyaReciprocity: "Community Benefit Sharing",
   accessIntake: "Access & Intake",
   reputation: "Reputation",
 };
@@ -468,10 +468,10 @@ function generateWhyMatched(
 
   // Special highlights
   if (facility.bwitiAuthenticity >= 8 && weights.bwitiAuthenticity > 0.12) {
-    parts.push("— authentic Bwiti lineage");
+    parts.push("— documented community relationship");
   }
   if (facility.nagoyaReciprocity >= 8 && weights.nagoyaReciprocity > 0.1) {
-    parts.push("— strong indigenous reciprocity");
+    parts.push("— reported community benefit-sharing");
   }
 
   return parts.join(" ");

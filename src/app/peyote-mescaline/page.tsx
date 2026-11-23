@@ -314,7 +314,7 @@ export default function PeyoteMescalinePage() {
                 <th className={`${thClass} text-center`}>Dep</th>
                 <th className={`${thClass} text-center`}>Anx</th>
                 <th className={`${thClass} text-center`}>PTSD</th>
-                <th className={`${thClass} text-center`}>Addict</th>
+                <th className={`${thClass} text-center`}>Substance-use outcomes</th>
                 <th className={thClass}>Duration</th>
                 <th className={thClass}>Beginner</th>
                 <th className={thClass}>Evidence</th>

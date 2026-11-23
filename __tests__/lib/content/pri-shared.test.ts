@@ -46,8 +46,8 @@ describe("computeScores", () => {
     const r = computeScores(all(10));
     for (const d of DIMS) expect(r.dimScores[d]).toBe(100);
     expect(r.overall).toBe(100);
-    expect(r.level.label).toBe("Ready to Go Deep");
-    expect(r.sequence[0].name).toBe("Psilocybin (Facilitated Ceremony)");
+    expect(r.level.label).toBe("Higher Database Match");
+    expect(r.sequence[0].name).toBe("Psilocybin: research and risk profile");
   });
 
   it("averages each dimension's own questions", () => {
@@ -58,15 +58,15 @@ describe("computeScores", () => {
     expect(r.overall).toBe(Math.round((80 + 40 * 5) / 6));
   });
 
-  it("picks the readiness level and healing sequence for middle and low answers", () => {
+  it("picks the database match band and information profiles for middle and low answers", () => {
     const mid = computeScores(all(6));
     expect(mid.overall).toBe(60);
-    expect(mid.level.label).toBe("Building Toward It");
-    expect(mid.sequence[0].name).toBe("Holotropic Breathwork");
+    expect(mid.level.label).toBe("Mixed Database Match");
+    expect(mid.sequence[0].name).toBe("Breathwork: methods and considerations");
     const low = computeScores(all(1));
     expect(low.overall).toBe(10);
-    expect(low.level.label).toBe("Start Here");
-    expect(low.sequence[0].name).toBe("Ceremonial Cacao + Intention");
+    expect(low.level.label).toBe("Limited Database Match");
+    expect(low.sequence[0].name).toBe("Cacao: evidence and risks");
   });
 
   it("returns the 6 best matches, sorted, each within 0-100", () => {

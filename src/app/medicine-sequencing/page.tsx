@@ -13,17 +13,17 @@ import { MedicineSequencingLadder } from "@/components/pri/medicine-sequencing-l
 // normalized to "Entry" in the dataset. The hero's hardcoded "38 medicines"
 // now reads the real dataset count.
 export const metadata: Metadata = {
-  title: "The Medicine Sequencing Ladder — Don't Skip Rungs",
+  title: "Medicine Sequencing Overview — Psychedelic Readiness Index",
   description:
-    "Every plant medicine and psychedelic on one ladder, from gentlest to most profound — six rungs, one principle: don't skip the ladder. A sequencing compass, not a recommendation engine.",
+    "An educational comparison of medicines by intensity and context. It is not a universal sequence or a recommendation about what to take.",
   alternates: { canonical: "/medicine-sequencing" },
   openGraph: { ...SITE_OPEN_GRAPH, url: "/medicine-sequencing" },
 };
 
 const SEQUENCING_PHILOSOPHY = [
-  "The natural order of the spectrum exists for a reason. Every rung on this ladder builds the nervous system's capacity for the next. You don't go from smoking weed to finding God in an ayahuasca ceremony. You don't skip from kava to ibogaine. The ladder is not a suggestion — it is the accumulated wisdom of every tradition that has worked with these medicines for thousands of years.",
-  "This is not a recommendation engine. We are not telling you what to take. We are showing you the natural sequence so you can understand where you are, where you might go next, and what you need to build before you get there.",
-  "Half the people who go through this process will realize they're not ready. That is the system working.",
+  "These groupings form one educational framework for comparing medicines by intensity and context. It is not a universal sequence, and traditions do not all share the same progression. A lower-intensity option does not guarantee readiness for a higher-intensity one; health history, setting, support, and individual circumstances matter.",
+  "This is not a recommendation engine. It groups experiences to help explain differences in intensity and context. It cannot determine what is appropriate for you or tell you what to take.",
+  "Some people may decide that none of these options is right for them now. That is a valid outcome.",
 ];
 
 export default function MedicineSequencingPage() {
@@ -34,11 +34,10 @@ export default function MedicineSequencingPage() {
           The Spectrum · Know Before You Go
         </p>
         <h1 className="mb-5 font-heading text-4xl leading-tight font-bold text-facilitator-ink sm:text-5xl lg:text-6xl">
-          The Medicine Sequencing Ladder
+          Medicine Intensity & Context
         </h1>
         <p className="mb-8 max-w-175 text-base leading-relaxed text-[#4A3728] sm:text-lg">
-          {MEDICINES.length} medicines. Six rungs. One principle: don&apos;t skip the ladder. This is not a
-          recommendation. It is a map of the natural order.
+          {MEDICINES.length} medicine profiles, grouped for comparison. These categories are educational, not a sequence or a personal readiness rating.
         </p>
 
         <div className="mb-10 rounded-xl border border-l-4 border-facilitator-amber-deep/20 border-l-facilitator-amber-deep bg-white/70 p-4 backdrop-blur-sm sm:p-7">
@@ -54,14 +53,13 @@ export default function MedicineSequencingPage() {
 
       <div className="mx-auto max-w-175 px-4 pt-8 pb-12 text-center sm:px-12">
         <p className="mb-6 text-sm leading-relaxed text-[#7A6050] sm:text-base">
-          Ready to find out where you sit on this ladder? The Psychedelic Readiness Index assesses your readiness
-          across six dimensions and tells you which medicines match your current profile.
+          Want to explore the Index? It compares your answers with medicine profiles, but cannot establish readiness or tell you what to take. Review personal risks with a licensed clinician.
         </p>
         <Link
           href="/"
           className="inline-block rounded-lg bg-linear-to-br from-facilitator-amber-deep to-[#D97706] px-8 py-3.5 font-bold text-white transition-opacity hover:opacity-90"
         >
-          Take the Readiness Index
+          Open the Readiness Index
         </Link>
         <p className="mt-6 text-sm text-[#7A6050]">
           Or read <Link href="https://tonygreenberg.com/the-philosophy" className="underline underline-offset-2 hover:text-facilitator-amber-deep">the philosophy</Link>{" "}

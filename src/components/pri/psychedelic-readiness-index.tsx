@@ -170,7 +170,7 @@ const PHILOSOPHY_PARAGRAPHS = [
 //   button immediately followed by a second, differently-behaved
 //   `<AssessmentResultActions>` component) is collapsed to just the real,
 //   fully-featured custom PDF export — it already covers dimension scores,
-//   top matches, the healing sequence, and saved medicines; the second
+//   top matches, educational profiles, and saved medicines; the second
 //   button offered a plainer print with none of that.
 // - Framer-motion's staggered grid-entrance animation on the medicine grid
 //   is dropped (`no framer-motion` — CONTRIBUTING.md rule 5); the grid
@@ -1204,7 +1204,7 @@ export function PsychedelicReadinessIndex() {
                       <div className="h-full bg-pri-purple transition-[width] duration-1000" style={{ width: `${m.matchScore}%` }} />
                     </div>
                     <div className="text-[.62rem] font-semibold tracking-[0.06em] text-pri-cream/60 uppercase">
-                      {m.matchScore >= 80 ? "this one knows you" : m.matchScore >= 60 ? "worth a real look" : "keep it on the radar"}
+                      {m.matchScore >= 80 ? "high database match" : m.matchScore >= 60 ? "moderate database match" : "lower database match"}
                     </div>
                   </div>
                 ))}
@@ -1217,7 +1217,7 @@ export function PsychedelicReadinessIndex() {
                 heightClass="h-[clamp(140px,20vw,240px)] mb-6"
                 className="brightness-50 contrast-115"
               />
-              <div className="mb-4 text-xs font-extrabold tracking-[0.14em] text-pri-purple-light uppercase">Where This Could Go</div>
+              <div className="mb-4 text-xs font-extrabold tracking-[0.14em] text-pri-purple-light uppercase">Profiles to Explore</div>
               {results.sequence.map((s, i) => (
                 <div key={s.name} className="mb-3 flex flex-wrap items-start gap-4 border border-pri-cream/8 bg-pri-cream/4 p-[clamp(1.25rem,3vw,1.75rem)]">
                   <div className="min-w-8 font-heading text-2xl leading-none font-black text-pri-cream/7">{String(i + 1).padStart(2, "0")}</div>

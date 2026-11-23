@@ -1,9 +1,8 @@
 // Ported from legacy client/src/pages/pri/FacilitatorIndex.tsx — the real
 // 108-item, 12-band (plus Band 0) practitioner self-assessment instrument,
 // the real 15-question quick-intake archetype engine, and the real
-// section images (one confirmed real CloudFront asset; two Manus `/api/img/`
-// proxies dropped per this repo's zero-Manus rule — see the page's port
-// note in NEXTJS-MIGRATION-TODO.md).
+// section images (one confirmed real CloudFront asset; two legacy image
+// proxies dropped during the page port; see NEXTJS-MIGRATION-TODO.md).
 //
 // **Real content-drift bug found and resolved**: legacy shipped two
 // divergent copies of the same "108 items" — the on-page JSX (rendered via
@@ -22,8 +21,8 @@ import { CircleDot, Diamond, Gem, Hexagon, Pentagon, Sparkle, Target, type Lucid
 export const FACILITATOR_HERO_IMAGE =
   "https://cdn.sanity.io/images/a3q1cyqs/production/5fda5233a00c0cd0161d195de059dd500b85df7e-1920x1072.webp";
 
-// Legacy's two in-body section images, rescued from the Manus /api/img/
-// proxy into Sanity on 2026-09-29 (scripts/rescue-facilitator-images.ts).
+// Legacy's two in-body section images, moved from the old image proxy
+// into Sanity on 2026-09-29 (scripts/rescue-facilitator-images.ts).
 export const FACILITATOR_BANDS_IMAGE =
   "https://cdn.sanity.io/images/a3q1cyqs/production/710b8c623f37d45a4fbb7b423063116432f3c0ca-1200x805.webp";
 export const FACILITATOR_COMPASS_IMAGE =
@@ -303,12 +302,12 @@ export const FACILITATOR_BANDS: FacilitatorBand[] = [
     traditions: [
       { n: 1, text: "Shipibo vegetalismo. Amazonian. Icaro as instrument, dieta as apprenticeship, the plant as teacher rather than tool." },
       { n: 2, text: "Santo Daime. Brazilian syncretic church. Hymnal, uniform, collective works, movement in formation." },
-      { n: 3, text: "Uniao do Vegetal. Brazilian. Seated, structured, question and answer with the mestre, doctrinal rather than shamanic." },
+      { n: 3, text: "Uniao do Vegetal. Brazilian. Seated, structured, question and answer with the mestre, organized around doctrine rather than a healer-led model." },
       { n: 4, text: "Andean huachuma. Day-long, outdoors, walking, mountain-facing, the long slow onset as the point." },
       { n: 5, text: "Mazatec velada. Oaxacan. Nighttime, prayer-led, Catholic and pre-Catholic layered, the curandera speaking throughout." },
       { n: 6, text: "Wixarika pilgrimage. Pilgrimage as the container, the journey to the site inseparable from what happens there." },
-      { n: 7, text: "Native American Church tipi meeting. All-night, roadman, water ceremony at dawn, fire tended throughout, sacrament protected by statute for enrolled members." },
-      { n: 8, text: "Bwiti initiation. Gabonese. Multi-day, ancestral encounter, communal, initiation into a lineage rather than a session." },
+      { n: 7, text: "Native American Church practice, where participation is permitted by that community. Describe the specific community's protocols and who may participate; practices vary." },
+      { n: 8, text: "A Bwiti ceremony or initiation. Describe the specific community context, local protocols, authority, and participant role; practices vary." },
       { n: 9, text: "Ibogaine medical detox. Clinical isolate, cardiac monitoring, telemetry, medical staffing, indication-driven." },
       { n: 10, text: "Kambo. Peptide, purgative, applied in points, non-psychoactive, held within Matsés and Katukina practice and widely adapted outside it." },
       { n: 11, text: "Rapé and sananga. Adjunct practices. Applied by one person to another, brief, intense, used to open or close." },

@@ -36,8 +36,8 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Tramadol — seizure risk; do NOT combine",
       "Cannabis — unpredictable potentiation of anxiety",
     ],
-    safetyWarning: "Psilocybin is generally considered one of the safest psychedelics physiologically. The primary risks are psychological. A trusted guide, proper screening, and integration support dramatically reduce adverse outcomes. Never use alone for the first time.",
-    legalStatus: "Schedule I (US federal). Legal: Oregon (supervised), Colorado (supervised), Jamaica, Netherlands (truffles), Brazil. Decriminalized: Denver, Oakland, Seattle, DC, and growing list of US cities.",
+    safetyWarning: "Psilocybin can cause psychological distress, panic, and other adverse effects. Screening, a supportive setting, and integration may reduce some risks but cannot eliminate them. This overview cannot determine personal safety.",
+    legalStatus: "Legal status varies by jurisdiction and by the form of psilocybin involved. Consult current official sources.",
   },
   ayahuasca: {
     contraindications: [
@@ -68,7 +68,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "St. John's Wort — serotonin syndrome risk",
     ],
     safetyWarning: "Ayahuasca carries the highest drug interaction risk of any psychedelic due to its MAO-inhibiting properties. The tyramine dietary protocol is NOT optional — it is a medical necessity. Deaths have occurred from SSRI combinations. Full medical screening and an experienced curandero are essential. This is not a casual experience.",
-    legalStatus: "Schedule I (US — DMT component). Legal: Peru, Brazil, Ecuador, Colombia (traditional use). Religious exemption: Santo Daime and UDV churches (US, Netherlands). Costa Rica: unregulated.",
+    legalStatus: "Legal status varies by jurisdiction and preparation. Consult current official sources.",
   },
   mdma: {
     contraindications: [
@@ -201,7 +201,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
     sideEffects: [
       "Cardiac arrhythmia — QT prolongation (PRIMARY RISK)",
       "Extended duration: 36–72 hours with minimal sleep",
-      "Intense nausea and purging (considered part of the healing in Bwiti tradition)",
+      "Intense nausea and vomiting; descriptions and interpretations vary by community and should not be treated as proof of healing",
       "Ataxia (loss of coordination) lasting 48–96 hours",
       "Vivid life-review visions — deeper and longer than ibogaine HCl",
       "Extreme physical weakness post-ceremony",
@@ -217,8 +217,8 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Benzodiazepines — respiratory risk during extended session",
       "ANY QT-prolonging medication — absolute contraindication",
     ],
-    safetyWarning: "Whole-plant Iboga (root bark) contains ibogaine PLUS 12+ companion alkaloids. The full-spectrum experience is longer (36–72 hrs vs 24–36 hrs for ibogaine HCl), deeper, and carries different risk profiles. Traditional Bwiti context with initiated N'ganga is strongly recommended. Full cardiac workup (12-lead ECG, liver panel, electrolytes) is MANDATORY. The companion alkaloids (ibogamine, tabernanthine, voacangine, noribogaine) are less studied than ibogaine alone.",
-    legalStatus: "Schedule I (US — ibogaine is scheduled; whole-plant status varies). Legal: Gabon (traditional sacrament), Mexico, Brazil, New Zealand (prescription), Costa Rica (unregulated). Traditional Bwiti ceremonies in Gabon are culturally protected.",
+    safetyWarning: "Whole-plant Iboga (root bark) contains ibogaine PLUS 12+ companion alkaloids. The full-spectrum experience is longer (36–72 hrs vs 24–36 hrs for ibogaine HCl), deeper, and carries different risk profiles. Descriptions of Bwiti practice should be specific and community-sourced; traditional guidance does not replace cardiac screening. Full cardiac workup (12-lead ECG, liver panel, electrolytes) is MANDATORY. The companion alkaloids (ibogamine, tabernanthine, voacangine, noribogaine) are less studied than ibogaine alone.",
+    legalStatus: "Legal status varies by jurisdiction and preparation. Consult current official sources; this entry does not characterize cultural or legal protections.",
   },
   ibogaine: {
     contraindications: [
@@ -249,7 +249,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Benzodiazepines — respiratory risk during long session",
       "ANY QT-prolonging medication — absolute contraindication",
     ],
-    safetyWarning: "Ibogaine HCl (the isolated alkaloid) has the highest fatality rate of any psychedelic medicine. Deaths are almost entirely cardiac — QT prolongation leading to fatal arrhythmia. FULL cardiac workup (12-lead ECG, liver panel, electrolytes, metabolic panel) is MANDATORY. Only use in medical facilities with cardiac monitoring, crash cart, and trained medical staff. Never in non-medical settings. Note: ibogaine HCl is the isolated molecule — distinct from whole-plant Iboga root bark used in Bwiti tradition.",
+    safetyWarning: "Ibogaine HCl (the isolated alkaloid) has the highest fatality rate of any psychedelic medicine. Deaths are almost entirely cardiac — QT prolongation leading to fatal arrhythmia. FULL cardiac workup (12-lead ECG, liver panel, electrolytes, metabolic panel) is MANDATORY. Only use in medical facilities with cardiac monitoring, crash cart, and trained medical staff. Never in non-medical settings. Note: ibogaine HCl is the isolated molecule — distinct from some whole-plant iboga preparations used in Bwiti contexts; practices vary by community.",
     legalStatus: "Schedule I (US). Legal: Mexico, Brazil, New Zealand (prescription), South Africa, Costa Rica (unregulated). Clinical trials: US (MAPS), Europe.",
   },
   mescaline: {
@@ -282,8 +282,8 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Quetiapine (Seroquel), Aripiprazole (Abilify) \u2014 will block psychedelic effects",
       "Buspirone (Buspar) \u2014 shared 5-HT1A pathway; interaction possible",
     ],
-    safetyWarning: "Mescaline's 8\u201312 hour duration requires physical stamina and psychological endurance. Key pharmacology: 5-HT2A partial agonist (primary psychedelic), D1/D2/D3 low-affinity binding (prosocial), \u03B11A/\u03B12A agonist (sympathomimetic arousal), NO serotonin transporter affinity (unlike MDMA/SSRIs). Shares receptor targets with Latuda (lurasidone) but with opposite actions. Peyote is a protected sacrament for Native American Church members \u2014 non-indigenous use raises serious ethical and conservation concerns. San Pedro (Huachuma) is the more accessible and ethically appropriate option for non-indigenous seekers.",
-    legalStatus: "Schedule I (US \u2014 mescaline). Peyote: legal for NAC members only. San Pedro cactus: legal to grow (ornamental), illegal to extract mescaline. Legal: Peru, Ecuador (traditional use).",
+    safetyWarning: "Mescaline's 8\u201312 hour duration requires physical stamina and psychological endurance. Key pharmacology: 5-HT2A partial agonist (primary psychedelic), D1/D2/D3 low-affinity binding (prosocial), \u03B11A/\u03B12A agonist (sympathomimetic arousal), NO serotonin transporter affinity (unlike MDMA/SSRIs). Shares receptor targets with Latuda (lurasidone) but with opposite actions. Peyote is culturally significant and conservation-sensitive. Do not treat Huachuma / San Pedro as interchangeable or as an easy substitute; these plants have distinct communities and protocols.",
+    legalStatus: "Legal status varies by jurisdiction, species, preparation, and use. Consult current official sources.",
   },
   kambo: {
     contraindications: [
@@ -312,8 +312,8 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Diuretics — electrolyte depletion risk",
       "Heart medications — cardiovascular instability",
     ],
-    safetyWarning: "Kambo deaths have occurred — primarily from water intoxication (hyponatremia) and cardiac events. NEVER drink excessive water before or during kambo. An IAKP-certified practitioner who conducts health screening is essential. This is a physically intense ordeal medicine, not a gentle experience.",
-    legalStatus: "Unscheduled in most countries. Legal in US, UK, most of Europe. Some Australian states restrict. Brazil: traditional indigenous use protected.",
+    safetyWarning: "Kambo can cause severe vomiting, fluid shifts, low sodium, cardiac complications, and death. It is not a proven treatment. Provider screening does not guarantee safety; review personal risks with a qualified clinician.",
+    legalStatus: "Legal status varies by jurisdiction. Consult current official sources.",
   },
   rapeh: {
     contraindications: [
@@ -336,7 +336,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Blood pressure medications — nicotine raises BP",
       "MAOIs — some rapeh blends contain MAOI herbs",
     ],
-    safetyWarning: "Rapeh is generally low-risk but contains significant nicotine. First-time users should start with a very small dose. Authentic tribal preparations vary widely in strength. Not recommended for those with nicotine addiction history as it may trigger cravings.",
+    safetyWarning: "Risk and nicotine exposure vary by preparation. Avoid assuming that a product is community-approved or risk-free. People with a history of nicotine dependence may find that nicotine exposure triggers cravings.",
     legalStatus: "Legal in most countries. Unscheduled. Available as 'herbal snuff' in many jurisdictions.",
   },
   sananga: {
@@ -358,7 +358,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Eye medications — consult before combining",
       "No significant systemic drug interactions known",
     ],
-    safetyWarning: "Sananga is one of the safest traditional medicines but the eye pain is intense and real. Always use authentic preparations from trusted sources — contaminated or improperly prepared sananga can cause eye damage. Remove contact lenses. Have a tissue ready.",
+    safetyWarning: "Sananga can cause intense eye pain. Preparation and sterility matter; contaminated or improperly prepared products can cause eye damage. Remove contact lenses before use.",
     legalStatus: "Legal worldwide. Unscheduled. Available as traditional eye drops.",
   },
   breathwork: {
@@ -453,7 +453,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Stimulants — additive stimulant effect",
       "Generally very safe with most medications",
     ],
-    safetyWarning: "Ceremonial cacao is one of the safest substances in this pharmacopoeia. The main risk is overconsumption leading to nausea or headache. Use ceremonial-grade cacao (not processed chocolate). Stay hydrated.",
+    safetyWarning: "Cacao can cause nausea, headache, or jitteriness, especially in larger amounts. Effects and tolerability vary; do not assume it is safe for everyone. Review personal health risks and medications with a qualified clinician.",
     legalStatus: "Legal worldwide. No restrictions. Available as food product.",
   },
   amanita: {
@@ -555,7 +555,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Stimulants — cardiovascular strain",
     ],
     safetyWarning: "Yopo is physically demanding — the nasal administration causes significant pain and the psychedelic onset is rapid and intense. The combination of bufotenine, DMT, and 5-MeO-DMT makes this a complex pharmacological experience. Only with experienced facilitators in appropriate ceremonial context.",
-    legalStatus: "Seeds: legal in most countries (not specifically scheduled). Active compounds (DMT, 5-MeO-DMT): Schedule I (US). Traditional use: legal in South America.",
+    legalStatus: "Legal status varies by jurisdiction, species, and preparation. Consult current official sources.",
   },
   lionsmane: {
     contraindications: [
@@ -674,7 +674,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Nicotine sensitivity or allergy",
       "Cardiovascular conditions (high nicotine content)",
       "Pregnancy or breastfeeding",
-      "Nicotine addiction (may trigger relapse)",
+      "History of nicotine dependence (nicotine exposure may trigger cravings)",
       "Respiratory conditions (if smoked)",
     ],
     sideEffects: [

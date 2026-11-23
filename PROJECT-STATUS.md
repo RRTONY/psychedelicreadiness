@@ -3,9 +3,17 @@
 > The main project file. Read the "Current status" block at the start of every session and update
 > it (plus the items you finished) at the end.
 
-## Current status — 2026-11-23
+## Current status — 2026-11-22
 
-**Advisor reminder wording change in review, not live (PR #9):**
+**Site copy and cultural-sensitivity review ready for owner review (PR #10, not live):**
+- [x] Corrected identified spelling, name, and advisor wording; revised generic cultural descriptions and attributed provider claims.
+- [x] Replaced universal medicine ladders and readiness judgments with educational groupings and database-match language. The scoring logic is unchanged.
+- [x] Reframed the assessment’s ordered treatment sequence as educational profiles; removed prescriptive timing and dose copy.
+- [x] ESLint and repository pattern checks passed for edited TypeScript files. Netlify preview and GitHub checks passed; preview copy verified on /medicine-sequencing, /iboga-ibogaine, and /disclaimer.
+- [x] Updated copy expectations. Automatic GitHub tests, lint, type check, and build passed.
+- [ ] Owner review and publish approval pending.
+
+**Advisor reminder wording change remains in review, not live (PR #9):**
 - [x] Shared copy now says “Talk with your psychedelic advisors.” in the reminder and the related guidance paragraph. Updated existing wording checks.
 - [x] Netlify preview and GitHub checks pass. Verified the new wording on `/disclaimer` and confirmed the medicine index loads.
 - [ ] Owner approval to publish is pending.
