@@ -1,0 +1,17 @@
+{
+  "key": "20261123-k3gcez",
+  "title": "Document intentional safety-hold behavior in site-watch history",
+  "request": "Record that prior red ibogaine alerts were caused by a reversed expectation and an actual temporary removal of the safety hold, now corrected; keep the hold as a passing monitored condition.",
+  "understoodAs": "Add a durable site-watch incident note to PROJECT-STATUS.md clarifying PR 11 corrected the inverted monitor assertion, PR 12 restored the site hold, historical failed runs remain historical, and a new site-watch failure must still be investigated. Do not change the safety logic or turn off checks.",
+  "appliesTo": "both",
+  "requestedBy": {
+    "name": "Tony Greenberg",
+    "email": "t@ramprate.com"
+  },
+  "status": "draft",
+  "createdAt": "2026-11-23T17:16:26.354Z",
+  "branch": null,
+  "prNumber": null,
+  "undoes": null,
+  "conversationUrl": null
+}
