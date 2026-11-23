@@ -13,9 +13,9 @@ import { MedicineSequencingLadder } from "@/components/pri/medicine-sequencing-l
 // normalized to "Entry" in the dataset. The hero's hardcoded "38 medicines"
 // now reads the real dataset count.
 export const metadata: Metadata = {
-  title: "The Medicine Sequencing Ladder — Don't Skip Rungs",
+  title: "Medicine Sequencing Overview — Psychedelic Readiness Index",
   description:
-    "Every plant medicine and psychedelic on one ladder, from gentlest to most profound — six rungs, one principle: don't skip the ladder. A sequencing compass, not a recommendation engine.",
+    "An educational comparison of medicines by intensity and context. It is not a universal sequence or a recommendation about what to take.",
   alternates: { canonical: "/medicine-sequencing" },
   openGraph: { ...SITE_OPEN_GRAPH, url: "/medicine-sequencing" },
 };
