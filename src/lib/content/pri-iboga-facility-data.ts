@@ -157,7 +157,7 @@ export const FACILITIES: Facility[] = [
       "Full medical license with hospital affiliation",
       "Luxury beachfront accommodations",
       "Comprehensive cardiac monitoring suite",
-      "Process addiction and trauma specialization",
+      "Gambling-related concerns and trauma support",
     ],
   },
   {
@@ -408,7 +408,7 @@ export const FACILITIES: Facility[] = [
     highlights: [
       "Bwiti-trained facilitators with medical oversight",
       "Beautiful Sintra, Portugal setting",
-      "Strong Nagoya reciprocity commitment",
+      "Provider-reported community benefit-sharing commitment",
       "Hybrid approach: ceremony + medical safety",
     ],
   },
