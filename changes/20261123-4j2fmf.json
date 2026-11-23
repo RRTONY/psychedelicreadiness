@@ -8,7 +8,7 @@
     "name": "Tony Greenberg",
     "email": "t@ramprate.com"
   },
-  "status": "draft",
+  "status": "ready_for_review",
   "createdAt": "2026-11-23T03:23:42.002Z",
   "branch": "admin/mcp-20261123-4j2fmf",
   "prNumber": 10,
@@ -16,7 +16,7 @@
   "conversationUrl": null,
   "lastEditedAt": "2026-11-23T04:21:23.376Z",
   "lint": {
-    "headSha": "3e820e6554d24ad0b5b13059e2e071e68e1889c7",
+    "headSha": "2a45d6aecc07357767709786b5b39d5325bc4407",
     "files": [
       {
         "path": "__tests__/app/iboga-ibogaine/page.test.tsx",
@@ -167,19 +167,19 @@
   "summary": "Corrected identified spelling and name issues, revised cultural descriptions, and attributed unverified provider claims across the medicine and iboga content. Replaced universal readiness language and treatment sequencing with educational groupings and database-match wording; the scoring logic is unchanged.",
   "beforeAfter": [
     {
-      "_key": "48b893228efa",
+      "_key": "9cfb3191a635",
       "label": "Medicine sequencing page",
       "before": "39 medicines. Six rungs. One principle: don’t skip the ladder.",
       "after": "39 medicine profiles, grouped for comparison. These categories are educational, not a sequence or a personal readiness rating."
     },
     {
-      "_key": "38ff8267c464",
+      "_key": "c23f49ea6ffd",
       "label": "Assessment result bands",
-      "before": "Ready to Go Deep · Strong Ground · Building Toward It · Not Yet · Start Here",
-      "after": "Higher · Moderate · Mixed · Lower · Limited Database Match, with copy clarifying that a score is not readiness, safety clearance, or a recommendation."
+      "before": "Ready to Go Deep · Strong Ground · Building Toward It · Not Yet. And That Is Honest. · Start Here",
+      "after": "Higher Database Match · Moderate Database Match · Mixed Database Match · Lower Database Match · Limited Database Match. Copy clarifies that scores are not readiness, safety clearance, or recommendations."
     },
     {
-      "_key": "564ff5aac5dd",
+      "_key": "8f4d45b700d2",
       "label": "Iboga cultural context",
       "before": "Traditional Bwiti practitioners have always insisted the whole root bark is greater than any single compound.",
       "after": "Some community sources describe the whole root bark as important in particular Bwiti contexts. Practices and views vary; the page does not speak for Bwiti practitioners."
@@ -187,132 +187,132 @@
   ],
   "files": [
     {
-      "_key": "428931d58c3a",
+      "_key": "bd0d17ead070",
       "path": "PROJECT-STATUS.md",
       "status": "modified"
     },
     {
-      "_key": "804f3964df01",
+      "_key": "663dcec0cf01",
       "path": "__tests__/app/iboga-ibogaine/page.test.tsx",
       "status": "modified"
     },
     {
-      "_key": "32ec1580df00",
+      "_key": "01a566e2948b",
       "path": "__tests__/app/medicine-sequencing/page.test.tsx",
       "status": "modified"
     },
     {
-      "_key": "79b5a9ae918c",
+      "_key": "b0aefd7146aa",
       "path": "__tests__/components/pri/pri-report.test.tsx",
       "status": "modified"
     },
     {
-      "_key": "ca8553d20c81",
+      "_key": "37bc15862933",
       "path": "__tests__/components/pri/psychedelic-readiness-index.test.tsx",
       "status": "modified"
     },
     {
-      "_key": "2738320fd975",
+      "_key": "09b3b038567b",
       "path": "__tests__/lib/content/pri-iboga-compass-engine.test.ts",
       "status": "modified"
     },
     {
-      "_key": "0083a890a3b6",
+      "_key": "88b425925550",
       "path": "__tests__/lib/content/pri-shared.test.ts",
       "status": "modified"
     },
     {
-      "_key": "64b602c74530",
+      "_key": "f769741fefa8",
       "path": "docs/ai/PROJECT_STRUCTURE.md",
       "status": "modified"
     },
     {
-      "_key": "a286d526f0e8",
+      "_key": "5806901ae22f",
       "path": "src/app/iboga-ibogaine/page.tsx",
       "status": "modified"
     },
     {
-      "_key": "fdd25ac08eae",
+      "_key": "ddfd4f40c287",
       "path": "src/app/medicine-sequencing/page.tsx",
       "status": "modified"
     },
     {
-      "_key": "c571f66b2d1c",
+      "_key": "5f1a7a8c722a",
       "path": "src/app/peyote-mescaline/page.tsx",
       "status": "modified"
     },
     {
-      "_key": "30722226a9ba",
+      "_key": "e40916ab5de5",
       "path": "src/components/pri/iboga-compass-assessment.tsx",
       "status": "modified"
     },
     {
-      "_key": "d1f5dbd44c2f",
+      "_key": "79359ef4af48",
       "path": "src/components/pri/medicine-modal.tsx",
       "status": "modified"
     },
     {
-      "_key": "9d3d133035ef",
+      "_key": "1983494c56cd",
       "path": "src/components/pri/medicine-sequencing-ladder.tsx",
       "status": "modified"
     },
     {
-      "_key": "5b8a541fd31d",
+      "_key": "aece718e24b5",
       "path": "src/components/pri/pri-report.tsx",
       "status": "modified"
     },
     {
-      "_key": "08ed2d2a9ee3",
+      "_key": "b11be492a0e2",
       "path": "src/components/pri/psychedelic-readiness-index.tsx",
       "status": "modified"
     },
     {
-      "_key": "20e0ee01a0eb",
+      "_key": "cd5159936196",
       "path": "src/lib/content/facilitator-index-data.ts",
       "status": "modified"
     },
     {
-      "_key": "7c7d8836ef76",
+      "_key": "133db360ef52",
       "path": "src/lib/content/faq.ts",
       "status": "modified"
     },
     {
-      "_key": "c1c1e0171b49",
+      "_key": "3baf001a4d99",
       "path": "src/lib/content/pri-data.ts",
       "status": "modified"
     },
     {
-      "_key": "2adaeb02020d",
+      "_key": "571eca5ba167",
       "path": "src/lib/content/pri-disclaimer.ts",
       "status": "modified"
     },
     {
-      "_key": "7148158437a6",
+      "_key": "6fbdc4bbe034",
       "path": "src/lib/content/pri-iboga-compass-data.ts",
       "status": "modified"
     },
     {
-      "_key": "14ea2064f7c8",
+      "_key": "4b331847e904",
       "path": "src/lib/content/pri-iboga-compass-engine.ts",
       "status": "modified"
     },
     {
-      "_key": "58138bef101c",
+      "_key": "cd7bf5148303",
       "path": "src/lib/content/pri-iboga-facility-data.ts",
       "status": "modified"
     },
     {
-      "_key": "4afdfa0ac4a0",
+      "_key": "b325b95bd9e2",
       "path": "src/lib/content/pri-iboga-module.ts",
       "status": "modified"
     },
     {
-      "_key": "28e15fd9ee77",
+      "_key": "89bfe5e1b3b1",
       "path": "src/lib/content/pri-safety-data.ts",
       "status": "modified"
     },
     {
-      "_key": "4798d67473c5",
+      "_key": "67e0fb126866",
       "path": "src/lib/content/pri-shared.ts",
       "status": "modified"
     }
@@ -345,5 +345,5 @@
     "Site data \"pri-safety-data\" (quizzes, directories, page text)",
     "Site data \"pri-shared\" (quizzes, directories, page text)"
   ],
-  "submittedAt": null
+  "submittedAt": "2026-11-23T04:22:49.063Z"
 }
