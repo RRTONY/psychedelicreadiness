@@ -39,7 +39,7 @@ import { IbogaCompassSection } from "@/components/pri/iboga-compass-section";
 export const metadata: Metadata = {
   title: "Iboga vs Ibogaine — Deep Dive | Psychedelic Readiness Index",
   description:
-    "The Plant vs The Isolate. Full alkaloid profiles, receptor pharmacology, Bwiti tradition vs clinical protocol, outcomes data, and supplement stacks.",
+    "Whole-plant iboga and isolated ibogaine: alkaloid profiles, research, reported outcomes, provider claims, and cultural context.",
   alternates: { canonical: "/iboga-ibogaine" },
   openGraph: { ...SITE_OPEN_GRAPH, url: "/iboga-ibogaine" },
 };
@@ -210,7 +210,7 @@ export default function IbogaIbogainePage() {
     <div className="min-h-screen bg-pri-cream font-body">
       {/* ── HERO ── */}
       <section className="relative flex min-h-[85vh] flex-col justify-end overflow-hidden">
-        <Image src={IBOGA_IMAGES.hero} alt="Bwiti ceremony with Tabernanthe iboga root bark" fill sizes="100vw" fetchPriority="high" loading="eager" className="object-cover brightness-50 contrast-110 saturate-110" />
+        <Image src={IBOGA_IMAGES.hero} alt="Iboga root bark in a community setting" fill sizes="100vw" fetchPriority="high" loading="eager" className="object-cover brightness-50 contrast-110 saturate-110" />
         <div className="absolute inset-0 bg-linear-to-t from-[#0A0806]/97 via-[#0A0806]/70 to-[#0A0806]/15" />
         <div className="relative z-10 mx-auto w-full max-w-225 px-6 pb-16">
           <Link href="/" className="mb-6 inline-flex items-center gap-1.5 text-sm font-semibold tracking-[0.08em] text-[#D4B96A] uppercase">
