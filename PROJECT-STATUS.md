@@ -5,6 +5,14 @@
 
 ## Current status — 2026-11-23
 
+**2026-11-23 live site watch RED: ibogaine safety regression, recovery PR #12 under review (NOT LIVE):**
+- [x] Browser checked live `/?m=ibogaine`: no `Temporary safety hold`, `Begin Assessment` visible. PR #8 had removed the server-side ibogaine gate; the separate kanna/unreviewed hold remains visible.
+- [x] Prepared restoration in PR #12: server-side gate for ibogaine including mixed `?m=` URLs; preserve existing holds for 14 unreviewed medicines, scoring rules, and medical data. Added regression coverage.
+- [x] Live `/`, `/medicine`, `/heroes` browsed with no visible errors; deliberately unknown route showed expected 404. Latest Netlify production build reported ready.
+- [ ] PR #12 must pass checks and receive explicit publish authorization before production is corrected. Site-watch remains RED until production gate and scheduled workflow pass.
+- [ ] PR #9 already merged 2026-11-23 03:09 UTC; PR #10 open, no formal GitHub review on either. Both opened by RRTONY account, descriptions attribute request to Tony; individual approval not independently established.
+
+
 **Site-watch incident review, PR #11, not merged or published:**
 - [x] Corrected inverted ibogaine monitor expectations: `?m=ibogaine` must show `Temporary safety hold` and must not show `Begin Assessment`. This changes only the monitoring script, not the assessment or medicine safety data.
 - [ ] Confirm the third failed run's complete job summary and other failed assertions before attributing the entire run to this one bug. Commit `6818daa` is PR #9's merge commit, not evidence by itself of a site-watch cause.
