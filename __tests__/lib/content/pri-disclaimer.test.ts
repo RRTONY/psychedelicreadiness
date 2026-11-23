@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { ACKNOWLEDGE, COUNCIL_REMINDER, DISCLAIMER_PATH, WHAT_THIS_IS } from "@/lib/content/pri-disclaimer";
 
 describe("pri-disclaimer", () => {
-  it("carries the approved council reminder wording", () => {
-    expect(COUNCIL_REMINDER.title).toBe("Talk to your psychedelic council.");
+  it("carries the approved advisor reminder wording", () => {
+    expect(COUNCIL_REMINDER.title).toBe("Talk with your psychedelic advisors.");
     expect(COUNCIL_REMINDER.body).toBe("A rough guide from the database. No medical clearance. Review personal risks with a licensed clinician.");
     expect(DISCLAIMER_PATH).toBe("/disclaimer");
   });
