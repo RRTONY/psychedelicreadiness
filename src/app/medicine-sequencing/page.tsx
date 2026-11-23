@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 };
 
 const SEQUENCING_PHILOSOPHY = [
-  "The natural order of the spectrum exists for a reason. Every rung on this ladder builds the nervous system's capacity for the next. You don't go from smoking weed to finding God in an ayahuasca ceremony. You don't skip from kava to ibogaine. The ladder is not a suggestion — it is the accumulated wisdom of every tradition that has worked with these medicines for thousands of years.",
-  "This is not a recommendation engine. We are not telling you what to take. We are showing you the natural sequence so you can understand where you are, where you might go next, and what you need to build before you get there.",
-  "Half the people who go through this process will realize they're not ready. That is the system working.",
+  "This ladder is one educational framework for comparing medicines by intensity and context. It is not a universal sequence, and traditions do not all share the same progression. A lower-intensity option does not guarantee readiness for a higher-intensity one; health history, setting, support, and individual circumstances matter.",
+  "This is not a recommendation engine. It groups experiences to help explain differences in intensity and context. It cannot determine what is appropriate for you or tell you what to take.",
+  "Some people may decide that none of these options is right for them now. That is a valid outcome.",
 ];
 
 export default function MedicineSequencingPage() {
@@ -38,7 +38,7 @@ export default function MedicineSequencingPage() {
         </h1>
         <p className="mb-8 max-w-175 text-base leading-relaxed text-[#4A3728] sm:text-lg">
           {MEDICINES.length} medicines. Six rungs. One principle: don&apos;t skip the ladder. This is not a
-          recommendation. It is a map of the natural order.
+          recommendation. It is an educational map, not a universal sequence.
         </p>
 
         <div className="mb-10 rounded-xl border border-l-4 border-facilitator-amber-deep/20 border-l-facilitator-amber-deep bg-white/70 p-4 backdrop-blur-sm sm:p-7">
