@@ -19,7 +19,7 @@ describe("/medicine-sequencing", () => {
 
   it("shows the sequencing philosophy copy", () => {
     render(<MedicineSequencingPage />);
-    expect(screen.getByText(/These groupings are one educational framework/)).toBeInTheDocument();
+    expect(screen.getByText(/These groupings form one educational framework/)).toBeInTheDocument();
     expect(
       screen.getByText("Some people may decide that none of these options is right for them now. That is a valid outcome."),
     ).toBeInTheDocument();
