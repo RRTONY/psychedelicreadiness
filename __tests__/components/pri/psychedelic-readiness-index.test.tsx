@@ -421,7 +421,7 @@ describe("PsychedelicReadinessIndex", { timeout: 120000 }, () => {
       for (const d of Object.keys(expected.dimScores) as DimKey[]) {
         expect(r.getByText(DIM_LABELS[d]).closest("tr")).toHaveTextContent(`${expected.dimScores[d]}/100`);
       }
-      // The top match can also head the healing sequence, so pick its row in the matches table.
+      // The top match can also appear in the profile list, so pick its row in the matches table.
       for (const m of expected.topMatches) {
         const rows = r.getAllByText(m.name).map((el) => el.closest("tr"));
         expect(rows.some((tr) => tr?.textContent?.includes(`${m.matchScore}%`))).toBe(true);
