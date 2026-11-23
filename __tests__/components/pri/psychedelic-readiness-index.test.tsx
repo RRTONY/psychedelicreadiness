@@ -116,7 +116,7 @@ describe("PsychedelicReadinessIndex", { timeout: 120000 }, () => {
     await startQuiz(user);
     await finishQuiz(() => 10);
     expect(screen.queryByRole("heading", { name: "Before You Go In" })).not.toBeInTheDocument();
-    expect(screen.getByText("Ready to Go Deep")).toBeInTheDocument();
+    expect(screen.getByText("Higher Database Match")).toBeInTheDocument();
     expect(computeScores(QUESTIONS.map(() => 10)).overall).toBe(100);
     await user.click(button(/retake assessment/i));
     expect(screen.getByRole("heading", { name: "Your Readiness Assessment" })).toBeInTheDocument();
@@ -497,7 +497,7 @@ describe("PsychedelicReadinessIndex", { timeout: 120000 }, () => {
       expect(screen.getByText("Any Red")).toBeInTheDocument();
       expect(screen.getByText(QUESTIONS[cardiac].text)).toBeInTheDocument();
       expect(screen.queryByText("Where You Stand")).not.toBeInTheDocument();
-      expect(screen.queryByText("Ready to Go Deep")).not.toBeInTheDocument();
+      expect(screen.queryByText("Higher Database Match")).not.toBeInTheDocument();
       expect(screen.queryByRole("button", { name: /: match #1$/ })).not.toBeInTheDocument();
       expect(screen.queryByRole("button", { name: /save my results/i })).not.toBeInTheDocument();
       expect(screen.queryByRole("checkbox", { name: /connect me with a vetted facility/i })).not.toBeInTheDocument();
