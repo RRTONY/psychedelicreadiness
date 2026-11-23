@@ -15,7 +15,7 @@ export const COMPASS_INTRO = {
 };
 
 export const COMPASS_WHATS_NEW = [
-  "14 substance categories — opioids, opioid replacement, alcohol, cocaine, methamphetamine, cannabis, nicotine, prescription stimulants, benzodiazepines, ketamine, MDMA, polydrug, process addictions, none",
+  "14 substance and behavior categories — opioids, opioid replacement, alcohol, cocaine, methamphetamine, cannabis, nicotine, prescription stimulants, benzodiazepines, ketamine, MDMA, multiple substances, behavioral concerns, none",
   "Family cardiac history screen — Long QT Syndrome, sudden cardiac death under 50, general heart disease",
   "Liver, kidney, and diabetes screen — hepatitis, cirrhosis, kidney disease, elevated LFTs",
   "Mental health contraindication screen — personal/family psychosis, bipolar mania, PTSD",
