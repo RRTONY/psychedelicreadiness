@@ -93,8 +93,8 @@ const FEATURED_FACILITIES = [
     focus: null,
     url: "https://ambio.life",
     pricing: "From $7,350 USD (published)",
-    body: "The Stanford MISTIC study site — those 30 Navy SEALs, that Nature Medicine paper, those numbers. The world's first and only Nagoya-compliant ibogaine clinic. Six private residential clinics across Baja California. Netflix's In Waves and War (November 2025) was filmed here. GITA-aligned. Co-founder Jonathan Dickinson received Missoko Bwiti initiation in Gabon before building a clinic. They treat addiction, TBI, PTSD, Parkinson's, MS, and performance optimization.",
-    who: "Anyone who wants the most rigorously evidenced ibogaine protocol available and for whom Nagoya compliance and indigenous reciprocity is non-negotiable.",
+    body: "Provider materials describe a Stanford-linked research site, six private residential clinics in Baja California, and Missoko Bwiti initiation in Gabon for co-founder Jonathan Dickinson. Verify research, training, treatment, and Nagoya-related claims directly with the provider and relevant community representatives.",
+    who: "For readers prioritizing documented research, community relationships, and benefit-sharing; verify the provider’s claims and agreements directly.",
     partners: null,
   },
   {
@@ -104,8 +104,8 @@ const FEATURED_FACILITIES = [
     focus: null,
     url: "https://beondibogaine.com",
     pricing: "Contact directly",
-    body: "9 MDs and 23 RNs on-site. Stanford-aligned cardiac protocols. 5-phase model starting weeks before arrival, continuing months after departure. Veteran program (Beond Service) launched January 2025. Plants 3 iboga trees in Gabon per treatment through Blessings of the Forest. Nagoya-compliant.",
-    who: "Serious cases wanting maximum medical infrastructure with genuine commitment to indigenous reciprocity.",
+    body: "Provider materials report 9 MDs and 23 RNs, Stanford-aligned cardiac protocols, a five-phase program, and planting three iboga trees in Gabon per treatment through Blessings of the Forest. Verify staffing, affiliation, planting, and benefit-sharing claims directly.",
+    who: "For people prioritizing medical support and independently documented community benefit-sharing. Confirm clinician credentials and emergency capacity.",
     partners: null,
   },
   {
@@ -246,8 +246,7 @@ export default function IbogaIbogainePage() {
         <p className="mb-6 max-w-200 text-[1.05rem] leading-[1.75] text-pri-brown">
           Tabernanthe iboga root bark contains at least twelve identified indole alkaloids — approximately 6% of the dried bark by weight. Ibogaine is the
           most abundant (50–80% of total alkaloid content), but the companion alkaloids — ibogamine, tabernanthine, voacangine, coronaridine, ibogaline,
-          and noribogaine — each contribute distinct pharmacological actions. Traditional Bwiti practitioners have always insisted the whole root bark is
-          greater than any single compound. Western pharmacology is beginning to agree.
+          and noribogaine — each contribute distinct pharmacological actions. Some community sources describe the whole root bark as important in particular Bwiti contexts. Practices and views vary; this page does not speak for Bwiti practitioners. Research on whole-plant effects remains limited.
         </p>
         <div className="mb-6 rounded-md border-l-4 border-[#E65100] bg-[#FFF3E0] p-5">
           <p className="m-0 mb-1 font-bold text-[#C24400]">Entourage Hypothesis</p>
@@ -382,9 +381,7 @@ export default function IbogaIbogainePage() {
         <PriEyebrow>Clinical Outcomes</PriEyebrow>
         <h2 className="mb-4 font-heading font-extrabold text-[clamp(1.6rem,4vw,2.5rem)] text-pri-cream">What the Data Shows</h2>
         <p className="mb-6 max-w-200 text-[1.05rem] leading-[1.75] text-pri-cream/80">
-          Most clinical data is on ibogaine HCl, not whole iboga — because clinical trials require standardized dosing. The Bwiti tradition has thousands of
-          years of observational evidence but limited Western-style controlled studies. What exists is compelling: single-dose ibogaine eliminates opioid
-          withdrawal in 80–90% of cases and sustains craving reduction at 12 months in over half of participants.
+          Most published clinical studies examine ibogaine HCl rather than whole-plant iboga, in part because clinical trials use standardized preparations. This does not rank or invalidate Bwiti knowledge, which has different purposes, methods, and authorities. Clinical findings remain limited, and outcomes vary; this page does not establish ibogaine as a proven treatment.
         </p>
         <div className="relative overflow-x-auto" tabIndex={0} role="region" aria-label="Table (scrolls sideways)">
           <table className="w-full min-w-137.5 border-collapse">
@@ -409,9 +406,7 @@ export default function IbogaIbogainePage() {
         <div className="mt-6 rounded-md border-l-4 border-[#FFB74D] bg-[#E65100]/12 p-5">
           <p className="m-0 mb-1 text-base font-bold text-[#FFB74D]">Limitations</p>
           <p className="m-0 text-[1.05rem] leading-[1.75] text-pri-cream/80">
-            Most studies are observational, not randomized controlled trials. Sample sizes are small (n=12–88). Publication bias likely inflates success
-            rates. Ibogaine is not FDA-approved. The Stanford TBI trial (2024) is the most rigorous to date. Whole-iboga outcomes data is almost entirely
-            anecdotal from Bwiti practitioners.
+            Most studies are observational rather than randomized controlled trials, and sample sizes are small. These limitations require caution when interpreting reported outcomes. There are few controlled Western studies of whole-plant iboga; that absence should not be used to rank or dismiss Bwiti knowledge and practices.
           </p>
         </div>
       </PriSection>
@@ -797,18 +792,13 @@ export default function IbogaIbogainePage() {
         <PriEyebrow>The Extractive Capitalism Problem</PriEyebrow>
         <h2 className="mb-4 font-heading font-extrabold text-[clamp(1.6rem,4vw,2.5rem)] text-pri-cream">Who Benefits From This Plant?</h2>
         <p className="mb-6 max-w-200 text-[1.05rem] leading-[1.75] text-pri-cream/80">
-          Of the seven biggest companies currently developing ibogaine as a pharmaceutical, none had made any public mention of following the Nagoya
-          Protocol at the time of my research. The Nagoya Protocol governs access to genetic resources and traditional knowledge from indigenous
-          communities. Gabon was the first country in the world to sign it.
+          At the time this section was written, the author had not found public disclosures from the seven companies reviewed describing how they address access and benefit-sharing under the Nagoya Protocol. The Protocol sets international rules concerning genetic resources and associated traditional knowledge from Indigenous peoples and local communities. Check each organization’s current disclosures and applicable law.
         </p>
         <p className="mb-6 max-w-200 text-[1.05rem] leading-[1.75] text-pri-cream/80">
-          What this means in plain English: Western pharmaceutical companies are taking a plant that Gabonese communities have stewarded for centuries,
-          extracting the active compound, patenting novel formulations, and building businesses worth hundreds of millions of dollars — without returning
-          anything meaningful to the people whose knowledge made this possible.
+          Commercial research can raise questions about consent, acknowledgment, and benefit-sharing when it draws on a culturally important plant and community knowledge. Assess each company’s conduct from its public disclosures and agreements rather than assuming all companies follow the same practices.
         </p>
         <p className="mb-6 max-w-200 text-[1.05rem] leading-[1.75] text-pri-cream/80">
-          Ambio Life Sciences is the only ibogaine clinic in the world that is Nagoya-compliant. Beōnd plants three iboga trees in Gabon per treatment.
-          These are not marketing claims — they are structural positions that should be part of your facility selection criteria.
+          Ambio Life Sciences and Beōnd make public claims about Nagoya compliance and tree planting in Gabon. Treat these as provider-reported until independently documented; ask about agreements, local partners, and how benefits reach participating communities.
         </p>
         <p className="mb-8 max-w-200 text-[1.05rem] leading-[1.75] text-pri-cream/80">
           This is the core of ImpactSoul&apos;s thesis: regenerative capital heals. Extractive capital destroys. Ibogaine is the most literal test of that
