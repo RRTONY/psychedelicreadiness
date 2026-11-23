@@ -46,9 +46,9 @@ const SECTIONS: Section[] = [
           "Substance dependency (opioids, alcohol, stimulants, etc.)",
           "PTSD, trauma, or treatment-resistant depression",
           "Neurodegenerative condition (TBI, Parkinson's, etc.)",
-          "Spiritual exploration or Bwiti initiation",
+          "Spiritual exploration",
           "Cognitive optimization or personal growth",
-          "Process addiction (gambling, sex, food, screens)",
+          "Concerns involving gambling, sexual behavior, eating, or screen use",
         ],
       },
       {
@@ -75,8 +75,8 @@ const SECTIONS: Section[] = [
           "Benzodiazepines (Xanax, Klonopin, Valium)",
           "Ketamine",
           "MDMA / ecstasy",
-          "Polydrug (multiple substances daily)",
-          "Process addiction (no substance)",
+          "Using multiple substances daily",
+          "Behavioral concern not involving a substance",
           "None — spiritual or optimization focus",
         ],
       },
@@ -294,7 +294,7 @@ const QUESTION_TEXTS: Record<string, string> = {
   Q27: "Risk tolerance",
   Q28: "Decision priority",
 };
-const Q1_OPTIONS = ["Substance dependency", "PTSD/trauma/depression", "Neurodegenerative", "Spiritual/Bwiti", "Cognitive optimization", "Process addiction"];
+const Q1_OPTIONS = ["Substance dependency", "PTSD/trauma/depression", "Neurodegenerative", "Spiritual/Bwiti", "Cognitive optimization", "Behavioral concerns"];
 const Q13_OPTIONS = ["Under $5,000", "$5,000–$10,000", "$10,000–$20,000", "$20,000–$50,000", "Open budget"];
 const RANK_MULTIPLIERS = [2.0, 1.7, 1.4, 1.2, 1.0, 0.9, 0.8, 0.7, 0.6, 0.5];
 
