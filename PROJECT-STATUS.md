@@ -3,6 +3,12 @@
 > The main project file. Read the "Current status" block at the start of every session and update
 > it (plus the items you finished) at the end.
 
+## Current status — 2026-11-23
+
+**Advisor reminder wording change in review, not live (PR #9):**
+- [x] Shared copy now says “Talk with your psychedelic advisors.” in the reminder and the related guidance paragraph. Updated existing wording checks.
+- [ ] Preview checks and owner approval to publish are pending.
+
 ## Current status — 2026-11-22
 
 **Assessment availability change in review, not live (PR #8):**
