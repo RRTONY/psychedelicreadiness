@@ -28,7 +28,7 @@ describe("share image", () => {
     expect(container).toHaveTextContent("PSYCHEDELICREADINESS.COM");
     expect(container).toHaveTextContent("Psychedelic Readiness Index");
     expect(container).toHaveTextContent("39 substances. 6 domains. Know where you stand before you go in.");
-    expect(container).toHaveTextContent("Talk to your psychedelic council.");
+    expect(container).toHaveTextContent("Talk with your psychedelic advisors.");
     expect(container).toHaveTextContent("No medical clearance.");
     expect(container).toHaveTextContent("psychedelicreadiness.com/disclaimer");
     expect(container.querySelector("svg path:last-child")?.getAttribute("d")).toMatch(/^M0 0h7/);

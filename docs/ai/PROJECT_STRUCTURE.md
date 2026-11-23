@@ -45,7 +45,7 @@ request: [`TASK_GUIDE.md`](TASK_GUIDE.md).
 | `pri-iboga-module.ts`, `pri-mescaline-module.ts` | Deep-dive page data |
 | `pri-iboga-compass-data.ts`, `pri-iboga-compass-engine.ts`, `pri-iboga-facility-data.ts` | Iboga Compass questions, matching engine, facility directory |
 | `pri-efficacy-data.json` | Simulation results |
-| `pri-disclaimer.ts` | The PRI disclaimer and the "Talk to your psychedelic council" reminder, shared by the consent pop-up, `/disclaimer`, `council-reminder.tsx` and the share image |
+| `pri-disclaimer.ts` | The PRI disclaimer and the "Talk with your psychedelic advisors" reminder, shared by the consent pop-up, `/disclaimer`, `council-reminder.tsx` and the share image |
 | `site-pages.ts` | Privacy and Contact copy, the "last reviewed" date; the Privacy text must change whenever the site starts storing or sending something new |
 | `facilitator-index-data.ts` | Facilitator Index bands and items |
 

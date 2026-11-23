@@ -12,7 +12,7 @@ describe("/contact", () => {
     expect(ALL_PAGES).toContain("/contact");
   });
 
-  it("gives Tony's email, the correction route, every crisis line and the council reminder", () => {
+  it("gives Tony's email, the correction route, every crisis line and the advisor reminder", () => {
     render(<ContactPage />);
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
     expect(screen.getByRole("link", { name: "tony@tonygreenberg.com" })).toHaveAttribute("href", "mailto:tony@tonygreenberg.com");
@@ -21,6 +21,6 @@ describe("/contact", () => {
       expect(screen.getByText(r.name)).toBeInTheDocument();
       expect(screen.getByText(r.contact)).toBeInTheDocument();
     }
-    expect(screen.getByText("Talk to your psychedelic council.")).toBeInTheDocument();
+    expect(screen.getByText("Talk with your psychedelic advisors.")).toBeInTheDocument();
   });
 });
