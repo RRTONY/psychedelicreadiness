@@ -5,6 +5,14 @@
 
 ## Current status — 2026-11-23
 
+**Site-watch hold classification, incident record (PR #13, documentation only, pending review):**
+- [x] Intentional ibogaine hold is a PASS condition: `/?m=ibogaine` shows `Temporary safety hold` and has no `Begin Assessment` button. Kanna and 14 medicines without reviewed safety data remain held. Never suppress a missing hold, because that is a genuine safety regression.
+- [x] Root causes: PR #8 was merged and removed the server-side ibogaine gate; site-watch logic was reversed at that point. PR #11 fixed the monitoring expectation (merged 2026-11-23, `2c2faf2`), and PR #12 restored the production ibogaine gate (merged 2026-11-23, `979b6ae`).
+- [x] Live-browser recheck after PR #12 confirmed ibogaine and mixed ibogaine deep links held without assessment buttons; kanna remained held, standard homepage and redirects loaded.
+- [ ] Historical red run #4 checked older commit `6818daa` before either repair. Its job exited 1, but the complete per-URL failure summary was not confirmed; don't attribute every failed assertion solely to ibogaine. Old workflow runs remain historically red.
+- [ ] A new scheduled run of GitHub Actions `site-watch.yml` against the corrected `main` is required before claiming the workflow is green. Named alert reader is still unassigned.
+
+
 **2026-11-23 live site watch RED: ibogaine safety regression, recovery PR #12 under review (NOT LIVE):**
 - [x] Browser checked live `/?m=ibogaine`: no `Temporary safety hold`, `Begin Assessment` visible. PR #8 had removed the server-side ibogaine gate; the separate kanna/unreviewed hold remains visible.
 - [x] Prepared restoration in PR #12: server-side gate for ibogaine including mixed `?m=` URLs; preserve existing holds for 14 unreviewed medicines, scoring rules, and medical data. Added regression coverage.
