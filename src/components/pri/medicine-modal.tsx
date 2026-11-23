@@ -140,7 +140,7 @@ export function MedicineModal({
                 <div className="mt-6 bg-pri-ink p-6">
                   <div className="mb-1 text-xs font-extrabold tracking-[0.1em] text-pri-purple-light uppercase">Deep Dive Available</div>
                   <div className="mb-3 text-[.85rem] leading-[1.6] text-pri-cream/60">
-                    The Plant vs The Isolate. Full alkaloid profiles, receptor pharmacology, Bwiti tradition vs clinical protocol, outcomes data, pharma
+                    Whole-plant iboga and isolated ibogaine: alkaloid profiles, research, reported outcomes, provider claims, and cultural context
                     alternatives, supplement stacks, and medicine selector.
                   </div>
                   <div className="flex flex-wrap gap-3">
