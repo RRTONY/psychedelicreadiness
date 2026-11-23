@@ -312,8 +312,8 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Diuretics — electrolyte depletion risk",
       "Heart medications — cardiovascular instability",
     ],
-    safetyWarning: "Kambo deaths have occurred — primarily from water intoxication (hyponatremia) and cardiac events. NEVER drink excessive water before or during kambo. An IAKP-certified practitioner who conducts health screening is essential. This is a physically intense ordeal medicine, not a gentle experience.",
-    legalStatus: "Unscheduled in most countries. Legal in US, UK, most of Europe. Some Australian states restrict. Brazil: traditional indigenous use protected.",
+    safetyWarning: "Kambo can cause severe vomiting, fluid shifts, low sodium, cardiac complications, and death. It is not a proven treatment. Provider screening does not guarantee safety; review personal risks with a qualified clinician.",
+    legalStatus: "Legal status varies by jurisdiction. Consult current official sources.",
   },
   rapeh: {
     contraindications: [
