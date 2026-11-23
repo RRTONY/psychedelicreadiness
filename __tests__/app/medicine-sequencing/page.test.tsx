@@ -14,20 +14,20 @@ describe("/medicine-sequencing", () => {
     render(<MedicineSequencingPage />);
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("The Medicine Sequencing Ladder");
-    expect(screen.getByText(new RegExp(`^${MEDICINES.length} medicines\\. Six rungs\\.`))).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(`^${MEDICINES.length} medicines\\. Six groupings\\.`))).toBeInTheDocument();
   });
 
   it("shows the sequencing philosophy copy", () => {
     render(<MedicineSequencingPage />);
-    expect(screen.getByText(/You don't skip from kava to ibogaine/)).toBeInTheDocument();
+    expect(screen.getByText(/This ladder is one educational framework/)).toBeInTheDocument();
     expect(
-      screen.getByText("Half the people who go through this process will realize they're not ready. That is the system working."),
+      screen.getByText("Some people may decide that none of these options is right for them now. That is a valid outcome."),
     ).toBeInTheDocument();
   });
 
   it("puts the ladder's medicine details in the HTML, not only after a click", () => {
     const { container } = render(<MedicineSequencingPage />);
-    expect(container.textContent).toContain("Mambe (Sacred Coca Preparation)");
+    expect(container.textContent).toContain("Mambe (Coca-Leaf Preparation)");
     expect(container.textContent).toContain("Why this rung");
   });
 
