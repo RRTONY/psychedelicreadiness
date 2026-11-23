@@ -144,22 +144,22 @@ const SECTIONS: Section[] = [
           "Full medical — hospital-grade monitoring, clinical setting",
           "Medical primary — clinical safety with some spiritual elements",
           "Balanced — equal weight to medical and ceremonial",
-          "Ceremony primary — traditional setting with medical backup",
-          "Pure Bwiti — traditional initiation, minimal Western medical overlay",
+          "Ceremony primary — community-led setting; verify medical safeguards",
+          "Seeking a Bwiti-led program; ask the community about its practices and medical safeguards",
         ],
       },
       {
         id: "Q11",
-        text: "How important is Bwiti lineage and cultural authenticity?",
+        text: "How important is a documented relationship with a Bwiti community?",
         type: "single",
-        options: ["Essential — I want trained Bwiti practitioners only", "Important — prefer lineage-trained facilitators", "Neutral — open to either approach", "Not important — clinical expertise matters more", "Prefer no ceremonial elements"],
+        options: ["Essential — I want a clearly documented, community-led program", "Important — I prefer a provider that can describe its community relationship", "Neutral — open to different approaches", "Not important — clinical expertise matters more", "Prefer no ceremonial elements"],
       },
       {
         id: "Q12",
-        text: "How important is Nagoya Protocol reciprocity to you?",
-        subtext: "Does the provider give back to Gabonese communities and sustainable iboga stewardship?",
+        text: "How important is transparent community benefit-sharing?",
+        subtext: "Does the provider document benefit-sharing with communities in Gabon and sustainable sourcing?",
         type: "single",
-        options: ["Very important — I want to support indigenous stewardship", "Somewhat important — a factor in my decision", "Neutral", "Not a deciding factor"],
+        options: ["Very important — I want transparent, documented benefit-sharing", "Somewhat important — a factor in my decision", "Neutral", "Not a deciding factor"],
       },
     ],
   },
@@ -253,16 +253,16 @@ const SECTIONS: Section[] = [
       {
         id: "Q27",
         text: "Risk tolerance?",
-        subtext: "Some facilities prioritize safety above all; others offer deeper but less medically supervised experiences.",
+        subtext: "Medical oversight varies by facility. Review the actual safeguards and risks before comparing options.",
         type: "single",
-        options: ["Lowest risk possible — maximum medical oversight", "Balanced — reasonable safety with meaningful depth", "Higher risk acceptable — depth and authenticity over medical infrastructure"],
+        options: ["Lowest risk possible — maximum medical oversight", "Balanced — reasonable safety with meaningful depth", "I am willing to consider settings with less medical oversight"],
       },
       {
         id: "Q28",
         text: "What matters most in your decision?",
         subtext: "This helps calibrate the final ranking.",
         type: "single",
-        options: ["Track record — proven results with people like me", "Safety — the most medically rigorous option", "Authenticity — real Bwiti tradition and indigenous connection", "Value — best outcome for my budget", "Speed — fastest intake and treatment", "Comfort — the best physical experience"],
+        options: ["Track record — proven results with people like me", "Safety — the most medically rigorous option", "Community relationship — I want to understand the provider’s local relationships", "Value — best outcome for my budget", "Speed — fastest intake and treatment", "Comfort — the best physical experience"],
       },
     ],
   },
@@ -279,8 +279,8 @@ const QUESTION_TEXTS: Record<string, string> = {
   Q8: "Medications",
   Q9: "Pregnant/breastfeeding",
   Q10: "Medicine-ceremony spectrum",
-  Q11: "Bwiti lineage importance",
-  Q12: "Nagoya reciprocity",
+  Q11: "Community relationship importance",
+  Q12: "Community benefit-sharing",
   Q13: "Budget",
   Q14: "Time away",
   Q16: "Travel distance",
@@ -294,7 +294,7 @@ const QUESTION_TEXTS: Record<string, string> = {
   Q27: "Risk tolerance",
   Q28: "Decision priority",
 };
-const Q1_OPTIONS = ["Substance dependency", "PTSD/trauma/depression", "Neurodegenerative", "Spiritual/Bwiti", "Cognitive optimization", "Behavioral concerns"];
+const Q1_OPTIONS = ["Substance dependency", "PTSD/trauma/depression", "Neurodegenerative", "Spiritual exploration", "Cognitive optimization", "Behavioral concerns"];
 const Q13_OPTIONS = ["Under $5,000", "$5,000–$10,000", "$10,000–$20,000", "$20,000–$50,000", "Open budget"];
 const RANK_MULTIPLIERS = [2.0, 1.7, 1.4, 1.2, 1.0, 0.9, 0.8, 0.7, 0.6, 0.5];
 
