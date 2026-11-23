@@ -8,11 +8,53 @@
     "name": "Tony Greenberg",
     "email": "t@ramprate.com"
   },
-  "status": "draft",
+  "status": "ready_for_review",
   "createdAt": "2026-11-23T16:35:49.178Z",
   "branch": "admin/mcp-20261123-f7g8q9",
   "prNumber": 12,
   "undoes": null,
   "conversationUrl": null,
-  "lastEditedAt": "2026-11-23T16:36:54.935Z"
+  "lastEditedAt": "2026-11-23T16:36:54.935Z",
+  "lint": {
+    "headSha": "78c85e8d59d7fd89daaf276d7adc7137bc7dea43",
+    "files": [
+      {
+        "path": "__tests__/app/page.test.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/app/page.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      }
+    ]
+  },
+  "summary": "Restores Tony's ibogaine Temporary safety hold at the server before an assessment can load, including mixed medicine links. Retains the 14 unreviewed-medicine holds and adds regression tests. Live-browser audit found the existing live site was missing the ibogaine hold. No unrelated pull requests merged or published.",
+  "beforeAfter": [],
+  "files": [
+    {
+      "_key": "7fe99b21c205",
+      "path": "PROJECT-STATUS.md",
+      "status": "modified"
+    },
+    {
+      "_key": "856fbfcc297f",
+      "path": "__tests__/app/page.test.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "fb7884338a9e",
+      "path": "src/app/page.tsx",
+      "status": "modified"
+    }
+  ],
+  "areas": [
+    "Behind-the-scenes file: PROJECT-STATUS.md",
+    "Behind-the-scenes file: __tests__/app/page.test.tsx",
+    "Home page"
+  ],
+  "submittedAt": "2026-11-23T16:43:53.791Z"
 }
