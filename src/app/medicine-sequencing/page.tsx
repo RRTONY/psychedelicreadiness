@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 const SEQUENCING_PHILOSOPHY = [
-  "This ladder is one educational framework for comparing medicines by intensity and context. It is not a universal sequence, and traditions do not all share the same progression. A lower-intensity option does not guarantee readiness for a higher-intensity one; health history, setting, support, and individual circumstances matter.",
+  "These groupings form one educational framework for comparing medicines by intensity and context. It is not a universal sequence, and traditions do not all share the same progression. A lower-intensity option does not guarantee readiness for a higher-intensity one; health history, setting, support, and individual circumstances matter.",
   "This is not a recommendation engine. It groups experiences to help explain differences in intensity and context. It cannot determine what is appropriate for you or tell you what to take.",
   "Some people may decide that none of these options is right for them now. That is a valid outcome.",
 ];
