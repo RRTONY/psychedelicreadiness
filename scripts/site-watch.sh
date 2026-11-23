@@ -44,8 +44,13 @@ expect "$PR/no-such-page-site-watch" 404
 expect "$PR/psychedelic-readiness-index" 308 "$PR/"
 expect "$PR/medicine" 308 "$PR/"
 expect "$PR/heroes" 308 "$TG/the-territory"
-# Tony's ibogaine deep link must remain on the temporary safety hold.
-# Individual hard-stop scoring and the 14 unreviewed medicines remain held.
+# INTENTIONAL SAFETY HOLD, NOT AN ERROR: PASS when the ibogaine deep link displays
+# 'Temporary safety hold' and does NOT offer 'Begin Assessment'. FAIL if the hold
+# disappears, because that would reopen an assessment before medical review.
+# Incident history: PR #8 accidentally removed this gate. PR #11 corrected the
+# inverted monitor expectations; PR #12 restored the gate on the live site.
+# The 14 medicines lacking reviewed safety data also stay held.
+# Do not suppress failures from these checks: a missing hold is a real regression.
 page_has "$PR/?m=ibogaine" "Temporary safety hold"
 page_lacks "$PR/?m=ibogaine" "Begin Assessment"
 page_has "$PR/?m=kanna" "Temporary safety hold"
