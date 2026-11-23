@@ -1,5 +1,4 @@
 import {
-  COUNCIL_REMINDER,
   NOT_A_DOCTOR,
   SCORE_CAN_TELL,
 } from "./pri-disclaimer";
