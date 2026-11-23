@@ -170,8 +170,8 @@ const FEATURED_FACILITIES = [
     focus: null,
     url: "https://bwitihouse.com",
     pricing: "Contact directly",
-    body: "This is the source. Moughenda Mikala is one of the most respected nganga globally. Full Tabernanthe iboga root bark, not HCl. Authentic Missoko Bwiti initiation lasting up to three days. This is the medicine in its most potent, most unpredictable, most transformative form. Only appropriate for thoroughly cardiac-screened, physically healthy individuals with genuine respect for the tradition they are entering. No continuous Western cardiac monitoring.",
-    who: "Spiritual seekers with clean cardiac screening, robust health, and genuine reverence for the tradition.",
+    body: "The provider describes this program as a Missoko Bwiti initiation in Gabon, lasting up to three days. Ask the provider and community representatives about training, consent, and medical safeguards. This provider-supplied description should not be taken as representative of all Bwiti traditions. No continuous Western cardiac monitoring.",
+    who: "People researching a community-led program who want to understand its practices, consent, and medical safeguards.",
     partners: null,
   },
 ];
@@ -223,8 +223,7 @@ export default function IbogaIbogainePage() {
           </div>
           <h1 className="mb-4 font-heading font-extrabold text-[clamp(2.2rem,6vw,4rem)] text-[#FAFAF7]">Iboga vs Ibogaine</h1>
           <p className="max-w-175 text-[clamp(1.1rem,2.5vw,1.35rem)] leading-[1.6] text-[#E8E2D8]">
-            Twelve companion alkaloids in sacred synergy — or one purified molecule under cardiac monitoring. The Bwiti have known for centuries what
-            Western medicine is only now beginning to measure.
+            Iboga contains multiple alkaloids. Ibogaine HCl is one isolated alkaloid used in some clinical settings. These approaches are distinct; this page does not speak for Bwiti communities or rank their practices.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <span className="rounded border border-[#D4B96A]/40 bg-[#D4B96A]/15 px-4 py-1.5 text-sm font-semibold text-[#D4B96A]">Iboga: 24–72 hrs</span>
@@ -342,11 +341,9 @@ export default function IbogaIbogainePage() {
           </div>
         </div>
         <PriEyebrow>Head-to-Head</PriEyebrow>
-        <h2 className="mb-4 font-heading font-extrabold text-[clamp(1.6rem,4vw,2.5rem)] text-pri-ink">Sacred Bark vs Clinical Isolate</h2>
+        <h2 className="mb-4 font-heading font-extrabold text-[clamp(1.6rem,4vw,2.5rem)] text-pri-ink">Whole-Plant Iboga and Ibogaine HCl</h2>
         <p className="mb-6 max-w-200 text-[1.05rem] leading-[1.75] text-pri-brown">
-          The Bwiti tradition and Western ibogaine clinics approach the same plant from opposite ends of the epistemological spectrum. One treats the root
-          bark as a living intelligence — a teacher plant that communicates through visions, purging, and ancestor contact. The other isolates the most
-          pharmacologically active molecule and administers it under EKG monitoring. Both save lives. Neither is wrong.
+          Bwiti traditions and clinical ibogaine programs have different histories, purposes, and authorities. This page offers a high-level comparison; it does not speak for Bwiti communities or treat their practices as interchangeable with clinical care.
         </p>
         <div className="relative overflow-x-auto" tabIndex={0} role="region" aria-label="Table (scrolls sideways)">
           <table className="w-full min-w-150 border-collapse">
@@ -487,7 +484,7 @@ export default function IbogaIbogainePage() {
         <h2 className="mb-4 font-heading font-extrabold text-[clamp(1.6rem,4vw,2.5rem)] text-pri-cream">Where Iboga Fits</h2>
         <p className="mb-6 max-w-200 text-[1.05rem] leading-[1.75] text-pri-cream/80">
           Ibogaine is the strongest evidence-based medicine for opioid addiction interruption. For depression, ketamine acts faster. For PTSD, MDMA has the
-          strongest trial data. For spiritual development, iboga (whole plant) in Bwiti context is unmatched in depth and duration. Know what you need
+          strongest trial data. For spiritual development, reported uses and available evidence differ. This page does not rank community-led traditions against clinical interventions.
           before choosing.
         </p>
         <div className="relative overflow-x-auto" tabIndex={0} role="region" aria-label="Table (scrolls sideways)">
