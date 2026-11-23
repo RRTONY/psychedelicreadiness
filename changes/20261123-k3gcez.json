@@ -8,11 +8,34 @@
     "name": "Tony Greenberg",
     "email": "t@ramprate.com"
   },
-  "status": "draft",
+  "status": "ready_for_review",
   "createdAt": "2026-11-23T17:16:26.354Z",
   "branch": "admin/mcp-20261123-k3gcez",
   "prNumber": 13,
   "undoes": null,
   "conversationUrl": null,
-  "lastEditedAt": "2026-11-23T17:17:09.524Z"
+  "lastEditedAt": "2026-11-23T17:17:09.524Z",
+  "lint": {
+    "headSha": "136846049a6bf9006075ef06fe8b01ab38b8b456",
+    "files": []
+  },
+  "summary": "Documented that an intentional ibogaine safety hold is a passing site-watch condition. Added incident history explaining PR 8, PR 11, and PR 12, and distinguished old failed runs from future safety regressions. Monitoring checks and medicine behavior are unchanged.",
+  "beforeAfter": [],
+  "files": [
+    {
+      "_key": "edf117aaa11b",
+      "path": "PROJECT-STATUS.md",
+      "status": "modified"
+    },
+    {
+      "_key": "27998eae05fb",
+      "path": "scripts/site-watch.sh",
+      "status": "modified"
+    }
+  ],
+  "areas": [
+    "Behind-the-scenes file: PROJECT-STATUS.md",
+    "Behind-the-scenes file: scripts/site-watch.sh"
+  ],
+  "submittedAt": "2026-11-23T17:17:19.532Z"
 }
