@@ -78,7 +78,7 @@ export const HEAD_TO_HEAD: ComparisonRow[] = [
   { dimension: "Duration", iboga: "24–72 hours (variable)", ibogaine: "18–36 hours (more predictable)" },
   { dimension: "Dosing precision", iboga: "Variable — bark potency differs by harvest, age, region", ibogaine: "Exact mg/kg dosing possible" },
   { dimension: "Visionary intensity", iboga: "Extremely intense — full Bwiti initiation can last 3 days", ibogaine: "Intense but more contained; fewer hallucinations reported" },
-  { dimension: "Traditional context", iboga: "Bwiti religion (Gabon/Cameroon) — initiation, healing, ancestor communion", ibogaine: "Clinical addiction treatment — Mexico, Brazil, New Zealand, South Africa" },
+  { dimension: "Traditional context", iboga: "Bwiti traditions in Gabon and Cameroon — diverse, community-led practices", ibogaine: "Clinical addiction treatment — Mexico, Brazil, New Zealand, South Africa" },
   { dimension: "Primary application", iboga: "Spiritual development, community healing, rites of passage", ibogaine: "Opioid/stimulant addiction interruption, PTSD, TBI, depression" },
   { dimension: "Cardiac risk", iboga: "Present — compounded by variable dosing and companion alkaloids", ibogaine: "Present — QT prolongation; mitigated by cardiac screening + monitoring" },
   { dimension: "Regulatory status", iboga: "Legal/unregulated in Gabon, Cameroon; Schedule I in US", ibogaine: "Unscheduled in Mexico, Brazil; prescription in NZ, AU; Schedule I in US" },
