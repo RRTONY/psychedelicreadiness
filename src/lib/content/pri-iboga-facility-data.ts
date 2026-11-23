@@ -368,12 +368,12 @@ export const FACILITIES: Facility[] = [
     nagoyaReciprocity: 10,
     accessIntake: 5,
     reputation: 9,
-    tagline: "The source — 10th-generation Bwiti shaman Moughenda Mikala's village in Gabon since 1990.",
+    tagline: "Provider describes a Missoko Bwiti program in Gabon; confirm lineage and community authorization directly.",
     highlights: [
-      "10th-generation Missoko Bwiti lineage",
+      "Provider-reported Missoko Bwiti lineage",
       "14-day full initiation program",
-      "Direct reciprocity to Gabonese stewards",
-      "The gold standard for Bwiti authenticity",
+      "Provider-reported benefit-sharing with communities in Gabon",
+      "Provider-reported community relationship; verify independently",
     ],
   },
   {
