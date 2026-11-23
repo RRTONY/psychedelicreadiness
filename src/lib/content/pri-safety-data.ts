@@ -217,7 +217,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Benzodiazepines — respiratory risk during extended session",
       "ANY QT-prolonging medication — absolute contraindication",
     ],
-    safetyWarning: "Whole-plant Iboga (root bark) contains ibogaine PLUS 12+ companion alkaloids. The full-spectrum experience is longer (36–72 hrs vs 24–36 hrs for ibogaine HCl), deeper, and carries different risk profiles. Traditional Bwiti context with initiated N'ganga is strongly recommended. Full cardiac workup (12-lead ECG, liver panel, electrolytes) is MANDATORY. The companion alkaloids (ibogamine, tabernanthine, voacangine, noribogaine) are less studied than ibogaine alone.",
+    safetyWarning: "Whole-plant Iboga (root bark) contains ibogaine PLUS 12+ companion alkaloids. The full-spectrum experience is longer (36–72 hrs vs 24–36 hrs for ibogaine HCl), deeper, and carries different risk profiles. Descriptions of Bwiti practice should be specific and community-sourced; traditional guidance does not replace cardiac screening. Full cardiac workup (12-lead ECG, liver panel, electrolytes) is MANDATORY. The companion alkaloids (ibogamine, tabernanthine, voacangine, noribogaine) are less studied than ibogaine alone.",
     legalStatus: "Schedule I (US — ibogaine is scheduled; whole-plant status varies). Legal: Gabon (traditional sacrament), Mexico, Brazil, New Zealand (prescription), Costa Rica (unregulated). Traditional Bwiti ceremonies in Gabon are culturally protected.",
   },
   ibogaine: {
@@ -336,7 +336,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Blood pressure medications — nicotine raises BP",
       "MAOIs — some rapeh blends contain MAOI herbs",
     ],
-    safetyWarning: "Rapeh is generally low-risk but contains significant nicotine. First-time users should start with a very small dose. Authentic tribal preparations vary widely in strength. Not recommended for those with nicotine addiction history as it may trigger cravings.",
+    safetyWarning: "Risk and nicotine exposure vary by preparation. Avoid assuming that a product is community-approved or risk-free. People with a history of nicotine dependence may find that nicotine exposure triggers cravings.",
     legalStatus: "Legal in most countries. Unscheduled. Available as 'herbal snuff' in many jurisdictions.",
   },
   sananga: {
@@ -358,7 +358,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Eye medications — consult before combining",
       "No significant systemic drug interactions known",
     ],
-    safetyWarning: "Sananga is one of the safest traditional medicines but the eye pain is intense and real. Always use authentic preparations from trusted sources — contaminated or improperly prepared sananga can cause eye damage. Remove contact lenses. Have a tissue ready.",
+    safetyWarning: "Sananga can cause intense eye pain. Preparation and sterility matter; contaminated or improperly prepared products can cause eye damage. Remove contact lenses before use.",
     legalStatus: "Legal worldwide. Unscheduled. Available as traditional eye drops.",
   },
   breathwork: {
@@ -674,7 +674,7 @@ export const SAFETY_DATA: Record<string, MedicineSafety> = {
       "Nicotine sensitivity or allergy",
       "Cardiovascular conditions (high nicotine content)",
       "Pregnancy or breastfeeding",
-      "Nicotine addiction (may trigger relapse)",
+      "History of nicotine dependence (nicotine exposure may trigger cravings)",
       "Respiratory conditions (if smoked)",
     ],
     sideEffects: [
