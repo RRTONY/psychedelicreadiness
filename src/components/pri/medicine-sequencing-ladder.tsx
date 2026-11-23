@@ -31,12 +31,12 @@ export function levelOf(m: Medicine): Level {
 }
 
 const COMPLEXITY_DESCRIPTIONS: Record<Level, string> = {
-  Entry: "Gentle altered states. No hallucinations. Legal in most places. Ideal starting point for those new to non-ordinary consciousness.",
-  Beginner: "Mild to moderate altered states. Short duration. Relatively forgiving. Some prior experience helpful but not required.",
-  Intermediate: "Significant altered states. 4–12 hours. Prior psychedelic experience strongly recommended. Requires preparation and support.",
-  Advanced: "Profound altered states. Ego dissolution possible. Clinical or experienced facilitation required. Not for the unprepared.",
-  "Clinical Only": "Pharmaceutical-grade compounds in FDA-approved or clinical trial settings only. Not available outside supervised medical protocols.",
-  "Hard Stop": "NOT psychedelics. Anticholinergic deliriants that produce genuine delirium. No therapeutic application. Listed to protect you.",
+  Entry: "Lower-intensity profiles in this database. Effects and risks vary by person, preparation, and setting.",
+  Beginner: "Profiles generally described as lower to moderate intensity. This label is not a safety rating or a recommendation.",
+  Intermediate: "Profiles often described as moderate to high intensity. Duration and effects vary by substance and person.",
+  Advanced: "Profiles often described as high intensity. This category does not assess individual readiness or replace medical guidance.",
+  "Clinical Only": "Investigational compounds or protocols described in clinical research. Approval and availability vary by compound and jurisdiction.",
+  "Hard Stop": "Compounds with severe poisoning risks and no safe self-directed use. Listed as a warning, not as an option.",
 };
 
 // One full literal class string per level/variant (Tailwind needs the
@@ -138,7 +138,7 @@ function MedicineCard({ med, level }: { med: Medicine; level: Level }) {
           {med.complexityJustification && (
             <div className="mb-3 rounded-lg border border-facilitator-amber-deep/20 bg-facilitator-amber-deep/6 px-4 py-3">
               <div className="mb-1 font-mono text-[0.7rem] tracking-widest text-facilitator-amber-deep uppercase">
-                Why this rung
+                About this category
               </div>
               <p className="text-sm leading-relaxed text-[#4A3728] italic sm:text-base">{med.complexityJustification}</p>
             </div>
@@ -147,7 +147,7 @@ function MedicineCard({ med, level }: { med: Medicine; level: Level }) {
             [
               ["Overview", med.overview],
               ["Therapeutic Applications", med.therapeutic],
-              ["Readiness Requirements", med.readiness],
+              ["Preparation & Considerations", med.readiness],
               ["Tradition", med.tradition],
             ] as const
           ).map(([label, text]) => (
@@ -218,7 +218,7 @@ export function MedicineSequencingLadder() {
           return (
             <section
               key={level}
-              aria-label={`${level} rung`}
+              aria-label={`${level} category`}
               className={cn("mb-12", selectedLevel !== null && selectedLevel !== level && "hidden")}
             >
               <div className={cn("mb-4 flex flex-col gap-3 rounded-xl border px-5 py-4 backdrop-blur-sm sm:flex-row sm:items-center sm:gap-4", s.header)}>
