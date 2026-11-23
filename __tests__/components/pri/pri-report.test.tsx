@@ -54,7 +54,7 @@ describe("PriReport", () => {
     expect(bar(fake.topMatches[2].name, "Top Medicine Matches")).toHaveClass("bg-pri-purple");
   });
 
-  it("ranks the top matches and lists the healing sequence with timing and cost", () => {
+  it("ranks database matches and lists educational profiles with scope and prices", () => {
     render(<PriReport results={results} savedMeds={[]} date="d" />);
     const matches = within(table("Top Medicine Matches"));
     results.topMatches.forEach((m, i) => {
