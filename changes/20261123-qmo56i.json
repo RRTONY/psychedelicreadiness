@@ -8,11 +8,144 @@
     "name": "Tony Greenberg",
     "email": "t@ramprate.com"
   },
-  "status": "draft",
+  "status": "ready_for_review",
   "createdAt": "2026-11-23T02:53:24.838Z",
   "branch": "admin/mcp-20261123-qmo56i",
   "prNumber": 9,
   "undoes": null,
   "conversationUrl": null,
-  "lastEditedAt": "2026-11-23T02:57:42.191Z"
+  "lastEditedAt": "2026-11-23T02:57:42.191Z",
+  "lint": {
+    "headSha": "b1ab3fe94a21233760dbfbba2fc77d2bec9b7d45",
+    "files": [
+      {
+        "path": "__tests__/app/contact/page.test.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "__tests__/app/opengraph-image.test.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "__tests__/components/pri/medicine-modal.test.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "__tests__/components/pri/pri-report.test.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "__tests__/components/pri/psychedelic-readiness-index.test.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "__tests__/lib/content/pri-disclaimer.test.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/components/pri/council-reminder.tsx",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      },
+      {
+        "path": "src/lib/content/pri-disclaimer.ts",
+        "errors": 0,
+        "warnings": 0,
+        "couldNotRun": null
+      }
+    ]
+  },
+  "summary": "Changed the shared reminder from “council” to “advisors” and updated the matching sentence on the disclaimer page. Updated existing copy checks. The preview and GitHub checks pass.",
+  "beforeAfter": [
+    {
+      "_key": "43294d1c60a4",
+      "label": "Reminder heading",
+      "before": "Talk to your psychedelic council.",
+      "after": "Talk with your psychedelic advisors."
+    },
+    {
+      "_key": "3db86474d4ed",
+      "label": "Disclaimer guidance",
+      "before": "Talk to your psychedelic council, the people you trust for support and perspective.",
+      "after": "Talk with your psychedelic advisors, the people you trust for support and perspective."
+    }
+  ],
+  "files": [
+    {
+      "_key": "d07485f93f4f",
+      "path": "PROJECT-STATUS.md",
+      "status": "modified"
+    },
+    {
+      "_key": "f216676d8a6c",
+      "path": "__tests__/app/contact/page.test.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "10e363acd6d4",
+      "path": "__tests__/app/opengraph-image.test.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "70a2d931b7c1",
+      "path": "__tests__/components/pri/medicine-modal.test.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "ea275dcdb43a",
+      "path": "__tests__/components/pri/pri-report.test.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "b94e6cf6f4e1",
+      "path": "__tests__/components/pri/psychedelic-readiness-index.test.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "8c282698edae",
+      "path": "__tests__/lib/content/pri-disclaimer.test.ts",
+      "status": "modified"
+    },
+    {
+      "_key": "898035baee6d",
+      "path": "docs/ai/PROJECT_STRUCTURE.md",
+      "status": "modified"
+    },
+    {
+      "_key": "07fa160c7bfa",
+      "path": "src/components/pri/council-reminder.tsx",
+      "status": "modified"
+    },
+    {
+      "_key": "55f69c5a9ef9",
+      "path": "src/lib/content/pri-disclaimer.ts",
+      "status": "modified"
+    }
+  ],
+  "areas": [
+    "Behind-the-scenes file: PROJECT-STATUS.md",
+    "Behind-the-scenes file: __tests__/app/contact/page.test.tsx",
+    "Behind-the-scenes file: __tests__/app/opengraph-image.test.tsx",
+    "Behind-the-scenes file: __tests__/components/pri/medicine-modal.test.tsx",
+    "Behind-the-scenes file: __tests__/components/pri/pri-report.test.tsx",
+    "Behind-the-scenes file: __tests__/components/pri/psychedelic-readiness-index.test.tsx",
+    "Behind-the-scenes file: __tests__/lib/content/pri-disclaimer.test.ts",
+    "Behind-the-scenes file: docs/ai/PROJECT_STRUCTURE.md",
+    "\"Talk to your psychedelic council\" reminder (assessment, medicine profiles, printed report)",
+    "Disclaimer and council reminder text (pop-up, Full Disclaimer, Terms, About, FAQ)"
+  ],
+  "submittedAt": "2026-11-23T02:57:54.717Z"
 }
