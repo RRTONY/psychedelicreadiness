@@ -1,9 +1,8 @@
 // Ported from legacy client/src/pages/pri/FacilitatorIndex.tsx — the real
 // 108-item, 12-band (plus Band 0) practitioner self-assessment instrument,
 // the real 15-question quick-intake archetype engine, and the real
-// section images (one confirmed real CloudFront asset; two Manus `/api/img/`
-// proxies dropped per this repo's zero-Manus rule — see the page's port
-// note in NEXTJS-MIGRATION-TODO.md).
+// section images (one confirmed real CloudFront asset; two legacy image
+// proxies dropped during the page port; see NEXTJS-MIGRATION-TODO.md).
 //
 // **Real content-drift bug found and resolved**: legacy shipped two
 // divergent copies of the same "108 items" — the on-page JSX (rendered via
@@ -22,8 +21,8 @@ import { CircleDot, Diamond, Gem, Hexagon, Pentagon, Sparkle, Target, type Lucid
 export const FACILITATOR_HERO_IMAGE =
   "https://cdn.sanity.io/images/a3q1cyqs/production/5fda5233a00c0cd0161d195de059dd500b85df7e-1920x1072.webp";
 
-// Legacy's two in-body section images, rescued from the Manus /api/img/
-// proxy into Sanity on 2026-09-29 (scripts/rescue-facilitator-images.ts).
+// Legacy's two in-body section images, moved from the old image proxy
+// into Sanity on 2026-09-29 (scripts/rescue-facilitator-images.ts).
 export const FACILITATOR_BANDS_IMAGE =
   "https://cdn.sanity.io/images/a3q1cyqs/production/710b8c623f37d45a4fbb7b423063116432f3c0ca-1200x805.webp";
 export const FACILITATOR_COMPASS_IMAGE =
