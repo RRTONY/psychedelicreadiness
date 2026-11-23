@@ -170,7 +170,7 @@ const PHILOSOPHY_PARAGRAPHS = [
 //   button immediately followed by a second, differently-behaved
 //   `<AssessmentResultActions>` component) is collapsed to just the real,
 //   fully-featured custom PDF export — it already covers dimension scores,
-//   top matches, the healing sequence, and saved medicines; the second
+//   top matches, educational profiles, and saved medicines; the second
 //   button offered a plainer print with none of that.
 // - Framer-motion's staggered grid-entrance animation on the medicine grid
 //   is dropped (`no framer-motion` — CONTRIBUTING.md rule 5); the grid
